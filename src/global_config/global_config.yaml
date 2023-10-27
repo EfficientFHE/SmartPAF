@@ -1,0 +1,5 @@
+PA_AT:
+  dropout_enable: False
+  group_epochs: 20
+Global:
+  dataset_dirctory: "/usr/scratch/jianming/PAF_test/dataset/"
