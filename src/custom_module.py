@@ -82,7 +82,7 @@ class Sign_minmax_layer(nn.Module):
                 scale = self.scale * self.scale_ratio
 
 
-        x_bk = torch.clone(x).to(x.device)
+        # x_bk = torch.clone(x).to(x.device)
         x = torch.divide(x, scale)
 
         coeflist = self.coeflist
@@ -91,19 +91,21 @@ class Sign_minmax_layer(nn.Module):
 
             degree_num = self.degree[compositive_id]
 
-            x_degree_1 = torch.clone(x).to(x_bk.device)
-            x_degree_2 = torch.mul(x_degree_1, x_degree_1)
+            # x_degree_1 = torch.clone(x).to(x_bk.device)
+            x_degree_2 = torch.mul(x, x)
 
-            out = torch.clone(x).to(x_bk.device)
-            out = torch.mul(out, coeflist[compositive_id][0]) # x^1 * coe[1]
+            # out = torch.clone(x).to(x_bk.device)
+            out = torch.mul(x, coeflist[compositive_id][0]) # x^1 * coe[1]
 
             for i in range(1, degree_num):
                 x = torch.mul(x, x_degree_2)
                 partial_out = torch.mul(x, coeflist[compositive_id][i])
                 out = torch.add(out, partial_out)
-            x = torch.clone(out).to(x_bk.device)
+            x = torch.clone(out).to(x.device)
+        
 
         result = out.to(x.device)
+        del x
 
         return result
     
