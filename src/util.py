@@ -98,10 +98,14 @@ def generate_sign_nest_dict(model: nn.modules):
             relu_dict["name"] = name
             relu_dict["type"] = "ReLU"
             relu_dict["up_weight"] = weight
+            relu_dict["HerPN"] = blank_bn
+            blank_bn = None
             weight = []
             sign_nest_dict[name] = relu_dict
         elif("Conv" in class_name) or ("BatchNorm" in class_name) or ("Linear" in class_name):
             weight.append(name)
+            if("BatchNorm" in class_name):
+                blank_bn = name
     return sign_nest_dict
 
 
@@ -121,6 +125,8 @@ def train_data_loader_imagenet(data_dir = None, batch_size = 40, num_workers = 1
             transforms.Normalize(mean, std),
         ]
     )
+    
+    data_dir = os.path.join(data_dir, 'imagenet_1k')
     dataset =  datasets.ImageFolder(
         root=os.path.join(data_dir, 'train'),
         transform=transform
@@ -147,6 +153,7 @@ def valid_data_loader_imagenet(data_dir = None, batch_size = 40, num_workers = 1
         ]
     )
 
+    data_dir = os.path.join(data_dir, 'imagenet_1k')
     dataset =  datasets.ImageFolder(
             root=os.path.join(data_dir, 'val'),
             transform=transform
