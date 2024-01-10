@@ -141,6 +141,12 @@ if __name__ == "__main__":
         batch_size = 40
     model = get_pretrained_model(model_name=args.model, dataset=args.dataset)
     if(args.data_collection):
+        data_collection(model = model,
+            valid_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "valid", data_dir = global_config["Global"]["dataset_dirctory"] ),
+            train_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "train", data_dir = global_config["Global"]["dataset_dirctory"] ),
+            split_point = split_point, input_data_save_path = args.working_directory)
+        
+        '''
         if(args.dataset == "cifar10" or args.dataset == "cifar100"):
             data_collection(model = model,
                         valid_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "valid", data_dir = global_config["Global"]["dataset_dirctory"] ),
@@ -150,7 +156,9 @@ if __name__ == "__main__":
             data_collection(model = model,
                         valid_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "valid", data_dir = os.path.join(global_config["Global"]["dataset_dirctory"], args.dataset) ),
                         train_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "train", data_dir = os.path.join(global_config["Global"]["dataset_dirctory"], args.dataset) ),
-                        split_point = split_point, input_data_save_path = args.working_directory)    
+                        split_point = split_point, input_data_save_path = args.working_directory)
+        '''
+        
     else:
         nest_dict = generate_sign_nest_dict(model) 
         CT_train(sign_type = args.sign_type, sign_scale = 0, scale_path= None, sign_nest_dict = nest_dict,batch_size = batch_size,

@@ -780,7 +780,7 @@ def train_network(input_data_dirctory, model, sign_type, valid_data_loader, trai
 if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("--model", type=str,choices=["vgg19_bn", "resnet18", "resnet32"])
-    parser.add_argument("--dataset", type=str,choices=["cifar10", "imagenet", "cifar100"])
+    parser.add_argument("--dataset", type=str,choices=["cifar10", "imagenet_1k", "cifar100"])
     parser.add_argument("-wd", "--working_directory", type=str, default="./working_dirctory/")
     parser.add_argument("-st","--sign_type", type=str, default="a7", choices=["a7", "2f12g1", "f1g2", "f2g2", "f2g3"])
     parser.add_argument("-sln","--start_layer_name", type=str, default="None")
@@ -797,14 +797,17 @@ if __name__ == "__main__":
     lr_c = args.learning_rate
     lr_w = args.learning_rate / 10
 
+    valid_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "valid", data_dir = global_config["Global"]["dataset_dirctory"])
+    train_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "train", data_dir = global_config["Global"]["dataset_dirctory"])
 
+    '''
     if(args.dataset == "cifar10" or args.dataset == "cifar100"):
         valid_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "valid", data_dir = global_config["Global"]["dataset_dirctory"])
         train_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "train", data_dir = global_config["Global"]["dataset_dirctory"])
     elif(args.dataset == "imagenet_1k"):
         valid_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "valid", data_dir = os.path.join(global_config["Global"]["dataset_dirctory"], args.dataset) )
         train_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "train", data_dir = os.path.join(global_config["Global"]["dataset_dirctory"], args.dataset) )
-   
+   '''
 
     if(not os.path.exists(args.working_directory)):
         os.mkdir(args.working_directory)
