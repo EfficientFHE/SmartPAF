@@ -3,6 +3,8 @@ import math
 from typing import Tuple, Union
 import torch 
 import torch.nn as nn
+import copy
+from math import pi, sqrt
 
 
 
@@ -195,4 +197,51 @@ class Maxpool_sign_layer(nn.Module):
         diff = torch.sub(a,b)
         sign_diff = self.sign.forward(diff)
         result = torch.divide(torch.add(sum, torch.mul(sign_diff, diff)), 2)
+        return result
+    
+
+class HerPN2d(nn.Module):
+    @staticmethod
+    def h0(x):
+        return torch.ones(x.shape).to("cuda:0")
+
+    @staticmethod
+    def h1(x):
+        return x.to("cuda:0")
+
+    @staticmethod
+    def h2(x):
+        return (x * x - 1).to("cuda:0")
+
+    def __init__(self, num_features : int, BN_dimension=2 ,BN_copy:nn.Module = None):
+        super().__init__()
+        self.f = (1 / sqrt(2 * pi), 1 / 2, 1 / sqrt(4 * pi))
+        
+        if(BN_copy):
+            self.bn0 = copy.deepcopy(BN_copy).to("cuda:0")
+            self.bn1 = copy.deepcopy(BN_copy).to("cuda:0")
+            self.bn2 = copy.deepcopy(BN_copy).to("cuda:0")
+
+        elif(BN_dimension == 1):
+            self.bn0 = nn.BatchNorm1d(num_features).to("cuda:0")
+            self.bn1 = nn.BatchNorm1d(num_features).to("cuda:0")
+            self.bn2 = nn.BatchNorm1d(num_features).to("cuda:0")
+        else:
+            self.bn0 = nn.BatchNorm2d(num_features).to("cuda:0")
+            self.bn1 = nn.BatchNorm2d(num_features).to("cuda:0")
+            self.bn2 = nn.BatchNorm2d(num_features).to("cuda:0")
+
+
+
+        self.bn = (self.bn0, self.bn1, self.bn2)
+        self.h = (self.h0, self.h1, self.h2)
+
+
+    def forward(self, x):
+        result = torch.zeros(x.shape).to("cuda:0")
+        for bn, f, h in zip(self.bn, self.f, self.h):
+            poly = torch.mul(f, h(x))
+            # print(poly.shape)
+            result = torch.add(result, bn(poly))
+
         return result
