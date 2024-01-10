@@ -1,6 +1,6 @@
 import sys
-sys.path.append("./PyTorch_CIFAR10/")
-import cifar10_models.vgg as cifar10_vgg
+# sys.path.append("./PyTorch_CIFAR10/")
+import PyTorch_CIFAR10.cifar10_models.vgg as cifar10_vgg
 import resnet_model_1
 import resnet_model_2
 import torchvision.models
