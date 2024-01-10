@@ -134,7 +134,7 @@ def CT_train(sign_type, sign_scale, scale_path, sign_nest_dict,batch_size, input
         coef_save_dirctory = input_data_dirctory + folder_name
         if(not os.path.exists(coef_save_dirctory)):
                 os.mkdir(coef_save_dirctory)
-        file_name = key + "_coef.pt"
+        file_name = key + "_herpn.pt"
         my_model.sign.save_coef(coef_save_dirctory + file_name)
         print("save: " + folder_name + file_name)
         print("\n")
@@ -144,7 +144,7 @@ if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("--model", type=str,choices=["vgg19_bn", "resnet18", "resnet32"])
     parser.add_argument("--dataset", type=str,choices=["cifar10", "cifar100", "imagenet_1k"])
-    parser.add_argument("-st","--sign_type", type=str, choices=["a7", "2f12g1", "f1g2", "f2g2", "f2g3"])
+    parser.add_argument("-st","--sign_type", type=str, choices=["a7", "2f12g1", "f1g2", "f2g2", "f2g3", "herph"])
     parser.add_argument("-dc","--data_collection", type=bool, default=False, choices=[True , False])
     parser.add_argument("-wd", "--working_directory", type=str, default="./working_directory/")
 
@@ -166,4 +166,4 @@ if __name__ == "__main__":
     else:
         nest_dict = generate_sign_nest_dict(model) 
         CT_train(sign_type = args.sign_type, sign_scale = 0, scale_path= None, sign_nest_dict = nest_dict,batch_size = batch_size,
-                 input_data_dirctory = args.working_directory , output_floder_suffix= "dynamic", pretrain_model=model)
+                 input_data_dirctory = args.working_directory , output_floder_suffix= "test", pretrain_model=model)
