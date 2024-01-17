@@ -1,0 +1,1221 @@
+ 
+ 
+
+config: 
+before_acc: 0.679
+{'layer_name': 'relu', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['relu'], 'do': False, 'lh': 0, 'lt': 'n'}
+ 
+
+config: 
+before_acc: 0.679
+{'layer_name': 'relu', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['relu'], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.679
+acc: 0.679
+acc: 0.679
+acc: 0.678
+acc: 0.678
+acc: 0.678
+acc: 0.677
+acc: 0.676
+acc: 0.675
+acc: 0.675
+acc: 0.675
+acc: 0.675
+acc: 0.673
+acc: 0.672
+acc: 0.671
+acc: 0.671
+acc: 0.67
+acc: 0.67
+acc: 0.669
+acc: 0.669
+swa: 0.68
+ 
+
+config: 
+before_acc: 0.68
+{'layer_name': 'relu', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['relu'], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.68
+acc: 0.68
+acc: 0.679
+acc: 0.68
+acc: 0.68
+acc: 0.681
+acc: 0.681
+acc: 0.681
+acc: 0.681
+acc: 0.681
+acc: 0.681
+acc: 0.681
+acc: 0.681
+acc: 0.681
+acc: 0.681
+acc: 0.681
+swa: None
+ 
+
+config: 
+before_acc: 0.539
+{'layer_name': 'maxpool', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['maxpool'], 'do': False, 'lh': 0, 'lt': 'n'}
+ 
+
+config: 
+before_acc: 0.539
+{'layer_name': 'maxpool', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['maxpool'], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.539
+acc: 0.539
+acc: 0.539
+acc: 0.54
+acc: 0.54
+acc: 0.54
+acc: 0.538
+acc: 0.539
+acc: 0.539
+acc: 0.539
+acc: 0.541
+acc: 0.541
+acc: 0.542
+acc: 0.542
+acc: 0.542
+acc: 0.542
+acc: 0.541
+acc: 0.541
+acc: 0.539
+acc: 0.539
+swa: 0.667
+ 
+
+config: 
+before_acc: 0.667
+{'layer_name': 'maxpool', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['maxpool'], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.668
+swa: None
+ 
+
+config: 
+before_acc: 0.6579999999999999
+{'layer_name': 'layer1.0.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer1.0.relu1'], 'do': False, 'lh': 0, 'lt': 'n'}
+ 
+
+config: 
+before_acc: 0.6579999999999999
+{'layer_name': 'layer1.0.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer1.0.relu1'], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.658
+acc: 0.658
+acc: 0.658
+acc: 0.658
+acc: 0.658
+acc: 0.657
+acc: 0.657
+acc: 0.657
+acc: 0.657
+acc: 0.656
+acc: 0.656
+acc: 0.657
+acc: 0.657
+acc: 0.657
+acc: 0.657
+acc: 0.657
+acc: 0.658
+acc: 0.658
+acc: 0.658
+acc: 0.659
+swa: 0.665
+ 
+
+config: 
+before_acc: 0.665
+{'layer_name': 'layer1.0.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer1.0.relu1'], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.665
+acc: 0.665
+acc: 0.665
+acc: 0.665
+acc: 0.665
+acc: 0.665
+acc: 0.665
+acc: 0.665
+acc: 0.665
+acc: 0.665
+acc: 0.665
+acc: 0.665
+acc: 0.665
+acc: 0.665
+acc: 0.666
+acc: 0.666
+acc: 0.666
+acc: 0.666
+acc: 0.666
+acc: 0.666
+swa: None
+ 
+
+config: 
+before_acc: 0.666
+{'layer_name': 'layer1.0.relu1', 'ep': 20, 'lr': 1e-05, 'wd': 0.1, 'tw': False, 'twe': ['layer1.0.conv1', 'layer1.0.bn1'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'b'}
+acc: 0.665
+acc: 0.667
+acc: 0.667
+acc: 0.668
+acc: 0.667
+acc: 0.666
+acc: 0.668
+acc: 0.67
+acc: 0.669
+acc: 0.669
+acc: 0.668
+acc: 0.67
+acc: 0.672
+acc: 0.672
+acc: 0.673
+swa: None
+ 
+
+config: 
+before_acc: 0.655
+{'layer_name': 'layer1.0.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer1.0.relu2'], 'do': False, 'lh': 0, 'lt': 'n'}
+ 
+
+config: 
+before_acc: 0.655
+{'layer_name': 'layer1.0.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer1.0.relu2'], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.655
+acc: 0.655
+acc: 0.655
+acc: 0.655
+acc: 0.656
+acc: 0.656
+acc: 0.656
+acc: 0.656
+acc: 0.655
+acc: 0.655
+acc: 0.655
+acc: 0.655
+acc: 0.655
+acc: 0.655
+acc: 0.656
+acc: 0.657
+acc: 0.657
+acc: 0.657
+acc: 0.657
+acc: 0.657
+swa: 0.669
+ 
+
+config: 
+before_acc: 0.669
+{'layer_name': 'layer1.0.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer1.0.relu2'], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.67
+swa: None
+ 
+
+config: 
+before_acc: 0.662
+{'layer_name': 'layer1.1.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer1.1.relu1'], 'do': False, 'lh': 0, 'lt': 'n'}
+ 
+
+config: 
+before_acc: 0.662
+{'layer_name': 'layer1.1.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer1.1.relu1'], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.662
+acc: 0.662
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.662
+acc: 0.662
+acc: 0.662
+acc: 0.662
+acc: 0.664
+acc: 0.664
+acc: 0.664
+acc: 0.664
+acc: 0.665
+acc: 0.666
+swa: None
+ 
+
+config: 
+before_acc: 0.666
+{'layer_name': 'layer1.1.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer1.1.relu1'], 'do': False, 'lh': 0, 'lt': 'b'}
+acc: 0.666
+acc: 0.666
+acc: 0.665
+acc: 0.664
+acc: 0.664
+acc: 0.664
+acc: 0.664
+acc: 0.664
+acc: 0.664
+acc: 0.665
+acc: 0.666
+acc: 0.666
+acc: 0.667
+acc: 0.667
+acc: 0.667
+acc: 0.667
+acc: 0.669
+swa: None
+ 
+
+config: 
+before_acc: 0.669
+{'layer_name': 'layer1.1.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer1.1.relu1'], 'do': False, 'lh': 0, 'lt': 'b'}
+acc: 0.669
+acc: 0.669
+acc: 0.669
+acc: 0.669
+acc: 0.669
+acc: 0.669
+acc: 0.669
+acc: 0.669
+acc: 0.669
+acc: 0.669
+acc: 0.669
+acc: 0.669
+acc: 0.669
+acc: 0.669
+acc: 0.67
+swa: None
+ 
+
+config: 
+before_acc: 0.647
+{'layer_name': 'layer1.1.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer1.1.relu2'], 'do': False, 'lh': 0, 'lt': 'n'}
+ 
+
+config: 
+before_acc: 0.647
+{'layer_name': 'layer1.1.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer1.1.relu2'], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.647
+acc: 0.647
+acc: 0.648
+acc: 0.648
+acc: 0.648
+acc: 0.649
+acc: 0.649
+acc: 0.649
+acc: 0.648
+acc: 0.648
+acc: 0.648
+acc: 0.648
+acc: 0.647
+swa: 0.662
+ 
+
+config: 
+before_acc: 0.648
+{'layer_name': 'layer2.0.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer2.0.relu1'], 'do': False, 'lh': 0, 'lt': 'n'}
+ 
+
+config: 
+before_acc: 0.648
+{'layer_name': 'layer2.0.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer2.0.relu1'], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.648
+acc: 0.649
+acc: 0.649
+acc: 0.648
+acc: 0.647
+acc: 0.647
+acc: 0.647
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.644
+acc: 0.643
+acc: 0.642
+acc: 0.641
+acc: 0.641
+acc: 0.641
+acc: 0.641
+acc: 0.641
+acc: 0.641
+swa: 0.6629999999999999
+ 
+
+config: 
+before_acc: 0.6629999999999999
+{'layer_name': 'layer2.0.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer2.0.relu1'], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.662
+acc: 0.662
+acc: 0.662
+acc: 0.662
+acc: 0.663
+acc: 0.664
+acc: 0.664
+acc: 0.664
+acc: 0.664
+acc: 0.664
+acc: 0.664
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.662
+acc: 0.662
+swa: 0.664
+ 
+
+config: 
+before_acc: 0.664
+{'layer_name': 'layer2.0.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer2.0.relu1'], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.664
+acc: 0.664
+acc: 0.664
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.662
+acc: 0.663
+acc: 0.662
+acc: 0.662
+swa: 0.667
+ 
+
+config: 
+before_acc: 0.667
+{'layer_name': 'layer2.0.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer2.0.relu1'], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.666
+acc: 0.666
+acc: 0.667
+acc: 0.667
+acc: 0.667
+acc: 0.667
+acc: 0.667
+acc: 0.667
+acc: 0.668
+swa: None
+ 
+
+config: 
+before_acc: 0.642
+{'layer_name': 'layer2.0.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer2.0.relu2'], 'do': False, 'lh': 0, 'lt': 'n'}
+ 
+
+config: 
+before_acc: 0.642
+{'layer_name': 'layer2.0.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer2.0.relu2'], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.643
+acc: 0.643
+acc: 0.643
+acc: 0.644
+acc: 0.643
+acc: 0.643
+acc: 0.642
+acc: 0.642
+acc: 0.642
+acc: 0.642
+acc: 0.642
+acc: 0.643
+acc: 0.643
+acc: 0.643
+acc: 0.643
+acc: 0.643
+acc: 0.643
+acc: 0.643
+acc: 0.642
+acc: 0.643
+swa: 0.662
+ 
+
+config: 
+before_acc: 0.662
+{'layer_name': 'layer2.0.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer2.0.relu2'], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.662
+acc: 0.662
+acc: 0.662
+acc: 0.662
+acc: 0.662
+acc: 0.662
+acc: 0.662
+acc: 0.662
+acc: 0.662
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+acc: 0.663
+swa: 0.6659999999999999
+ 
+
+config: 
+before_acc: 0.6659999999999999
+{'layer_name': 'layer2.0.relu2', 'ep': 20, 'lr': 1e-05, 'wd': 0.1, 'tw': False, 'twe': ['layer2.0.conv2', 'layer2.0.bn2'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.665
+acc: 0.665
+acc: 0.665
+acc: 0.665
+acc: 0.666
+acc: 0.668
+acc: 0.669
+acc: 0.67
+acc: 0.669
+acc: 0.669
+acc: 0.669
+acc: 0.669
+acc: 0.668
+acc: 0.669
+acc: 0.669
+acc: 0.67
+acc: 0.67
+acc: 0.671
+swa: None
+ 
+
+config: 
+before_acc: 0.671
+{'layer_name': 'layer2.0.relu2', 'ep': 20, 'lr': 1e-05, 'wd': 0.1, 'tw': False, 'twe': ['layer2.0.conv2', 'layer2.0.bn2'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'b'}
+acc: 0.67
+acc: 0.672
+swa: None
+ 
+
+config: 
+before_acc: 0.617
+{'layer_name': 'layer2.1.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer2.1.relu1'], 'do': False, 'lh': 0, 'lt': 'n'}
+ 
+
+config: 
+before_acc: 0.617
+{'layer_name': 'layer2.1.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer2.1.relu1'], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.615
+acc: 0.615
+acc: 0.614
+acc: 0.614
+acc: 0.614
+acc: 0.615
+acc: 0.615
+acc: 0.615
+acc: 0.614
+acc: 0.613
+acc: 0.613
+acc: 0.613
+acc: 0.613
+acc: 0.613
+acc: 0.613
+acc: 0.612
+acc: 0.612
+acc: 0.613
+acc: 0.613
+acc: 0.611
+swa: 0.657
+ 
+
+config: 
+before_acc: 0.657
+{'layer_name': 'layer2.1.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer2.1.relu1'], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.657
+acc: 0.657
+acc: 0.658
+acc: 0.658
+acc: 0.659
+acc: 0.659
+acc: 0.66
+acc: 0.66
+acc: 0.659
+acc: 0.659
+acc: 0.659
+acc: 0.659
+acc: 0.658
+acc: 0.657
+acc: 0.656
+acc: 0.657
+acc: 0.658
+acc: 0.658
+acc: 0.659
+acc: 0.66
+swa: 0.6609999999999999
+ 
+
+config: 
+before_acc: 0.6609999999999999
+{'layer_name': 'layer2.1.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer2.1.relu1'], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.661
+acc: 0.661
+acc: 0.661
+acc: 0.66
+acc: 0.661
+acc: 0.661
+acc: 0.662
+swa: None
+ 
+
+config: 
+before_acc: 0.649
+{'layer_name': 'layer2.1.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer2.1.relu2'], 'do': False, 'lh': 0, 'lt': 'n'}
+ 
+
+config: 
+before_acc: 0.649
+{'layer_name': 'layer2.1.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer2.1.relu2'], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.648
+acc: 0.648
+acc: 0.648
+acc: 0.649
+acc: 0.649
+acc: 0.649
+acc: 0.648
+acc: 0.648
+acc: 0.648
+acc: 0.647
+acc: 0.647
+acc: 0.647
+acc: 0.647
+acc: 0.647
+acc: 0.647
+acc: 0.646
+acc: 0.647
+acc: 0.647
+acc: 0.647
+acc: 0.647
+swa: 0.6559999999999999
+ 
+
+config: 
+before_acc: 0.6559999999999999
+{'layer_name': 'layer2.1.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer2.1.relu2'], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.655
+acc: 0.654
+acc: 0.654
+acc: 0.653
+acc: 0.653
+acc: 0.653
+acc: 0.653
+acc: 0.653
+acc: 0.653
+acc: 0.653
+acc: 0.653
+acc: 0.653
+acc: 0.653
+acc: 0.653
+acc: 0.652
+acc: 0.652
+acc: 0.652
+acc: 0.652
+acc: 0.652
+acc: 0.652
+swa: 0.657
+ 
+
+config: 
+before_acc: 0.657
+{'layer_name': 'layer2.1.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer2.1.relu2'], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.657
+acc: 0.657
+acc: 0.657
+acc: 0.657
+acc: 0.656
+acc: 0.656
+acc: 0.656
+acc: 0.656
+acc: 0.655
+acc: 0.655
+acc: 0.655
+acc: 0.655
+acc: 0.655
+acc: 0.655
+acc: 0.655
+acc: 0.655
+acc: 0.655
+acc: 0.655
+acc: 0.655
+acc: 0.654
+swa: 0.6579999999999999
+ 
+
+config: 
+before_acc: 0.6579999999999999
+{'layer_name': 'layer2.1.relu2', 'ep': 20, 'lr': 1e-05, 'wd': 0.1, 'tw': False, 'twe': ['layer2.1.conv2', 'layer2.1.bn2'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.659
+acc: 0.66
+acc: 0.659
+acc: 0.659
+acc: 0.658
+acc: 0.659
+acc: 0.659
+acc: 0.658
+acc: 0.659
+acc: 0.659
+acc: 0.66
+acc: 0.66
+acc: 0.661
+swa: None
+ 
+
+config: 
+before_acc: 0.649
+{'layer_name': 'layer3.0.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer3.0.relu1'], 'do': False, 'lh': 0, 'lt': 'n'}
+ 
+
+config: 
+before_acc: 0.649
+{'layer_name': 'layer3.0.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer3.0.relu1'], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.648
+acc: 0.646
+acc: 0.646
+acc: 0.645
+acc: 0.645
+acc: 0.645
+acc: 0.645
+acc: 0.645
+acc: 0.645
+acc: 0.645
+acc: 0.645
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.646
+swa: 0.657
+ 
+
+config: 
+before_acc: 0.657
+{'layer_name': 'layer3.0.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer3.0.relu1'], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.657
+acc: 0.656
+acc: 0.655
+acc: 0.656
+acc: 0.657
+acc: 0.656
+acc: 0.656
+acc: 0.656
+acc: 0.656
+acc: 0.657
+acc: 0.657
+acc: 0.657
+acc: 0.658
+swa: None
+ 
+
+config: 
+before_acc: 0.658
+{'layer_name': 'layer3.0.relu1', 'ep': 20, 'lr': 1e-05, 'wd': 0.1, 'tw': False, 'twe': ['layer3.0.conv1', 'layer3.0.bn1'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'b'}
+acc: 0.656
+acc: 0.655
+acc: 0.653
+acc: 0.654
+acc: 0.654
+acc: 0.655
+acc: 0.656
+acc: 0.658
+acc: 0.658
+acc: 0.658
+acc: 0.658
+acc: 0.66
+acc: 0.66
+acc: 0.662
+acc: 0.66
+acc: 0.662
+acc: 0.661
+acc: 0.664
+acc: 0.665
+swa: None
+ 
+
+config: 
+before_acc: 0.645
+{'layer_name': 'layer3.0.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer3.0.relu2'], 'do': False, 'lh': 0, 'lt': 'n'}
+ 
+
+config: 
+before_acc: 0.645
+{'layer_name': 'layer3.0.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer3.0.relu2'], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.647
+acc: 0.647
+acc: 0.646
+acc: 0.646
+acc: 0.645
+acc: 0.645
+acc: 0.645
+acc: 0.645
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.646
+acc: 0.646
+swa: 0.647
+ 
+
+config: 
+before_acc: 0.647
+{'layer_name': 'layer3.0.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer3.0.relu2'], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.647
+acc: 0.647
+acc: 0.646
+acc: 0.646
+acc: 0.647
+acc: 0.647
+acc: 0.647
+acc: 0.646
+acc: 0.645
+acc: 0.645
+acc: 0.645
+acc: 0.645
+acc: 0.645
+acc: 0.645
+acc: 0.645
+acc: 0.645
+acc: 0.645
+acc: 0.645
+acc: 0.645
+acc: 0.644
+swa: 0.653
+ 
+
+config: 
+before_acc: 0.653
+{'layer_name': 'layer3.0.relu2', 'ep': 20, 'lr': 1e-05, 'wd': 0.1, 'tw': False, 'twe': ['layer3.0.conv2', 'layer3.0.bn2'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.653
+acc: 0.656
+acc: 0.656
+acc: 0.657
+acc: 0.657
+acc: 0.659
+acc: 0.659
+acc: 0.659
+acc: 0.66
+swa: None
+ 
+
+config: 
+before_acc: 0.575
+{'layer_name': 'layer3.1.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer3.1.relu1'], 'do': False, 'lh': 0, 'lt': 'n'}
+ 
+
+config: 
+before_acc: 0.575
+{'layer_name': 'layer3.1.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer3.1.relu1'], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.574
+acc: 0.573
+acc: 0.574
+acc: 0.577
+acc: 0.579
+acc: 0.578
+acc: 0.58
+acc: 0.582
+acc: 0.582
+acc: 0.582
+acc: 0.584
+acc: 0.584
+acc: 0.584
+acc: 0.582
+acc: 0.582
+acc: 0.583
+acc: 0.584
+acc: 0.585
+acc: 0.585
+acc: 0.585
+swa: 0.648
+ 
+
+config: 
+before_acc: 0.648
+{'layer_name': 'layer3.1.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer3.1.relu1'], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.648
+acc: 0.648
+acc: 0.645
+acc: 0.646
+acc: 0.646
+acc: 0.647
+acc: 0.647
+acc: 0.647
+acc: 0.648
+acc: 0.647
+acc: 0.647
+acc: 0.647
+acc: 0.647
+acc: 0.647
+acc: 0.649
+acc: 0.65
+swa: None
+ 
+
+config: 
+before_acc: 0.65
+{'layer_name': 'layer3.1.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer3.1.relu1'], 'do': False, 'lh': 0, 'lt': 'b'}
+acc: 0.65
+acc: 0.649
+acc: 0.648
+acc: 0.647
+acc: 0.648
+acc: 0.647
+acc: 0.647
+acc: 0.645
+acc: 0.647
+acc: 0.65
+acc: 0.65
+acc: 0.649
+acc: 0.649
+acc: 0.648
+acc: 0.648
+acc: 0.648
+acc: 0.649
+acc: 0.648
+acc: 0.649
+acc: 0.648
+swa: 0.654
+ 
+
+config: 
+before_acc: 0.654
+{'layer_name': 'layer3.1.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer3.1.relu1'], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.653
+acc: 0.653
+acc: 0.652
+acc: 0.651
+acc: 0.651
+acc: 0.652
+acc: 0.654
+acc: 0.655
+acc: 0.656
+swa: None
+ 
+
+config: 
+before_acc: 0.619
+{'layer_name': 'layer3.1.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer3.1.relu2'], 'do': False, 'lh': 0, 'lt': 'n'}
+ 
+
+config: 
+before_acc: 0.619
+{'layer_name': 'layer3.1.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer3.1.relu2'], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.619
+acc: 0.621
+acc: 0.621
+acc: 0.621
+acc: 0.619
+acc: 0.619
+acc: 0.619
+acc: 0.619
+acc: 0.619
+acc: 0.619
+acc: 0.618
+acc: 0.619
+acc: 0.619
+acc: 0.619
+acc: 0.618
+acc: 0.618
+acc: 0.617
+acc: 0.617
+acc: 0.617
+acc: 0.617
+swa: 0.64
+ 
+
+config: 
+before_acc: 0.64
+{'layer_name': 'layer3.1.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer3.1.relu2'], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.64
+acc: 0.64
+acc: 0.64
+acc: 0.64
+acc: 0.641
+swa: None
+ 
+
+config: 
+before_acc: 0.641
+{'layer_name': 'layer3.1.relu2', 'ep': 20, 'lr': 1e-05, 'wd': 0.1, 'tw': False, 'twe': ['layer3.1.conv2', 'layer3.1.bn2'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'b'}
+acc: 0.637
+acc: 0.637
+acc: 0.637
+acc: 0.637
+acc: 0.635
+acc: 0.635
+acc: 0.637
+acc: 0.635
+acc: 0.636
+acc: 0.636
+acc: 0.638
+acc: 0.638
+acc: 0.639
+acc: 0.639
+acc: 0.642
+acc: 0.643
+swa: None
+ 
+
+config: 
+before_acc: 0.643
+{'layer_name': 'layer3.1.relu2', 'ep': 20, 'lr': 1e-05, 'wd': 0.1, 'tw': False, 'twe': ['layer3.1.conv2', 'layer3.1.bn2'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'b'}
+acc: 0.642
+acc: 0.641
+acc: 0.641
+acc: 0.64
+acc: 0.642
+acc: 0.642
+acc: 0.644
+swa: None
+ 
+
+config: 
+before_acc: 0.626
+{'layer_name': 'layer4.0.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer4.0.relu1'], 'do': False, 'lh': 0, 'lt': 'n'}
+ 
+
+config: 
+before_acc: 0.626
+{'layer_name': 'layer4.0.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer4.0.relu1'], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.626
+acc: 0.627
+acc: 0.627
+acc: 0.628
+acc: 0.628
+acc: 0.628
+acc: 0.628
+acc: 0.628
+acc: 0.628
+acc: 0.628
+acc: 0.628
+acc: 0.629
+acc: 0.629
+acc: 0.629
+acc: 0.63
+acc: 0.631
+acc: 0.631
+swa: None
+ 
+
+config: 
+before_acc: 0.631
+{'layer_name': 'layer4.0.relu1', 'ep': 20, 'lr': 1e-05, 'wd': 0.1, 'tw': False, 'twe': ['layer4.0.conv1', 'layer4.0.bn1'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'b'}
+acc: 0.632
+swa: None
+ 
+
+config: 
+before_acc: 0.632
+{'layer_name': 'layer4.0.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer4.0.relu1'], 'do': False, 'lh': 0, 'lt': 'b'}
+acc: 0.631
+acc: 0.632
+acc: 0.631
+acc: 0.631
+acc: 0.631
+acc: 0.631
+acc: 0.631
+acc: 0.63
+acc: 0.63
+acc: 0.63
+acc: 0.63
+acc: 0.63
+acc: 0.63
+acc: 0.628
+acc: 0.628
+acc: 0.628
+acc: 0.628
+acc: 0.628
+acc: 0.628
+acc: 0.628
+swa: 0.635
+ 
+
+config: 
+before_acc: 0.635
+{'layer_name': 'layer4.0.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer4.0.relu1'], 'do': False, 'lh': 0, 'lt': 's'}
+acc: 0.635
+acc: 0.636
+acc: 0.636
+acc: 0.634
+acc: 0.634
+acc: 0.634
+acc: 0.634
+acc: 0.635
+acc: 0.636
+acc: 0.636
+acc: 0.635
+acc: 0.636
+acc: 0.636
+acc: 0.636
+acc: 0.636
+acc: 0.639
+swa: None
+ 
+
+config: 
+before_acc: 0.639
+{'layer_name': 'layer4.0.relu1', 'ep': 20, 'lr': 1e-05, 'wd': 0.1, 'tw': False, 'twe': ['layer4.0.conv1', 'layer4.0.bn1'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'b'}
+acc: 0.64
+acc: 0.64
+acc: 0.64
+acc: 0.638
+acc: 0.64
+swa: None
+ 
+
+config: 
+before_acc: 0.64
+{'layer_name': 'layer4.0.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer4.0.relu1'], 'do': False, 'lh': 0, 'lt': 'b'}
+acc: 0.641
+swa: None
+ 
+
+config: 
+before_acc: 0.613
+{'layer_name': 'layer4.0.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer4.0.relu2'], 'do': False, 'lh': 0, 'lt': 'n'}
+ 
+
+config: 
+before_acc: 0.613
+{'layer_name': 'layer4.0.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer4.0.relu2'], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.614
+swa: None
+ 
+
+config: 
+before_acc: 0.614
+{'layer_name': 'layer4.0.relu2', 'ep': 20, 'lr': 1e-05, 'wd': 0.1, 'tw': False, 'twe': ['layer4.0.conv2', 'layer4.0.bn2'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'b'}
+acc: 0.616
+acc: 0.615
+acc: 0.614
+acc: 0.614
+acc: 0.615
+acc: 0.616
+acc: 0.616
+acc: 0.617
+swa: None
+ 
+
+config: 
+before_acc: 0.617
+{'layer_name': 'layer4.0.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer4.0.relu2'], 'do': False, 'lh': 0, 'lt': 'b'}
+acc: 0.617
+acc: 0.617
+acc: 0.617
+acc: 0.617
+acc: 0.618
+acc: 0.617
+acc: 0.617
+acc: 0.618
+acc: 0.619
+acc: 0.62
+swa: None
+ 
+
+config: 
+before_acc: 0.618
+{'layer_name': 'layer4.1.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer4.1.relu1'], 'do': False, 'lh': 0, 'lt': 'n'}
+ 
+
+config: 
+before_acc: 0.618
+{'layer_name': 'layer4.1.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer4.1.relu1'], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.618
+acc: 0.618
+acc: 0.618
+acc: 0.618
+acc: 0.619
+acc: 0.619
+acc: 0.62
+acc: 0.62
+acc: 0.62
+acc: 0.62
+acc: 0.62
+acc: 0.62
+acc: 0.62
+acc: 0.62
+acc: 0.62
+acc: 0.62
+acc: 0.62
+acc: 0.621
+acc: 0.621
+acc: 0.621
+swa: None
+ 
+
+config: 
+before_acc: 0.621
+{'layer_name': 'layer4.1.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer4.1.relu1'], 'do': False, 'lh': 0, 'lt': 'b'}
+acc: 0.621
+acc: 0.621
+acc: 0.621
+acc: 0.621
+acc: 0.621
+acc: 0.621
+acc: 0.621
+acc: 0.621
+acc: 0.621
+acc: 0.621
+acc: 0.621
+acc: 0.621
+acc: 0.621
+acc: 0.621
+acc: 0.62
+acc: 0.621
+acc: 0.622
+acc: 0.623
+swa: None
+ 
+
+config: 
+before_acc: 0.623
+{'layer_name': 'layer4.1.relu1', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer4.1.relu1'], 'do': False, 'lh': 0, 'lt': 'b'}
+acc: 0.623
+acc: 0.623
+acc: 0.623
+acc: 0.623
+acc: 0.624
+acc: 0.624
+acc: 0.624
+acc: 0.625
+swa: None
+ 
+
+config: 
+before_acc: 0.621
+{'layer_name': 'layer4.1.relu2', 'ep': 20, 'lr': 0.0001, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer4.1.relu2'], 'do': False, 'lh': 0, 'lt': 'n'}
+ 
+
+config: 
+before_acc: 0.621
+{'layer_name': 'layer4.1.relu2', 'ep': 20, 'lr': 1e-05, 'wd': 0.1, 'tw': False, 'twe': ['layer4.1.conv2', 'layer4.1.bn2'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.621
+acc: 0.622
+acc: 0.622
+acc: 0.623
+acc: 0.62
+acc: 0.622
+acc: 0.623
+acc: 0.623
+acc: 0.623
+acc: 0.623
+swa: None
