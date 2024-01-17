@@ -203,33 +203,33 @@ class Maxpool_sign_layer(nn.Module):
 class HerPN2d(nn.Module):
     @staticmethod
     def h0(x):
-        return torch.ones(x.shape).to("cuda:0")
+        return torch.ones(x.shape).to(x.device)
 
     @staticmethod
     def h1(x):
-        return x.to("cuda:0")
+        return x
 
     @staticmethod
     def h2(x):
-        return (x * x - 1).to("cuda:0")
+        return (x * x - 1)
 
     def __init__(self, num_features : int, BN_dimension=2 ,BN_copy:nn.Module = None):
         super().__init__()
         self.f = (1 / sqrt(2 * pi), 1 / 2, 1 / sqrt(4 * pi))
         
         if(BN_copy):
-            self.bn0 = copy.deepcopy(BN_copy).to("cuda:0")
-            self.bn1 = copy.deepcopy(BN_copy).to("cuda:0")
-            self.bn2 = copy.deepcopy(BN_copy).to("cuda:0")
+            self.bn0 = copy.deepcopy(BN_copy)
+            self.bn1 = copy.deepcopy(BN_copy)
+            self.bn2 = copy.deepcopy(BN_copy)
 
         elif(BN_dimension == 1):
-            self.bn0 = nn.BatchNorm1d(num_features).to("cuda:0")
-            self.bn1 = nn.BatchNorm1d(num_features).to("cuda:0")
-            self.bn2 = nn.BatchNorm1d(num_features).to("cuda:0")
+            self.bn0 = nn.BatchNorm1d(num_features)
+            self.bn1 = nn.BatchNorm1d(num_features)
+            self.bn2 = nn.BatchNorm1d(num_features)
         else:
-            self.bn0 = nn.BatchNorm2d(num_features).to("cuda:0")
-            self.bn1 = nn.BatchNorm2d(num_features).to("cuda:0")
-            self.bn2 = nn.BatchNorm2d(num_features).to("cuda:0")
+            self.bn0 = nn.BatchNorm2d(num_features)
+            self.bn1 = nn.BatchNorm2d(num_features)
+            self.bn2 = nn.BatchNorm2d(num_features)
 
 
 
@@ -238,7 +238,7 @@ class HerPN2d(nn.Module):
 
 
     def forward(self, x):
-        result = torch.zeros(x.shape).to("cuda:0")
+        result = torch.zeros(x.shape).to(x.device)
         for bn, f, h in zip(self.bn, self.f, self.h):
             poly = torch.mul(f, h(x))
             # print(poly.shape)

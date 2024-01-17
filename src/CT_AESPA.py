@@ -79,11 +79,10 @@ def CT_train(sign_type, sign_scale, scale_path, sign_nest_dict,batch_size, input
             ref_model = nn.Sequential(access_layer(pretrain_model, bn_name), access_layer(pretrain_model, relu_name))
         else:
             data_name = key
-            #num_features = ?
+            num_features = 4096
             BN_dimension = 1
             my_model = HerPN2d(num_features, BN_dimension)
             ref_model = access_layer(pretrain_model, relu_name)
-            continue # temp
 
         
 
@@ -135,7 +134,7 @@ def CT_train(sign_type, sign_scale, scale_path, sign_nest_dict,batch_size, input
         if(not os.path.exists(coef_save_dirctory)):
                 os.mkdir(coef_save_dirctory)
         file_name = key + "_herpn.pt"
-        my_model.sign.save_coef(coef_save_dirctory + file_name)
+        torch.save(my_model, coef_save_dirctory + file_name)
         print("save: " + folder_name + file_name)
         print("\n")
 

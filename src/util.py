@@ -33,7 +33,7 @@ from torchvision import datasets
 
 
 def load_model_yaml(path, config_name):
-    with open(f"{path}{config_name}", 'r') as file:
+    with open(f"{path}/{config_name}", 'r') as file:
         return yaml.safe_load(file)
 
 
