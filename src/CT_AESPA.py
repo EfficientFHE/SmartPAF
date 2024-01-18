@@ -102,7 +102,7 @@ def CT_train(sign_type, sign_scale, scale_path, sign_nest_dict,batch_size, input
             for batch_i in range(int(train_data.shape[0] / batch_size)):
                 x = train_data[batch_i * batch_size : (batch_i + 1) * batch_size].to("cuda:0")
                 target_y = ref_model.to("cuda:0").forward(x)
-                actual_y = my_model.forward(x)
+                actual_y = my_model.to("cuda:0").forward(x)
                 loss_fun = nn.MSELoss()
                 my_model.zero_grad()
                 loss = loss_fun(actual_y, target_y)
