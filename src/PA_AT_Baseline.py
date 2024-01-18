@@ -19,7 +19,7 @@ def print_log_to_file(log_file, config, train_log, type, before_acc, swa_log):
         print(config, file= f)
         if(train_log):
             acc_log_list = train_log["train_result"]["va"]
-            if(type == "s"):
+            if(type == "s" or type == "e"):
                 end_i = len(acc_log_list)
             elif(type == "b"):
                 end_i = train_log["best_index"] + 1
@@ -131,8 +131,9 @@ class Trainer:
         model_dir: str = "None",
         load_from_disk: bool = True,
         cuda: bool = True,
-        lr_scheduler: bool = False,
+        lr_scheduler = None,
         no_bn_track: bool = True,
+        
     ) -> None:
 
         self.model_dir = model_dir
@@ -195,6 +196,8 @@ class Trainer:
             if(swa_pack != None and num_epochs > swa_pack[2]):
                 swa_pack[0].update_parameters(self.model)
                 swa_pack[1].step()
+            if(self.lr_scheduler):
+                self.lr_scheduler.step(val_acc)
 
             train_result["tl"].append(train_loss)
             train_result["vl"].append(val_loss)
@@ -254,7 +257,7 @@ class Trainer:
             self.optimizer.zero_grad()
             batch_loss.backward()
             self.optimizer.step()
-
+        
         return train_loss_meter.avg, train_acc_meter.avg
 
 
@@ -298,7 +301,7 @@ def train_group(model, valid_data_loader, train_data_loader, config, relu_list):
     optimizer_name = "adam"
     learning_rate = config["lr"]
     weight_decay = config["wd"]
-    learning_rate_decay = False
+    learning_rate_decay = True
     no_bn_track = True
 
     train_weight = config["tw"]
@@ -344,6 +347,7 @@ def train_group(model, valid_data_loader, train_data_loader, config, relu_list):
         elif(isinstance(my_model.fc, nn.Sequential)):
             my_model.fc = my_model.fc[1]
 
+    layer_name = "Full"
     print("Name: " + layer_name)
     before_result  = validate(my_model, valid_data_loader, "cuda:0")
 
@@ -351,15 +355,21 @@ def train_group(model, valid_data_loader, train_data_loader, config, relu_list):
 
     optimizer_config = {"optimizer_type": "adam", "lr": learning_rate, "weight_decay": weight_decay}
     optimizer = get_optimizer(my_model, optimizer_config)
+    scheduler = ReduceLROnPlateau(optimizer, 'max', patience = 2, eps=1e-10)
+    if(learning_rate_decay):
+        lr_scheduler = scheduler
+    else:
+        lr_scheduler = None
     trainer = Trainer(
         model=my_model,
         optimizer=optimizer,
         load_from_disk=False,
         cuda=True,
-        lr_scheduler = learning_rate_decay,
+        lr_scheduler = lr_scheduler,
         no_bn_track = no_bn_track,
         train_loader = train_data_loader,
         val_loader = valid_data_loader
+        
     )
 
     if(swa):
@@ -399,7 +409,8 @@ def train_group(model, valid_data_loader, train_data_loader, config, relu_list):
         global S_model
         S_model = copy.deepcopy(swa_model.module)
         swa_acc = swa_result[1] / 100.0
-    best_acc = train_return_pack["train_result"]["va"][train_return_pack["best_index"]]
+    # best_acc = train_return_pack["train_result"]["va"][train_return_pack["best_index"]]
+    best_acc = train_return_pack["train_result"]["va"][num_epochs-1]
 
     acc_delta = [x - y for x, y in zip(train_return_pack["train_result"]["ta"],train_return_pack["train_result"]["va"])]
     if(max(acc_delta) >= 0.1):
@@ -420,38 +431,29 @@ def train_group(model, valid_data_loader, train_data_loader, config, relu_list):
     return return_pack
 
 
-def train_layer(my_model = None, layer_name = None, sign_nest_dict = None, valid_data_loader = None,train_data_loader = None,  group_epochs = 20, replace_module = None, lr_c = None, lr_w = None, log_file = None):
+def train_layer(my_model = None, layer_name = None, sign_nest_dict = None, valid_data_loader = None,train_data_loader = None,  group_epochs = 20, replace_module = None, lr_c = None, lr_w = None, log_file = None, group_num = None):
     global G_model
     global S_model
     global B_model
     global R_model
 
-    relu_list = list(sign_nest_dict.keys())
-    sign_layer_list = []
-    sign_layer_list.append(sign_nest_dict[layer_name]["name"])
-    layer_dict = {"coef":sign_layer_list, "weight":sign_nest_dict[layer_name]["up_weight"]}
+    
 
-    print(layer_name)
-    print(layer_dict)
-    
-    replace_layer(my_model, layer_name,  replace_module)
-    
+    relu_list = list(sign_nest_dict.keys())
     G_model = copy.deepcopy(my_model)
 
-    replace_result = validate(my_model, valid_data_loader, "cuda:0")
-    print("replace_acc: " + str(replace_result[1]))
 
-    layer_best_acc = replace_result[1] / 100.0
+    layer_best_acc = -1
     layer_bast_hash = 0
     layer_best_type = "n"
     param_config = {"layer_name": layer_name,
                 "ep" : group_epochs,
                 "lr" : lr_c,
                 "wd" : 0.01, 
-                "tw" : False, 
+                "tw" : True, 
                 "twe": [], 
-                "tc" : False, 
-                "tce": layer_dict["coef"], 
+                "tc" : True, 
+                "tce": [], 
                 "do" : False,
                 "lh" : 0, 
                 "lt" : "n"}
@@ -463,7 +465,11 @@ def train_layer(my_model = None, layer_name = None, sign_nest_dict = None, valid
     improvement = True
 
     print_log_to_file( log_file,param_config, None, layer_best_type, layer_best_acc, None)
+    group_id = 0
+    validate(my_model, valid_data_loader, "cuda:0")
     while(True):
+        if(group_num and group_id == group_num):
+            break
         print(" \n")
         print(param_config)
         print("good: " + str(is_good))
@@ -484,83 +490,30 @@ def train_layer(my_model = None, layer_name = None, sign_nest_dict = None, valid
         config_backup = copy.deepcopy(param_config)
         before_acc = layer_best_acc
 
-        if(train_best_acc > layer_best_acc or train_swa_acc > layer_best_acc):
-            is_good = True
-            improvement = True
-            if(train_best_acc > train_swa_acc):
-                layer_best_type = "b"
-                layer_best_acc = train_best_acc
-                G_model = copy.deepcopy(B_model)
-            else:
-                layer_best_type = "s"
-                layer_best_acc = train_swa_acc
-                G_model = copy.deepcopy(S_model)
-                
-            layer_bast_hash = train_result["hash"]
-            param_config["lh"] = layer_bast_hash
-            param_config["lt"] = layer_best_type
+        if(train_best_acc < layer_best_acc and train_swa_acc < layer_best_acc):
+            lr_c = lr_c / 2
 
-            if(layer_best_type == "b" and best_index < 0.5 * group_epochs):
-                is_good = False
-                train_coef = not train_coef
-                need_AT = True
-
-            if(not log_file == None):
-                if(layer_best_type == "s"):
-                    swa_log = layer_best_acc
-                else:
-                    swa_log = None
-                print_log_to_file( log_file,config_backup, train_log, layer_best_type, before_acc, swa_log)
-            
+        if(train_best_acc > train_swa_acc):
+            layer_best_type = "e"
+            layer_best_acc = train_best_acc
+            G_model = copy.deepcopy(E_model)
         else:
-            if(is_good):
-                is_good = False
-                if(overfit):
-                    # param_config["do"] = True
-                    train_coef = not train_coef
-                    need_AT = True
-                else:
-                    train_coef = not train_coef
-                    need_AT = True
-                    # param_config["lr"] = param_config["lr"] / 10
-            else:
-                train_coef = not train_coef
-                need_AT = True
+            layer_best_type = "s"
+            layer_best_acc = train_swa_acc
+            G_model = copy.deepcopy(S_model)
 
-            if(len(layer_dict["weight"]) == 0):
-                break
+            
 
-        if(need_AT):
-            if(not improvement):
-                break
-            need_AT = False
-            improvement = False
-            if(train_coef):
-                 param_config = {"layer_name": layer_name,
-                                "ep" : group_epochs,
-                                "lr" : lr_c,
-                                "wd" : 0.01, 
-                                "tw" : False, 
-                                "twe": [], 
-                                "tc" : False, 
-                                "tce": layer_dict["coef"], 
-                                "do" : False,
-                                "lh" : layer_bast_hash, 
-                                "lt" : layer_best_type}
+        if(not log_file == None):
+            if(layer_best_type == "s"):
+                swa_log = layer_best_acc
             else:
-                if(len(layer_dict["weight"]) == 0):
-                    break
-                param_config = {"layer_name": layer_name,
-                                "ep" : group_epochs,
-                                "lr" : lr_w,
-                                "wd" : 0.1, 
-                                "tw" : False, 
-                                "twe": layer_dict["weight"], 
-                                "tc" : False, 
-                                "tce": [], 
-                                "do" : False,
-                                "lh" : layer_bast_hash, 
-                                "lt" : layer_best_type}
+                swa_log = None
+            print_log_to_file( log_file,config_backup, train_log, layer_best_type, before_acc, swa_log)
+        group_id += 1
+            
+
+
 
 
 def train_network(input_data_dirctory, model, sign_type, valid_data_loader, train_data_loader  ,start_layer_name, max_layer_counter, lr_c, lr_w):
@@ -580,7 +533,8 @@ def train_network(input_data_dirctory, model, sign_type, valid_data_loader, trai
     max_layer_counter = max_layer_counter
     start_layer_name = start_layer_name
 
-
+    if(not os.path.exists(input_data_dirctory)):
+        os.mkdir(input_data_dirctory)
     if(not os.path.exists(model_directory)):
         os.mkdir(model_directory)
     if(not os.path.exists(log_directory)):
@@ -608,7 +562,7 @@ def train_network(input_data_dirctory, model, sign_type, valid_data_loader, trai
         resume = False
     print(G_model)
     layer_counter = 0
-
+    my_model = copy.deepcopy(G_model)
     for key in sign_nest_dict:
         print(key)
         if(key == start_layer_name):
@@ -629,40 +583,24 @@ def train_network(input_data_dirctory, model, sign_type, valid_data_loader, trai
             my_layer_CT = Maxpool_sign_layer(sign = sign_module, kernel_size=sign_dict["kernel_size"], stride= sign_dict["stride"], padding=sign_dict["padding"], dilation=sign_dict["dilation"])
         else:
             raise Exception("replace layer type error")
-        
 
+        layer_name = key
+        layer_dict = sign_nest_dict[key]
+        replace_module = my_layer_CT
 
-    for key in sign_nest_dict:
-        print(key)
-        if(key == start_layer_name):
-            resume = True
-        
-        if(not resume):
-            continue
-
-
-        file_name = key + "_coef.pt"
-        scale_name = key + "_scale.pt"
-        sign_dict = sign_nest_dict[key]
-        sign_scale = 0
-        sign_module_CT = Sign_minmax_layer(coef=torch.load(input_data_dirctory + folder_name + file_name), degree=sign_param_dict["degree"],scale=sign_scale)
-        print(file_name)
-        if(sign_dict["type"] == "ReLU"):
-            my_layer_CT = ReLU_sign_layer(sign = sign_module_CT)
-        elif(sign_dict["type"] == "MaxPool2d"):
-            my_layer_CT = Maxpool_sign_layer(sign = sign_module_CT, kernel_size=sign_dict["kernel_size"], stride= sign_dict["stride"], padding=sign_dict["padding"], dilation=sign_dict["dilation"])
-        else:
-            raise Exception("replace layer type error")
+        print(layer_name)
+        print(layer_dict)
     
+        replace_layer(my_model, layer_name,  replace_module)
+        validate(my_model, valid_data_loader, "cuda:0")
 
-        train_layer(my_model = copy.deepcopy(G_model) , layer_name = key, sign_nest_dict = sign_nest_dict,
-                    valid_data_loader =  valid_data_loader, train_data_loader= train_data_loader,
-                    group_epochs= group_epochs, replace_module = my_layer_CT, lr_c = lr_c, lr_w = lr_w, log_file = log_directory + log_file)
-        print("Finish: " + key )
-        torch.save( G_model, model_directory + G_model_name)
-        layer_counter += 1
-        if(layer_counter == max_layer_counter):
-            break
+    
+    train_layer(my_model = my_model , layer_name = None, sign_nest_dict = sign_nest_dict,
+        valid_data_loader =  valid_data_loader, train_data_loader= train_data_loader,
+        group_epochs= group_epochs, replace_module = None, lr_c = lr_c, lr_w = lr_w, log_file = log_directory + log_file, group_num=50)
+
+
+   
 
 
 if __name__ == "__main__":
@@ -673,7 +611,7 @@ if __name__ == "__main__":
     parser.add_argument("-st","--sign_type", type=str, default="a7", choices=["a7", "2f12g1", "f1g2", "f2g2", "f2g3"])
     parser.add_argument("-sln","--start_layer_name", type=str, default="None")
     parser.add_argument("-mc","--max_counter", type=int, default=1000)
-    parser.add_argument("-lr", "--learning_rate", type = float, default = 1e-4)
+    parser.add_argument("-lr", "--learning_rate", type = float, default = 1e-6)
 
     args = parser.parse_args()
     print(args)
@@ -690,14 +628,6 @@ if __name__ == "__main__":
     valid_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "valid", data_dir = global_config["Global"]["dataset_dirctory"])
     train_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "train", data_dir = global_config["Global"]["dataset_dirctory"])
 
-    '''
-    if(args.dataset == "cifar10" or args.dataset == "cifar100"):
-        valid_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "valid", data_dir = global_config["Global"]["dataset_dirctory"])
-        train_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "train", data_dir = global_config["Global"]["dataset_dirctory"])
-    elif(args.dataset == "imagenet_1k"):
-        valid_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "valid", data_dir = os.path.join(global_config["Global"]["dataset_dirctory"], args.dataset) )
-        train_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "train", data_dir = os.path.join(global_config["Global"]["dataset_dirctory"], args.dataset) )
-    '''
    
     train_network(model=model, sign_type = args.sign_type, start_layer_name = start_layer_name,
                   valid_data_loader = valid_data_loader, train_data_loader = train_data_loader,
