@@ -1,0 +1,1306 @@
+ 
+ 
+
+config: 
+before_acc: -1
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+ 
+
+config: 
+before_acc: -1
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.346
+acc: 0.379
+acc: 0.403
+acc: 0.411
+acc: 0.428
+acc: 0.442
+acc: 0.454
+acc: 0.462
+acc: 0.469
+acc: 0.476
+acc: 0.486
+acc: 0.489
+acc: 0.493
+acc: 0.497
+acc: 0.505
+acc: 0.511
+acc: 0.522
+acc: 0.525
+acc: 0.529
+acc: 0.532
+swa: 0.614
+ 
+
+config: 
+before_acc: 0.614
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.621
+acc: 0.622
+acc: 0.622
+acc: 0.622
+acc: 0.624
+acc: 0.623
+acc: 0.625
+acc: 0.625
+acc: 0.625
+acc: 0.626
+acc: 0.625
+acc: 0.625
+acc: 0.626
+acc: 0.627
+acc: 0.627
+acc: 0.626
+acc: 0.626
+acc: 0.626
+acc: 0.626
+acc: 0.626
+swa: None
+ 
+
+config: 
+before_acc: 0.626
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.628
+acc: 0.628
+acc: 0.63
+acc: 0.628
+acc: 0.627
+acc: 0.629
+acc: 0.629
+acc: 0.63
+acc: 0.628
+acc: 0.628
+acc: 0.628
+acc: 0.628
+acc: 0.628
+acc: 0.627
+acc: 0.627
+acc: 0.627
+acc: 0.628
+acc: 0.626
+acc: 0.628
+acc: 0.628
+swa: None
+ 
+
+config: 
+before_acc: 0.628
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.628
+acc: 0.63
+acc: 0.633
+acc: 0.632
+acc: 0.633
+acc: 0.633
+acc: 0.633
+acc: 0.634
+acc: 0.63
+acc: 0.631
+acc: 0.632
+acc: 0.632
+acc: 0.633
+acc: 0.635
+acc: 0.632
+acc: 0.632
+acc: 0.631
+acc: 0.632
+acc: 0.633
+acc: 0.632
+swa: None
+ 
+
+config: 
+before_acc: 0.632
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.631
+acc: 0.631
+acc: 0.633
+acc: 0.633
+acc: 0.633
+acc: 0.633
+acc: 0.633
+acc: 0.633
+acc: 0.631
+acc: 0.632
+acc: 0.63
+acc: 0.63
+acc: 0.629
+acc: 0.63
+acc: 0.63
+acc: 0.63
+acc: 0.629
+acc: 0.628
+acc: 0.628
+acc: 0.628
+swa: None
+ 
+
+config: 
+before_acc: 0.628
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.628
+acc: 0.628
+acc: 0.629
+acc: 0.627
+acc: 0.628
+acc: 0.627
+acc: 0.627
+acc: 0.627
+acc: 0.628
+acc: 0.628
+acc: 0.627
+acc: 0.625
+acc: 0.625
+acc: 0.624
+acc: 0.627
+acc: 0.625
+acc: 0.626
+acc: 0.625
+acc: 0.623
+acc: 0.627
+swa: None
+ 
+
+config: 
+before_acc: 0.627
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.624
+acc: 0.625
+acc: 0.625
+acc: 0.626
+acc: 0.623
+acc: 0.623
+acc: 0.624
+acc: 0.625
+acc: 0.623
+acc: 0.624
+acc: 0.626
+acc: 0.625
+acc: 0.626
+acc: 0.625
+acc: 0.623
+acc: 0.623
+acc: 0.623
+acc: 0.624
+acc: 0.626
+acc: 0.625
+swa: None
+ 
+
+config: 
+before_acc: 0.625
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.624
+acc: 0.623
+acc: 0.622
+acc: 0.62
+acc: 0.62
+acc: 0.618
+acc: 0.616
+acc: 0.616
+acc: 0.614
+acc: 0.616
+acc: 0.617
+acc: 0.617
+acc: 0.617
+acc: 0.614
+acc: 0.613
+acc: 0.613
+acc: 0.612
+acc: 0.611
+acc: 0.608
+acc: 0.608
+swa: 0.617
+ 
+
+config: 
+before_acc: 0.617
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.617
+acc: 0.622
+acc: 0.624
+acc: 0.623
+acc: 0.622
+acc: 0.623
+acc: 0.623
+acc: 0.621
+acc: 0.619
+acc: 0.62
+acc: 0.622
+acc: 0.621
+acc: 0.62
+acc: 0.619
+acc: 0.618
+acc: 0.618
+acc: 0.618
+acc: 0.62
+acc: 0.619
+acc: 0.617
+swa: 0.619
+ 
+
+config: 
+before_acc: 0.619
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.625
+acc: 0.625
+acc: 0.626
+acc: 0.628
+acc: 0.626
+acc: 0.626
+acc: 0.625
+acc: 0.625
+acc: 0.628
+acc: 0.627
+acc: 0.626
+acc: 0.624
+acc: 0.622
+acc: 0.622
+acc: 0.622
+acc: 0.621
+acc: 0.618
+acc: 0.617
+acc: 0.618
+acc: 0.618
+swa: 0.618
+ 
+
+config: 
+before_acc: 0.618
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.618
+acc: 0.624
+acc: 0.623
+acc: 0.622
+acc: 0.622
+acc: 0.618
+acc: 0.621
+acc: 0.622
+acc: 0.624
+acc: 0.622
+acc: 0.62
+acc: 0.618
+acc: 0.618
+acc: 0.619
+acc: 0.617
+acc: 0.617
+acc: 0.615
+acc: 0.616
+acc: 0.617
+acc: 0.617
+swa: 0.618
+ 
+
+config: 
+before_acc: 0.618
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.622
+acc: 0.623
+acc: 0.623
+acc: 0.619
+acc: 0.621
+acc: 0.624
+acc: 0.624
+acc: 0.624
+acc: 0.622
+acc: 0.621
+acc: 0.621
+acc: 0.621
+acc: 0.623
+acc: 0.621
+acc: 0.62
+acc: 0.618
+acc: 0.616
+acc: 0.616
+acc: 0.618
+acc: 0.617
+swa: None
+ 
+
+config: 
+before_acc: 0.617
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.619
+acc: 0.619
+acc: 0.619
+acc: 0.62
+acc: 0.618
+acc: 0.616
+acc: 0.618
+acc: 0.615
+acc: 0.614
+acc: 0.613
+acc: 0.611
+acc: 0.609
+acc: 0.609
+acc: 0.608
+acc: 0.608
+acc: 0.609
+acc: 0.61
+acc: 0.609
+acc: 0.609
+acc: 0.612
+swa: None
+ 
+
+config: 
+before_acc: 0.612
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.61
+acc: 0.612
+acc: 0.609
+acc: 0.613
+acc: 0.612
+acc: 0.61
+acc: 0.608
+acc: 0.606
+acc: 0.605
+acc: 0.605
+acc: 0.605
+acc: 0.607
+acc: 0.604
+acc: 0.604
+acc: 0.604
+acc: 0.604
+acc: 0.604
+acc: 0.606
+acc: 0.607
+acc: 0.607
+swa: None
+ 
+
+config: 
+before_acc: 0.607
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.602
+acc: 0.603
+acc: 0.602
+acc: 0.599
+acc: 0.599
+acc: 0.599
+acc: 0.599
+acc: 0.598
+acc: 0.597
+acc: 0.596
+acc: 0.597
+acc: 0.598
+acc: 0.598
+acc: 0.6
+acc: 0.598
+acc: 0.6
+acc: 0.6
+acc: 0.6
+acc: 0.602
+acc: 0.6
+swa: None
+ 
+
+config: 
+before_acc: 0.6
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.6
+acc: 0.6
+acc: 0.602
+acc: 0.599
+acc: 0.598
+acc: 0.599
+acc: 0.6
+acc: 0.602
+acc: 0.597
+acc: 0.596
+acc: 0.596
+acc: 0.593
+acc: 0.593
+acc: 0.592
+acc: 0.592
+acc: 0.593
+acc: 0.589
+acc: 0.591
+acc: 0.59
+acc: 0.584
+swa: 0.585
+ 
+
+config: 
+before_acc: 0.585
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.587
+acc: 0.593
+acc: 0.594
+acc: 0.592
+acc: 0.597
+acc: 0.598
+acc: 0.598
+acc: 0.601
+acc: 0.6
+acc: 0.599
+acc: 0.596
+acc: 0.596
+acc: 0.597
+acc: 0.594
+acc: 0.595
+acc: 0.592
+acc: 0.592
+acc: 0.59
+acc: 0.589
+acc: 0.59
+swa: None
+ 
+
+config: 
+before_acc: 0.59
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.59
+acc: 0.586
+acc: 0.587
+acc: 0.585
+acc: 0.583
+acc: 0.585
+acc: 0.585
+acc: 0.587
+acc: 0.586
+acc: 0.585
+acc: 0.586
+acc: 0.587
+acc: 0.585
+acc: 0.587
+acc: 0.587
+acc: 0.587
+acc: 0.588
+acc: 0.584
+acc: 0.585
+acc: 0.584
+swa: None
+ 
+
+config: 
+before_acc: 0.584
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.585
+acc: 0.583
+acc: 0.581
+acc: 0.58
+acc: 0.58
+acc: 0.583
+acc: 0.582
+acc: 0.577
+acc: 0.577
+acc: 0.574
+acc: 0.576
+acc: 0.573
+acc: 0.575
+acc: 0.577
+acc: 0.571
+acc: 0.571
+acc: 0.57
+acc: 0.566
+acc: 0.566
+acc: 0.563
+swa: None
+ 
+
+config: 
+before_acc: 0.563
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.562
+acc: 0.564
+acc: 0.562
+acc: 0.559
+acc: 0.565
+acc: 0.565
+acc: 0.564
+acc: 0.562
+acc: 0.56
+acc: 0.556
+acc: 0.561
+acc: 0.555
+acc: 0.556
+acc: 0.558
+acc: 0.558
+acc: 0.557
+acc: 0.557
+acc: 0.559
+acc: 0.56
+acc: 0.558
+swa: None
+ 
+
+config: 
+before_acc: 0.558
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.558
+acc: 0.558
+acc: 0.556
+acc: 0.555
+acc: 0.555
+acc: 0.559
+acc: 0.556
+acc: 0.552
+acc: 0.549
+acc: 0.552
+acc: 0.552
+acc: 0.556
+acc: 0.557
+acc: 0.555
+acc: 0.551
+acc: 0.55
+acc: 0.553
+acc: 0.554
+acc: 0.551
+acc: 0.555
+swa: None
+ 
+
+config: 
+before_acc: 0.555
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.554
+acc: 0.549
+acc: 0.553
+acc: 0.553
+acc: 0.552
+acc: 0.549
+acc: 0.551
+acc: 0.55
+acc: 0.549
+acc: 0.545
+acc: 0.546
+acc: 0.544
+acc: 0.539
+acc: 0.539
+acc: 0.544
+acc: 0.547
+acc: 0.541
+acc: 0.539
+acc: 0.535
+acc: 0.541
+swa: None
+ 
+
+config: 
+before_acc: 0.541
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.54
+acc: 0.536
+acc: 0.537
+acc: 0.536
+acc: 0.535
+acc: 0.535
+acc: 0.534
+acc: 0.534
+acc: 0.535
+acc: 0.536
+acc: 0.534
+acc: 0.532
+acc: 0.533
+acc: 0.533
+acc: 0.53
+acc: 0.53
+acc: 0.531
+acc: 0.529
+acc: 0.53
+acc: 0.531
+swa: 0.5329999999999999
+ 
+
+config: 
+before_acc: 0.5329999999999999
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.532
+acc: 0.537
+acc: 0.538
+acc: 0.54
+acc: 0.544
+acc: 0.546
+acc: 0.55
+acc: 0.551
+acc: 0.551
+acc: 0.55
+acc: 0.547
+acc: 0.545
+acc: 0.542
+acc: 0.546
+acc: 0.549
+acc: 0.548
+acc: 0.546
+acc: 0.549
+acc: 0.549
+acc: 0.547
+swa: None
+ 
+
+config: 
+before_acc: 0.547
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.54
+acc: 0.534
+acc: 0.529
+acc: 0.536
+acc: 0.537
+acc: 0.531
+acc: 0.523
+acc: 0.515
+acc: 0.514
+acc: 0.52
+acc: 0.513
+acc: 0.513
+acc: 0.513
+acc: 0.513
+acc: 0.51
+acc: 0.512
+acc: 0.508
+acc: 0.509
+acc: 0.507
+acc: 0.509
+swa: 0.511
+ 
+
+config: 
+before_acc: 0.511
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.518
+acc: 0.519
+acc: 0.514
+acc: 0.519
+acc: 0.516
+acc: 0.521
+acc: 0.522
+acc: 0.519
+acc: 0.522
+acc: 0.524
+acc: 0.526
+acc: 0.523
+acc: 0.517
+acc: 0.519
+acc: 0.519
+acc: 0.52
+acc: 0.513
+acc: 0.51
+acc: 0.508
+acc: 0.508
+swa: None
+ 
+
+config: 
+before_acc: 0.508
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.499
+acc: 0.5
+acc: 0.501
+acc: 0.5
+acc: 0.499
+acc: 0.495
+acc: 0.488
+acc: 0.492
+acc: 0.496
+acc: 0.494
+acc: 0.489
+acc: 0.489
+acc: 0.484
+acc: 0.491
+acc: 0.497
+acc: 0.498
+acc: 0.5
+acc: 0.505
+acc: 0.5
+acc: 0.5
+swa: None
+ 
+
+config: 
+before_acc: 0.5
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.499
+acc: 0.495
+acc: 0.495
+acc: 0.494
+acc: 0.492
+acc: 0.492
+acc: 0.487
+acc: 0.488
+acc: 0.494
+acc: 0.491
+acc: 0.485
+acc: 0.486
+acc: 0.486
+acc: 0.484
+acc: 0.479
+acc: 0.488
+acc: 0.483
+acc: 0.485
+acc: 0.483
+acc: 0.488
+swa: None
+ 
+
+config: 
+before_acc: 0.488
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.481
+acc: 0.475
+acc: 0.471
+acc: 0.473
+acc: 0.47
+acc: 0.471
+acc: 0.473
+acc: 0.465
+acc: 0.47
+acc: 0.479
+acc: 0.479
+acc: 0.469
+acc: 0.47
+acc: 0.471
+acc: 0.468
+acc: 0.469
+acc: 0.474
+acc: 0.468
+acc: 0.462
+acc: 0.463
+swa: 0.47600000000000003
+ 
+
+config: 
+before_acc: 0.47600000000000003
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.477
+acc: 0.482
+acc: 0.489
+acc: 0.488
+acc: 0.483
+acc: 0.483
+acc: 0.486
+acc: 0.488
+acc: 0.488
+acc: 0.485
+acc: 0.474
+acc: 0.472
+acc: 0.469
+acc: 0.464
+acc: 0.464
+acc: 0.467
+acc: 0.464
+acc: 0.461
+acc: 0.463
+acc: 0.461
+swa: None
+ 
+
+config: 
+before_acc: 0.461
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.456
+acc: 0.457
+acc: 0.459
+acc: 0.455
+acc: 0.457
+acc: 0.457
+acc: 0.46
+acc: 0.462
+acc: 0.459
+acc: 0.458
+acc: 0.459
+acc: 0.455
+acc: 0.456
+acc: 0.45
+acc: 0.449
+acc: 0.45
+acc: 0.451
+acc: 0.452
+acc: 0.456
+acc: 0.455
+swa: None
+ 
+
+config: 
+before_acc: 0.455
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.455
+acc: 0.453
+acc: 0.445
+acc: 0.439
+acc: 0.439
+acc: 0.44
+acc: 0.444
+acc: 0.44
+acc: 0.444
+acc: 0.446
+acc: 0.444
+acc: 0.442
+acc: 0.436
+acc: 0.434
+acc: 0.44
+acc: 0.438
+acc: 0.44
+acc: 0.442
+acc: 0.445
+acc: 0.442
+swa: None
+ 
+
+config: 
+before_acc: 0.442
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.439
+acc: 0.437
+acc: 0.442
+acc: 0.437
+acc: 0.435
+acc: 0.435
+acc: 0.437
+acc: 0.431
+acc: 0.427
+acc: 0.426
+acc: 0.437
+acc: 0.435
+acc: 0.427
+acc: 0.435
+acc: 0.437
+acc: 0.433
+acc: 0.435
+acc: 0.434
+acc: 0.429
+acc: 0.434
+swa: None
+ 
+
+config: 
+before_acc: 0.434
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.43
+acc: 0.424
+acc: 0.429
+acc: 0.426
+acc: 0.432
+acc: 0.429
+acc: 0.427
+acc: 0.433
+acc: 0.429
+acc: 0.43
+acc: 0.43
+acc: 0.428
+acc: 0.432
+acc: 0.429
+acc: 0.433
+acc: 0.427
+acc: 0.433
+acc: 0.426
+acc: 0.425
+acc: 0.427
+swa: 0.428
+ 
+
+config: 
+before_acc: 0.428
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.436
+acc: 0.446
+acc: 0.451
+acc: 0.446
+acc: 0.451
+acc: 0.454
+acc: 0.449
+acc: 0.442
+acc: 0.441
+acc: 0.44
+acc: 0.436
+acc: 0.432
+acc: 0.432
+acc: 0.436
+acc: 0.431
+acc: 0.426
+acc: 0.425
+acc: 0.425
+acc: 0.418
+acc: 0.416
+swa: 0.42200000000000004
+ 
+
+config: 
+before_acc: 0.42200000000000004
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.435
+acc: 0.442
+acc: 0.433
+acc: 0.431
+acc: 0.424
+acc: 0.425
+acc: 0.424
+acc: 0.426
+acc: 0.424
+acc: 0.425
+acc: 0.423
+acc: 0.424
+acc: 0.425
+acc: 0.417
+acc: 0.418
+acc: 0.415
+acc: 0.416
+acc: 0.412
+acc: 0.409
+acc: 0.407
+swa: None
+ 
+
+config: 
+before_acc: 0.407
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.403
+acc: 0.41
+acc: 0.412
+acc: 0.413
+acc: 0.407
+acc: 0.402
+acc: 0.399
+acc: 0.403
+acc: 0.406
+acc: 0.404
+acc: 0.408
+acc: 0.409
+acc: 0.407
+acc: 0.403
+acc: 0.407
+acc: 0.407
+acc: 0.41
+acc: 0.405
+acc: 0.412
+acc: 0.407
+swa: None
+ 
+
+config: 
+before_acc: 0.407
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.411
+acc: 0.413
+acc: 0.408
+acc: 0.418
+acc: 0.416
+acc: 0.413
+acc: 0.412
+acc: 0.411
+acc: 0.407
+acc: 0.406
+acc: 0.404
+acc: 0.4
+acc: 0.404
+acc: 0.397
+acc: 0.399
+acc: 0.397
+acc: 0.396
+acc: 0.395
+acc: 0.402
+acc: 0.399
+swa: None
+ 
+
+config: 
+before_acc: 0.399
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.407
+acc: 0.404
+acc: 0.399
+acc: 0.397
+acc: 0.394
+acc: 0.401
+acc: 0.401
+acc: 0.403
+acc: 0.402
+acc: 0.398
+acc: 0.4
+acc: 0.402
+acc: 0.401
+acc: 0.404
+acc: 0.407
+acc: 0.401
+acc: 0.393
+acc: 0.398
+acc: 0.404
+acc: 0.397
+swa: None
+ 
+
+config: 
+before_acc: 0.397
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.403
+acc: 0.404
+acc: 0.4
+acc: 0.399
+acc: 0.392
+acc: 0.394
+acc: 0.399
+acc: 0.405
+acc: 0.404
+acc: 0.403
+acc: 0.402
+acc: 0.385
+acc: 0.392
+acc: 0.393
+acc: 0.402
+acc: 0.385
+acc: 0.395
+acc: 0.395
+acc: 0.392
+acc: 0.387
+swa: None
+ 
+
+config: 
+before_acc: 0.387
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.387
+acc: 0.387
+acc: 0.382
+acc: 0.383
+acc: 0.38
+acc: 0.387
+acc: 0.383
+acc: 0.386
+acc: 0.382
+acc: 0.384
+acc: 0.386
+acc: 0.386
+acc: 0.386
+acc: 0.382
+acc: 0.381
+acc: 0.376
+acc: 0.38
+acc: 0.368
+acc: 0.362
+acc: 0.367
+swa: None
+ 
+
+config: 
+before_acc: 0.367
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.362
+acc: 0.363
+acc: 0.363
+acc: 0.371
+acc: 0.368
+acc: 0.363
+acc: 0.366
+acc: 0.361
+acc: 0.364
+acc: 0.367
+acc: 0.362
+acc: 0.363
+acc: 0.363
+acc: 0.367
+acc: 0.363
+acc: 0.365
+acc: 0.36
+acc: 0.366
+acc: 0.366
+acc: 0.362
+swa: None
+ 
+
+config: 
+before_acc: 0.362
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.367
+acc: 0.359
+acc: 0.36
+acc: 0.367
+acc: 0.363
+acc: 0.357
+acc: 0.359
+acc: 0.364
+acc: 0.367
+acc: 0.359
+acc: 0.359
+acc: 0.357
+acc: 0.358
+acc: 0.355
+acc: 0.354
+acc: 0.349
+acc: 0.349
+acc: 0.35
+acc: 0.35
+acc: 0.352
+swa: None
+ 
+
+config: 
+before_acc: 0.352
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.354
+acc: 0.351
+acc: 0.344
+acc: 0.344
+acc: 0.344
+acc: 0.348
+acc: 0.348
+acc: 0.341
+acc: 0.346
+acc: 0.344
+acc: 0.343
+acc: 0.343
+acc: 0.334
+acc: 0.337
+acc: 0.339
+acc: 0.334
+acc: 0.339
+acc: 0.338
+acc: 0.332
+acc: 0.34
+swa: None
+ 
+
+config: 
+before_acc: 0.34
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.334
+acc: 0.332
+acc: 0.341
+acc: 0.337
+acc: 0.335
+acc: 0.332
+acc: 0.334
+acc: 0.334
+acc: 0.333
+acc: 0.328
+acc: 0.329
+acc: 0.33
+acc: 0.333
+acc: 0.335
+acc: 0.324
+acc: 0.326
+acc: 0.327
+acc: 0.331
+acc: 0.335
+acc: 0.333
+swa: None
+ 
+
+config: 
+before_acc: 0.333
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.328
+acc: 0.327
+acc: 0.332
+acc: 0.324
+acc: 0.321
+acc: 0.325
+acc: 0.324
+acc: 0.329
+acc: 0.325
+acc: 0.329
+acc: 0.326
+acc: 0.327
+acc: 0.329
+acc: 0.321
+acc: 0.319
+acc: 0.322
+acc: 0.315
+acc: 0.329
+acc: 0.319
+acc: 0.319
+swa: None
+ 
+
+config: 
+before_acc: 0.319
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.316
+acc: 0.315
+acc: 0.313
+acc: 0.309
+acc: 0.319
+acc: 0.32
+acc: 0.312
+acc: 0.308
+acc: 0.31
+acc: 0.314
+acc: 0.309
+acc: 0.303
+acc: 0.314
+acc: 0.309
+acc: 0.307
+acc: 0.313
+acc: 0.307
+acc: 0.304
+acc: 0.304
+acc: 0.3
+swa: None
+ 
+
+config: 
+before_acc: 0.3
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.308
+acc: 0.302
+acc: 0.303
+acc: 0.304
+acc: 0.297
+acc: 0.299
+acc: 0.301
+acc: 0.297
+acc: 0.292
+acc: 0.297
+acc: 0.296
+acc: 0.294
+acc: 0.291
+acc: 0.301
+acc: 0.288
+acc: 0.29
+acc: 0.289
+acc: 0.293
+acc: 0.293
+acc: 0.293
+swa: None
+ 
+
+config: 
+before_acc: 0.293
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.289
+acc: 0.288
+acc: 0.283
+acc: 0.286
+acc: 0.284
+acc: 0.278
+acc: 0.289
+acc: 0.281
+acc: 0.285
+acc: 0.278
+acc: 0.288
+acc: 0.284
+acc: 0.282
+acc: 0.278
+acc: 0.276
+acc: 0.273
+acc: 0.278
+acc: 0.278
+acc: 0.285
+acc: 0.277
+swa: None
+ 
+
+config: 
+before_acc: 0.277
+{'layer_name': None, 'ep': 20, 'lr': 1e-06, 'wd': 0.01, 'tw': True, 'twe': [], 'tc': True, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+acc: 0.275
+acc: 0.266
+acc: 0.274
+acc: 0.259
+acc: 0.275
+acc: 0.27
+acc: 0.265
+acc: 0.267
+acc: 0.265
+acc: 0.265
+acc: 0.263
+acc: 0.264
+acc: 0.27
+acc: 0.254
+acc: 0.26
+acc: 0.253
+acc: 0.261
+acc: 0.259
+acc: 0.261
+acc: 0.257
+swa: None
