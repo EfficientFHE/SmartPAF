@@ -122,14 +122,72 @@ def CT_train(sign_type, sign_scale, scale_path, sign_nest_dict,batch_size, input
         print("save: " + folder_name + file_name)
         print("\n")
 
+def CT_train_SiLU(sign_type, sign_scale, scale_path, sign_nest_dict,batch_size, input_data_dirctory, output_floder_suffix):
+    sign_param_dict = Sign_parameter_generator().param_nest_dict[sign_type]
+    sigmoid = Sigmoid_minmax_layer(coef=sign_param_dict["coef"], degree=sign_param_dict["degree"],scale=sign_scale)
+    my_model = SiLU_minmax_layer(sigmoid=sigmoid)
+    ref_model = nn.SiLU()
+
+    optimizer = torch.optim.Adam(params=my_model.parameters(), lr=0.01, weight_decay=0)
+    scheduler = ReduceLROnPlateau(optimizer, 'min', patience = 2, threshold= 1e-8, min_lr= 1e-4)
+    train_path = "train/"
+    val_path = "val/"
+    data_type = "_input"
+    print(file_name)
+    train_data = torch.rand(90000,4)
+    valid_data = torch.rand(10000,4)
+    for epoch_i in range(40):
+        train_loss_meter = AverageMeter("train loss")
+        val_loss_meter = AverageMeter("val loss")   
+        #train
+        for batch_i in range(int(train_data.shape[0] / batch_size)):
+            x = train_data[batch_i * batch_size : (batch_i + 1) * batch_size].to("cuda:0")
+            target_y = ref_model.to("cuda:0").forward(x)
+            actual_y = my_model.forward(x)
+            loss_fun = nn.MSELoss()
+            my_model.zero_grad()
+            loss = loss_fun(actual_y, target_y)
+            train_loss_meter.update(val=float(loss.cpu().item()), n=x.shape[0])
+            loss.backward()
+            optimizer.step()
+        train_loss = train_loss_meter.avg
+
+        #valid
+        for batch_i in range(int(valid_data.shape[0] / batch_size)):
+            x = valid_data[batch_i * batch_size : (batch_i + 1) * batch_size].to("cuda:0")
+            target_y = ref_model.to("cuda:0").forward(x)
+            actual_y = my_model.forward(x)
+            loss_fun = nn.MSELoss()
+            loss = loss_fun(actual_y, target_y)
+            val_loss_meter.update(val=float(loss.cpu().item()), n=x.shape[0])
+        val_loss = val_loss_meter.avg
+    
+        scheduler.step(val_loss)
+
+        print(
+            f"Epoch:{epoch_i + 1}"
+            + f" Train Loss:{train_loss:.10f}"
+            + f" Val Loss: {val_loss:.10f}"
+        )
+
+    folder_name = "CT_" + sign_type + "_S" + output_floder_suffix+"_40s/"
+    coef_save_dirctory = input_data_dirctory + folder_name
+    if(not os.path.exists(coef_save_dirctory)):
+            os.mkdir(coef_save_dirctory)
+    file_name = "SiLU_test" + "_coef.pt"
+    my_model.sign.save_coef(coef_save_dirctory + file_name)
+    print("save: " + folder_name + file_name)
+    print("\n")
+
 
 if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("--model", type=str,choices=["vgg19_bn", "resnet18", "resnet32"])
     parser.add_argument("--dataset", type=str,choices=["cifar10", "cifar100", "imagenet_1k"])
-    parser.add_argument("-st","--sign_type", type=str, choices=["a7", "2f12g1", "f1g2", "f2g2", "f2g3"])
+    parser.add_argument("-st","--sign_type", type=str, choices=["a7", "2f12g1", "f1g2", "f2g2", "f2g3", "f1", "f2"])
     parser.add_argument("-dc","--data_collection", type=bool, default=False, choices=[True , False])
     parser.add_argument("-wd", "--working_directory", type=str, default="./working_directory/")
+    parser.add_argument("-silu", "--silu_test", type=bool, default=False, choices=[True , False])
 
     args = parser.parse_args()
     print(args)
@@ -145,20 +203,9 @@ if __name__ == "__main__":
             valid_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "valid", data_dir = global_config["Global"]["dataset_dirctory"] ),
             train_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "train", data_dir = global_config["Global"]["dataset_dirctory"] ),
             split_point = split_point, input_data_save_path = args.working_directory)
-        
-        '''
-        if(args.dataset == "cifar10" or args.dataset == "cifar100"):
-            data_collection(model = model,
-                        valid_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "valid", data_dir = global_config["Global"]["dataset_dirctory"] ),
-                        train_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "train", data_dir = global_config["Global"]["dataset_dirctory"] ),
-                        split_point = split_point, input_data_save_path = args.working_directory)
-        elif(args.dataset == "imagenet_1k"):
-            data_collection(model = model,
-                        valid_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "valid", data_dir = os.path.join(global_config["Global"]["dataset_dirctory"], args.dataset) ),
-                        train_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "train", data_dir = os.path.join(global_config["Global"]["dataset_dirctory"], args.dataset) ),
-                        split_point = split_point, input_data_save_path = args.working_directory)
-        '''
-        
+    elif(args.silu_test):
+         CT_train_SiLU(sign_type = args.sign_type, sign_scale = 0, scale_path= None, sign_nest_dict = None,batch_size = 100,
+                 input_data_dirctory = args.working_directory , output_floder_suffix= "fix")
     else:
         nest_dict = generate_sign_nest_dict(model) 
         CT_train(sign_type = args.sign_type, sign_scale = 0, scale_path= None, sign_nest_dict = nest_dict,batch_size = batch_size,
