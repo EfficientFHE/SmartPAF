@@ -300,7 +300,7 @@ def train_group(model, valid_data_loader, train_data_loader, config, relu_list):
     learning_rate = config["lr"]
     weight_decay = config["wd"]
     learning_rate_decay = False
-    no_bn_track = True
+    no_bn_track = False
 
     train_weight = config["tw"]
     train_weight_exception = config["twe"]
