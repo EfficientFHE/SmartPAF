@@ -511,6 +511,17 @@ def train_layer(my_model = None, layer_name = None, sign_nest_dict = None, valid
                 swa_log = None
             print_log_to_file( log_file,config_backup, train_log, layer_best_type, before_acc, swa_log)
         group_id += 1
+        param_config = {"layer_name": layer_name,
+            "ep" : group_epochs,
+            "lr" : lr_c,
+            "wd" : 0.01, 
+            "tw" : True, 
+            "twe": [], 
+            "tc" : True, 
+            "tce": [], 
+            "do" : False,
+            "lh" : 0, 
+            "lt" : "n"}
             
 
 
