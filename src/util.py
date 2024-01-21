@@ -419,7 +419,7 @@ class Sign_parameter_generator():
         #f2g2
         param_dict= {"name":str, "coef": torch.Tensor, "degree": list, "scale" : Union[int, torch.Tensor]}
         param_dict["name"] = "f2g2"
-        coeflist = [[1.875, -1.25,  0.375],
+        coeflist = [[1.875, -1.25, 0.375],
             [3.255859375,  -5.96484375,  3.70703125]]
         param_dict["coef"] = torch.tensor(coeflist)
         param_dict["degree"] = [3,3]
@@ -436,6 +436,25 @@ class Sign_parameter_generator():
         param_dict["degree"] = [2,3]
         param_dict["scale"] = 0
         self.param_nest_dict[param_dict["name"]] =  copy.deepcopy(param_dict)
+
+        #f1
+        param_dict= {"name":str, "coef": torch.Tensor, "degree": list, "scale" : Union[int, torch.Tensor]}
+        param_dict["name"] = "f1"
+        coeflist = [[1.5, -0.5,  0]]
+        param_dict["coef"] = torch.tensor(coeflist)
+        param_dict["degree"] = [2]
+        param_dict["scale"] = 0
+        self.param_nest_dict[param_dict["name"]] =  copy.deepcopy(param_dict)
+
+        #f2
+        param_dict= {"name":str, "coef": torch.Tensor, "degree": list, "scale" : Union[int, torch.Tensor]}
+        param_dict["name"] = "f2"
+        coeflist = [[1.875, -1.25,  0.375]]
+        param_dict["coef"] = torch.tensor(coeflist)
+        param_dict["degree"] = [3]
+        param_dict["scale"] = 0
+        self.param_nest_dict[param_dict["name"]] =  copy.deepcopy(param_dict)
+        
         
 
 
