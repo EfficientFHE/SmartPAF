@@ -512,4 +512,58 @@ if __name__ == "__main__":
         else:
              raise Exception("dataset error")
 
-           
+
+def sig_odd(x):
+    return (1/(1 + np.exp(-x))) -0.5
+
+def sigmoid(x):
+ return sig_odd(x) + 0.5
+
+def get_sample_points(func, start,end, size = 10000):
+    xs = np.linspace(start=start, stop = end, num=size)
+    ys = []
+    for x in xs:
+        ys.append(func(x))
+
+    return xs, ys
+
+def remove_even_and_reverse(coeflist):
+    degree = len(coeflist) - 1
+    new_list = []
+    for i in range(len(coeflist)):
+        if degree % 2 == 0:
+            coeflist[i] = 0
+        else:
+         new_list.insert(0, coeflist[i])
+        degree -= 1
+    return new_list
+
+def remove_even(coeflist):
+    degree = len(coeflist) - 1
+    for i in range(len(coeflist)):
+        if degree % 2 == 0:
+            coeflist[i] = 0
+        degree -= 1
+    return coeflist
+
+
+def generate_init_coeffcients(func, degree, start, end, size = 10000, scale = 1):
+    poly_range = scale * (end - start)
+    mid_point = (start + end)/2
+    start = mid_point - poly_range/2
+    end = mid_point + poly_range/2
+    x, y = get_sample_points(func, start, end, size)
+    coef = np.polyfit(x, y , degree)
+    coef = remove_even_and_reverse(coef)
+    return coef
+
+
+def generate_init_coeffcients_numpy(func, degree, start, end, size = 10000, scale = 1):
+    poly_range = scale * (end - start)
+    mid_point = (start + end)/2
+    start = mid_point - poly_range/2
+    end = mid_point + poly_range/2
+    x, y = get_sample_points(func, start, end, size)
+    coef = np.polyfit(x, y , degree)
+    coef = remove_even(coef)
+    return coef       
