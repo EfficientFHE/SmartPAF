@@ -102,7 +102,14 @@ def generate_sign_nest_dict(model: nn.modules):
             blank_bn = None
             weight = []
             sign_nest_dict[name] = relu_dict
-        elif("Conv" in class_name) or ("BatchNorm" in class_name) or ("Linear" in class_name):
+        elif "Swish" in class_name:
+            relu_dict = {"name" : str, "type": str}
+            relu_dict["name"] = name
+            relu_dict["type"] = "ReLU"
+            relu_dict["up_weight"] = weight
+            weight = []
+            sign_nest_dict[name] = relu_dict
+        elif("Conv2d" in class_name) or ("BatchNorm" in class_name) or ("Linear" in class_name):
             weight.append(name)
             if("BatchNorm" in class_name):
                 blank_bn = name
