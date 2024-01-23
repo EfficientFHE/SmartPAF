@@ -325,3 +325,94 @@ class HerPN2d(nn.Module):
             result = torch.add(result, bn(poly))
 
         return result
+    
+
+class Sigmoid_minmax_layer(nn.Module):
+    def __init__(self, coef, degree, scale = 0, scale_ratio = 1, train_coef = True, param_scale = False):
+        super().__init__()
+        self.scale_ratio = scale_ratio
+        self.degree = degree
+        self.coeflist = nn.Parameter(coef.to("cuda:0"), requires_grad=train_coef).to("cuda:0")
+        self.param_scale = param_scale
+        if(self.param_scale):
+            self.scale =  nn.Parameter(torch.tensor(scale).to("cuda:0"), requires_grad=False).to("cuda:0")
+        else:
+            self.scale = scale
+            
+
+    def forward(self, x):
+
+        if(self.scale == 0):
+            s_max = torch.max(x).item()
+            s_min = torch.min(x).item()
+            scale = max(abs(s_max), abs(s_min)) * self.scale_ratio
+        else:
+            if(self.param_scale):
+                scale = self.scale.item() * self.scale_ratio
+            else:
+                scale = self.scale * self.scale_ratio
+
+
+        # x_bk = torch.clone(x).to(x.device)
+        x = torch.divide(x, scale)
+
+        coeflist = self.coeflist
+
+        for compositive_id in range(coeflist.shape[0]):
+
+            degree_num = self.degree[compositive_id]
+
+            # x_degree_1 = torch.clone(x).to(x_bk.device)
+            x_degree_2 = torch.mul(x, x)
+
+            # out = torch.clone(x).to(x_bk.device)
+            out = torch.mul(x, coeflist[compositive_id][0]) # x^1 * coe[1]
+
+            for i in range(1, degree_num):
+                x = torch.mul(x, x_degree_2)
+                partial_out = torch.mul(x, coeflist[compositive_id][i])
+                out = torch.add(out, partial_out)
+            x = torch.clone(out).to(x.device)
+        
+        result = (out + 0.5).to(x.device)
+        del x
+
+        return result
+    
+    def set_coef_grad(self, grad):
+        self.coeflist.requires_grad = grad
+
+    def set_scale_grad(self, grad):
+        if(self.param_scale):
+            self.scale.requires_grad = grad
+
+    def save_coef(self, path_name):
+        torch.save(self.coeflist, path_name)
+
+    def save_scale(self, path_name):
+        if(self.param_scale):
+            torch.save(self.scale, path_name)
+
+class SiLU_minmax_layer(nn.Module):
+    def __init__(self, sigmoid:nn.Module):
+        super().__init__()
+        self.sigmoid = sigmoid
+
+    def forward(self, x ):
+
+
+        result = torch.mul(x, self.sigmoid.forward(x))
+        return result
+    
+class SiLU_minmax_bn_layer(nn.Module):
+    def __init__(self, sigmoid:nn.Module, num_features):
+        super().__init__()
+        self.sigmoid = sigmoid
+        self.bn = nn.BatchNorm2d(num_features).to("cuda:0")
+
+    def forward(self, x ):
+
+
+        result = torch.mul(x, self.sigmoid.forward(x))
+        result = self.bn(result)
+        return result
