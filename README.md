@@ -141,14 +141,7 @@ Jingtian Dang (dangjingtian@gatech.edu)
 
 Jianming Tong (jianming.tong@gatech.edu)
 
-Tushar Krishna (tushar@ece.gatech.edu)
-
-# Technical Contributors
-Jingtian Dang (dangjingtian@gatech.edu)
-
-Jianming Tong (jianming.tong@gatech.edu)
-
-Tushar Krishna (tushar@ece.gatech.edu)
+Tushar Krishna 
 
 # Citations
 ```
