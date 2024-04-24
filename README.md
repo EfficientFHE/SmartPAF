@@ -138,12 +138,16 @@ python3 ./SS.py --model vgg19_bn --dataset imagenet_1k -wd ../vgg19_imagenet1k/ 
 
 # Maintainer
 Jingtian Dang (dangjingtian@gatech.edu)
+
 Jianming Tong (jianming.tong@gatech.edu)
+
 Tushar Krishna (tushar@ece.gatech.edu)
 
 # Technical Contributors
 Jingtian Dang (dangjingtian@gatech.edu)
+
 Jianming Tong (jianming.tong@gatech.edu)
+
 Tushar Krishna (tushar@ece.gatech.edu)
 
 # Citations
