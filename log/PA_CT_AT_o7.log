@@ -1,0 +1,4 @@
+Namespace(model='mobileVitV2', dataset='imagenet_1k', sign_type='polyfit', working_directory='/home/jianming/work/SmartPAF/cvnet_work2/', start_layer_name='None', max_counter=1000, learning_rate=0.0001)
+2024-01-22 18:02:28 - [93m[1mDEBUG   [0m - Cannot load internal arguments, skipping.
+
+

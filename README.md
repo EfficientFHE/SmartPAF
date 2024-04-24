@@ -1,4 +1,5 @@
-# ACCURATE LOW-DEGREE POLYNOMIAL APPROXIMATION OF NON-POLYNOMIAL OPERATORS FOR FAST PRIVATE INFERENCE IN HOMOMORPHIC ENCRYPTION
+# SmartPAF: Accurate Low-Degree Polynomial Approximation of Non-polynomial Operators for Fast Private Inference in Homomorphic Encryption
+
 ## Motivation
 Secure Fully Homomorphic Encryption (FHE) based Machine Learning Inference Converts Non-polynomial Operators (ReLU/MaxPooling) into Polynomial Approximation Functions (PAF)
 ![](image/secure_ML_inference.png)
@@ -133,4 +134,26 @@ python3 ./CT.py --model vgg19_bn --dataset imagenet_1k -wd ../vgg19_bn_imagenet1
 python3 ./PA_AT.py --model vgg19_bn --dataset imagenet_1k -wd ../vgg19_bn_imagenet1k/ -st 2f12g1
 # Statistic Scale.
 python3 ./SS.py --model vgg19_bn --dataset imagenet_1k -wd ../vgg19_imagenet1k/ -st 2f12g1
+```
+
+# Maintainer
+Jingtian Dang (dangjingtian@gatech.edu)
+Jianming Tong (jianming.tong@gatech.edu)
+Tushar Krishna (tushar@ece.gatech.edu)
+
+# Technical Contributors
+Jingtian Dang (dangjingtian@gatech.edu)
+Jianming Tong (jianming.tong@gatech.edu)
+Tushar Krishna (tushar@ece.gatech.edu)
+
+# Citations
+```
+@misc{tong2024accurate,
+      title={Accurate Low-Degree Polynomial Approximation of Non-polynomial Operators for Fast Private Inference in Homomorphic Encryption}, 
+      author={Jianming Tong and Jingtian Dang and Anupam Golder and Callie Hao and Arijit Raychowdhury and Tushar Krishna},
+      year={2024},
+      eprint={2404.03216},
+      archivePrefix={arXiv},
+      primaryClass={cs.CR}
+}
 ```

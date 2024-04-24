@@ -1,0 +1,3182 @@
+Namespace(model='mobileVitV2', dataset='imagenet_1k', sign_type='polyfit', working_directory='/home/jianming/work/SmartPAF/cvnet_work/', start_layer_name='None', max_counter=1000, learning_rate=0.0001)
+2024-01-22 16:09:36 - [93m[1mDEBUG   [0m - Cannot load internal arguments, skipping.
+
+
+MobileViTv2(
+  (conv_1): Conv2d(3, 16, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False, normalization=BatchNorm2d, activation=Swish)
+  (layer_1): Sequential(
+    (0): InvertedResidual(in_channels=16, out_channels=32, stride=1, exp=2, dilation=1, skip_conn=False)
+  )
+  (layer_2): Sequential(
+    (0): InvertedResidual(in_channels=32, out_channels=64, stride=2, exp=2, dilation=1, skip_conn=False)
+    (1): InvertedResidual(in_channels=64, out_channels=64, stride=1, exp=2, dilation=1, skip_conn=True)
+  )
+  (layer_3): Sequential(
+    (0): InvertedResidual(in_channels=64, out_channels=128, stride=2, exp=2, dilation=1, skip_conn=False)
+    (1): MobileViTBlockv2(
+    	 Local representations
+    		 Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128, bias=False, normalization=BatchNorm2d, activation=Swish)
+    		 Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    	 Global representations with patch size of 2x2
+    		 LinearAttnFFN(embed_dim=64, ffn_dim=128, dropout=0.0, ffn_dropout=0.0, attn_fn=LinearSelfAttention(embed_dim=64, attn_dropout=0.0), norm_layer=layer_norm_2d)
+    		 LinearAttnFFN(embed_dim=64, ffn_dim=128, dropout=0.0, ffn_dropout=0.0, attn_fn=LinearSelfAttention(embed_dim=64, attn_dropout=0.0), norm_layer=layer_norm_2d)
+    		 LayerNorm2D_NCHW(num_channels=64, eps=1e-05, affine=True)
+    		 Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False, normalization=BatchNorm2d)
+    )
+  )
+  (layer_4): Sequential(
+    (0): InvertedResidual(in_channels=128, out_channels=192, stride=2, exp=2, dilation=1, skip_conn=False)
+    (1): MobileViTBlockv2(
+    	 Local representations
+    		 Conv2d(192, 192, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=192, bias=False, normalization=BatchNorm2d, activation=Swish)
+    		 Conv2d(192, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    	 Global representations with patch size of 2x2
+    		 LinearAttnFFN(embed_dim=96, ffn_dim=192, dropout=0.0, ffn_dropout=0.0, attn_fn=LinearSelfAttention(embed_dim=96, attn_dropout=0.0), norm_layer=layer_norm_2d)
+    		 LinearAttnFFN(embed_dim=96, ffn_dim=192, dropout=0.0, ffn_dropout=0.0, attn_fn=LinearSelfAttention(embed_dim=96, attn_dropout=0.0), norm_layer=layer_norm_2d)
+    		 LinearAttnFFN(embed_dim=96, ffn_dim=192, dropout=0.0, ffn_dropout=0.0, attn_fn=LinearSelfAttention(embed_dim=96, attn_dropout=0.0), norm_layer=layer_norm_2d)
+    		 LinearAttnFFN(embed_dim=96, ffn_dim=192, dropout=0.0, ffn_dropout=0.0, attn_fn=LinearSelfAttention(embed_dim=96, attn_dropout=0.0), norm_layer=layer_norm_2d)
+    		 LayerNorm2D_NCHW(num_channels=96, eps=1e-05, affine=True)
+    		 Conv2d(96, 192, kernel_size=(1, 1), stride=(1, 1), bias=False, normalization=BatchNorm2d)
+    )
+  )
+  (layer_5): Sequential(
+    (0): InvertedResidual(in_channels=192, out_channels=256, stride=2, exp=2, dilation=1, skip_conn=False)
+    (1): MobileViTBlockv2(
+    	 Local representations
+    		 Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256, bias=False, normalization=BatchNorm2d, activation=Swish)
+    		 Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    	 Global representations with patch size of 2x2
+    		 LinearAttnFFN(embed_dim=128, ffn_dim=256, dropout=0.0, ffn_dropout=0.0, attn_fn=LinearSelfAttention(embed_dim=128, attn_dropout=0.0), norm_layer=layer_norm_2d)
+    		 LinearAttnFFN(embed_dim=128, ffn_dim=256, dropout=0.0, ffn_dropout=0.0, attn_fn=LinearSelfAttention(embed_dim=128, attn_dropout=0.0), norm_layer=layer_norm_2d)
+    		 LinearAttnFFN(embed_dim=128, ffn_dim=256, dropout=0.0, ffn_dropout=0.0, attn_fn=LinearSelfAttention(embed_dim=128, attn_dropout=0.0), norm_layer=layer_norm_2d)
+    		 LayerNorm2D_NCHW(num_channels=128, eps=1e-05, affine=True)
+    		 Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1), bias=False, normalization=BatchNorm2d)
+    )
+  )
+  (conv_1x1_exp): Identity
+  (classifier): Sequential(
+    (0): GlobalPool(type=mean)
+    (1): LinearLayer(in_features=256, out_features=1000, bias=True, channel_first=False)
+  )
+)
+conv_1.block.act
+conv_1.block.act_coef.pt
+conv_1.block.act
+{'coef': ['conv_1.block.act'], 'weight': ['conv_1.block.conv', 'conv_1.block.norm']}
+Results: loss=1.74018,	 top1=61.0000,	 top5=85.2000
+replace_acc: 61.0
+ 
+
+{'layer_name': 'conv_1.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['conv_1.block.act'], 'do': False, 'lh': 0, 'lt': 'n'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.61
+ 
+
+Name: conv_1.block.act
+Results: loss=1.74018,	 top1=61.0000,	 top5=85.2000
+conv_1.block.act: train
+1e-10
+0.01
+adam
+Layer name: conv_1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['conv_1.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:0.0473 Val Loss: 0.0436 Train Accuracy: 0.5740 Validation Accuracy: 0.6090
+Epoch:2 Train Loss:0.0476 Val Loss: 0.0459 Train Accuracy: 0.5730 Validation Accuracy: 0.5920
+Epoch:3 Train Loss:0.0480 Val Loss: 0.0440 Train Accuracy: 0.5790 Validation Accuracy: 0.6070
+Epoch:4 Train Loss:0.0514 Val Loss: 0.0449 Train Accuracy: 0.5600 Validation Accuracy: 0.6040
+Epoch:5 Train Loss:0.0472 Val Loss: 0.0436 Train Accuracy: 0.5760 Validation Accuracy: 0.6070
+Epoch:6 Train Loss:0.0473 Val Loss: 0.0444 Train Accuracy: 0.5810 Validation Accuracy: 0.6050
+Epoch:7 Train Loss:0.0467 Val Loss: 0.0436 Train Accuracy: 0.5770 Validation Accuracy: 0.6070
+Epoch:8 Train Loss:0.0467 Val Loss: 0.0435 Train Accuracy: 0.5800 Validation Accuracy: 0.6130
+Epoch:9 Train Loss:0.0467 Val Loss: 0.0434 Train Accuracy: 0.5840 Validation Accuracy: 0.6110
+Epoch:10 Train Loss:0.0467 Val Loss: 0.0442 Train Accuracy: 0.5820 Validation Accuracy: 0.6070
+Epoch:11 Train Loss:0.0468 Val Loss: 0.0435 Train Accuracy: 0.5790 Validation Accuracy: 0.6090
+Epoch:12 Train Loss:0.0465 Val Loss: 0.0439 Train Accuracy: 0.5850 Validation Accuracy: 0.6040
+Epoch:13 Train Loss:0.0467 Val Loss: 0.0434 Train Accuracy: 0.5800 Validation Accuracy: 0.6110
+Epoch:14 Train Loss:0.0467 Val Loss: 0.0440 Train Accuracy: 0.5810 Validation Accuracy: 0.6060
+Epoch:15 Train Loss:0.0469 Val Loss: 0.0438 Train Accuracy: 0.5820 Validation Accuracy: 0.6040
+Epoch:16 Train Loss:0.0466 Val Loss: 0.0433 Train Accuracy: 0.5820 Validation Accuracy: 0.6140
+Epoch:17 Train Loss:0.0465 Val Loss: 0.0440 Train Accuracy: 0.5850 Validation Accuracy: 0.6050
+Epoch:18 Train Loss:0.0469 Val Loss: 0.0442 Train Accuracy: 0.5830 Validation Accuracy: 0.6050
+Epoch:19 Train Loss:0.0473 Val Loss: 0.0440 Train Accuracy: 0.5810 Validation Accuracy: 0.6050
+Epoch:20 Train Loss:0.0467 Val Loss: 0.0432 Train Accuracy: 0.5800 Validation Accuracy: 0.6140
+Results: loss=1.72998,	 top1=61.4000,	 top5=85.4000
+Results: loss=1.52791,	 top1=65.1000,	 top5=86.7000
+
+ 
+
+Validation result:
+	before: (1.7401755833625794, 61.0, 85.2)
+	train: (1.7299777889251708, 61.4, 85.4)
+	swa: (1.5279073667526246, 65.1, 86.7)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'conv_1.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['conv_1.block.act'], 'do': False, 'lh': 0, 'lt': 's'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.6509999999999999
+ 
+
+Name: conv_1.block.act
+Results: loss=1.52791,	 top1=65.1000,	 top5=86.7000
+conv_1.block.act: train
+1e-10
+0.01
+adam
+Layer name: conv_1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['conv_1.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:0.0414 Val Loss: 0.0382 Train Accuracy: 0.6150 Validation Accuracy: 0.6480
+Epoch:2 Train Loss:0.0414 Val Loss: 0.0383 Train Accuracy: 0.6200 Validation Accuracy: 0.6520
+Epoch:3 Train Loss:0.0420 Val Loss: 0.0385 Train Accuracy: 0.6160 Validation Accuracy: 0.6520
+Epoch:4 Train Loss:0.0415 Val Loss: 0.0384 Train Accuracy: 0.6120 Validation Accuracy: 0.6490
+Epoch:5 Train Loss:0.0425 Val Loss: 0.0386 Train Accuracy: 0.6070 Validation Accuracy: 0.6500
+Epoch:6 Train Loss:0.0420 Val Loss: 0.0389 Train Accuracy: 0.6120 Validation Accuracy: 0.6450
+Epoch:7 Train Loss:0.0421 Val Loss: 0.0382 Train Accuracy: 0.6090 Validation Accuracy: 0.6510
+Epoch:8 Train Loss:0.0419 Val Loss: 0.0395 Train Accuracy: 0.6090 Validation Accuracy: 0.6390
+Epoch:9 Train Loss:0.0414 Val Loss: 0.0382 Train Accuracy: 0.6170 Validation Accuracy: 0.6500
+Epoch:10 Train Loss:0.0416 Val Loss: 0.0384 Train Accuracy: 0.6140 Validation Accuracy: 0.6490
+Epoch:11 Train Loss:0.0426 Val Loss: 0.0398 Train Accuracy: 0.6150 Validation Accuracy: 0.6440
+Epoch:12 Train Loss:0.0416 Val Loss: 0.0397 Train Accuracy: 0.6170 Validation Accuracy: 0.6480
+Epoch:13 Train Loss:0.0423 Val Loss: 0.0399 Train Accuracy: 0.6080 Validation Accuracy: 0.6390
+Epoch:14 Train Loss:0.0418 Val Loss: 0.0383 Train Accuracy: 0.6130 Validation Accuracy: 0.6510
+Epoch:15 Train Loss:0.0414 Val Loss: 0.0386 Train Accuracy: 0.6160 Validation Accuracy: 0.6450
+Epoch:16 Train Loss:0.0413 Val Loss: 0.0385 Train Accuracy: 0.6170 Validation Accuracy: 0.6470
+Epoch:17 Train Loss:0.0424 Val Loss: 0.0387 Train Accuracy: 0.6110 Validation Accuracy: 0.6470
+Epoch:18 Train Loss:0.0418 Val Loss: 0.0385 Train Accuracy: 0.6100 Validation Accuracy: 0.6480
+Epoch:19 Train Loss:0.0412 Val Loss: 0.0386 Train Accuracy: 0.6180 Validation Accuracy: 0.6470
+Epoch:20 Train Loss:0.0421 Val Loss: 0.0385 Train Accuracy: 0.6090 Validation Accuracy: 0.6480
+Results: loss=1.54122,	 top1=64.8000,	 top5=86.7000
+Results: loss=1.51489,	 top1=64.9000,	 top5=86.7000
+
+ 
+
+Validation result:
+	before: (1.5279073667526246, 65.1, 86.7)
+	train: (1.541220986843109, 64.8, 86.7)
+	swa: (1.5148893356323243, 64.9, 86.7)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'conv_1.block.act', 'ep': 20, 'lr': 0.0001, 'wd': 0.1, 'tw': False, 'twe': ['conv_1.block.conv', 'conv_1.block.norm'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'b'}
+good: False
+train_coef: False
+need_AT: False
+improvement:  False
+best_acc: 0.652
+ 
+
+Name: conv_1.block.act
+Results: loss=1.53250,	 top1=65.2000,	 top5=86.7000
+conv_1.block.act: train
+0.0001
+0.1
+adam
+Layer name: conv_1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 0.0001
+	Weight decay: 0.1
+	Learning rate decay: False
+Train weight: False
+	Exception:['conv_1.block.conv', 'conv_1.block.norm']
+Train coefficient: False
+	Exception: []
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:0.0413 Val Loss: 0.0382 Train Accuracy: 0.6110 Validation Accuracy: 0.6420
+Epoch:2 Train Loss:0.0411 Val Loss: 0.0381 Train Accuracy: 0.6130 Validation Accuracy: 0.6500
+Epoch:3 Train Loss:0.0411 Val Loss: 0.0381 Train Accuracy: 0.6180 Validation Accuracy: 0.6510
+Epoch:4 Train Loss:0.0410 Val Loss: 0.0381 Train Accuracy: 0.6120 Validation Accuracy: 0.6520
+Epoch:5 Train Loss:0.0410 Val Loss: 0.0383 Train Accuracy: 0.6160 Validation Accuracy: 0.6570
+Epoch:6 Train Loss:0.0410 Val Loss: 0.0384 Train Accuracy: 0.6180 Validation Accuracy: 0.6540
+Epoch:7 Train Loss:0.0411 Val Loss: 0.0385 Train Accuracy: 0.6180 Validation Accuracy: 0.6540
+Epoch:8 Train Loss:0.0411 Val Loss: 0.0385 Train Accuracy: 0.6160 Validation Accuracy: 0.6550
+Epoch:9 Train Loss:0.0411 Val Loss: 0.0385 Train Accuracy: 0.6220 Validation Accuracy: 0.6540
+Epoch:10 Train Loss:0.0411 Val Loss: 0.0385 Train Accuracy: 0.6240 Validation Accuracy: 0.6540
+Epoch:11 Train Loss:0.0411 Val Loss: 0.0386 Train Accuracy: 0.6220 Validation Accuracy: 0.6510
+Epoch:12 Train Loss:0.0412 Val Loss: 0.0386 Train Accuracy: 0.6210 Validation Accuracy: 0.6520
+Epoch:13 Train Loss:0.0412 Val Loss: 0.0386 Train Accuracy: 0.6190 Validation Accuracy: 0.6520
+Epoch:14 Train Loss:0.0412 Val Loss: 0.0386 Train Accuracy: 0.6180 Validation Accuracy: 0.6520
+Epoch:15 Train Loss:0.0412 Val Loss: 0.0387 Train Accuracy: 0.6190 Validation Accuracy: 0.6500
+Epoch:16 Train Loss:0.0412 Val Loss: 0.0386 Train Accuracy: 0.6160 Validation Accuracy: 0.6500
+Epoch:17 Train Loss:0.0413 Val Loss: 0.0387 Train Accuracy: 0.6180 Validation Accuracy: 0.6460
+Epoch:18 Train Loss:0.0413 Val Loss: 0.0388 Train Accuracy: 0.6160 Validation Accuracy: 0.6460
+Epoch:19 Train Loss:0.0413 Val Loss: 0.0387 Train Accuracy: 0.6170 Validation Accuracy: 0.6490
+Epoch:20 Train Loss:0.0414 Val Loss: 0.0388 Train Accuracy: 0.6190 Validation Accuracy: 0.6440
+Results: loss=1.55233,	 top1=64.4000,	 top5=86.3000
+Results: loss=1.52010,	 top1=64.6000,	 top5=86.6000
+
+ 
+
+Validation result:
+	before: (1.5325001454353333, 65.2, 86.7)
+	train: (1.5523297429084777, 64.4, 86.3)
+	swa: (1.5200979065895082, 64.6, 86.6)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'conv_1.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['conv_1.block.act'], 'do': False, 'lh': 0, 'lt': 'b'}
+good: False
+train_coef: True
+need_AT: False
+improvement:  False
+best_acc: 0.657
+ 
+
+Name: conv_1.block.act
+Results: loss=1.53121,	 top1=65.7000,	 top5=86.7000
+conv_1.block.act: train
+1e-10
+0.01
+adam
+Layer name: conv_1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['conv_1.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:0.0422 Val Loss: 0.0394 Train Accuracy: 0.6070 Validation Accuracy: 0.6490
+Epoch:2 Train Loss:0.0415 Val Loss: 0.0386 Train Accuracy: 0.6080 Validation Accuracy: 0.6550
+Epoch:3 Train Loss:0.0410 Val Loss: 0.0393 Train Accuracy: 0.6170 Validation Accuracy: 0.6430
+Epoch:4 Train Loss:0.0413 Val Loss: 0.0383 Train Accuracy: 0.6170 Validation Accuracy: 0.6510
+Epoch:5 Train Loss:0.0421 Val Loss: 0.0384 Train Accuracy: 0.6180 Validation Accuracy: 0.6530
+Epoch:6 Train Loss:0.0413 Val Loss: 0.0383 Train Accuracy: 0.6130 Validation Accuracy: 0.6520
+Epoch:7 Train Loss:0.0412 Val Loss: 0.0382 Train Accuracy: 0.6090 Validation Accuracy: 0.6540
+Epoch:8 Train Loss:0.0410 Val Loss: 0.0383 Train Accuracy: 0.6160 Validation Accuracy: 0.6550
+Epoch:9 Train Loss:0.0410 Val Loss: 0.0385 Train Accuracy: 0.6150 Validation Accuracy: 0.6560
+Epoch:10 Train Loss:0.0412 Val Loss: 0.0386 Train Accuracy: 0.6140 Validation Accuracy: 0.6540
+Epoch:11 Train Loss:0.0411 Val Loss: 0.0382 Train Accuracy: 0.6150 Validation Accuracy: 0.6540
+Epoch:12 Train Loss:0.0411 Val Loss: 0.0388 Train Accuracy: 0.6150 Validation Accuracy: 0.6500
+Epoch:13 Train Loss:0.0410 Val Loss: 0.0384 Train Accuracy: 0.6170 Validation Accuracy: 0.6520
+Epoch:14 Train Loss:0.0411 Val Loss: 0.0392 Train Accuracy: 0.6170 Validation Accuracy: 0.6450
+Epoch:15 Train Loss:0.0409 Val Loss: 0.0383 Train Accuracy: 0.6150 Validation Accuracy: 0.6550
+Epoch:16 Train Loss:0.0410 Val Loss: 0.0383 Train Accuracy: 0.6140 Validation Accuracy: 0.6520
+Epoch:17 Train Loss:0.0413 Val Loss: 0.0389 Train Accuracy: 0.6140 Validation Accuracy: 0.6480
+Epoch:18 Train Loss:0.0411 Val Loss: 0.0382 Train Accuracy: 0.6190 Validation Accuracy: 0.6550
+Epoch:19 Train Loss:0.0409 Val Loss: 0.0388 Train Accuracy: 0.6170 Validation Accuracy: 0.6500
+Epoch:20 Train Loss:0.0431 Val Loss: 0.0396 Train Accuracy: 0.6120 Validation Accuracy: 0.6500
+Results: loss=1.58241,	 top1=65.0000,	 top5=85.9000
+Results: loss=1.50697,	 top1=65.0000,	 top5=86.9000
+
+ 
+
+Validation result:
+	before: (1.5312075757980346, 65.7, 86.7)
+	train: (1.5824087834358216, 65.0, 85.9)
+	swa: (1.5069707322120667, 65.0, 86.9)
+
+ 
+ 
+ 
+
+Finish: conv_1.block.act
+layer_1.0.block.exp_1x1.block.act
+layer_1.0.block.exp_1x1.block.act_coef.pt
+layer_1.0.block.exp_1x1.block.act
+{'coef': ['layer_1.0.block.exp_1x1.block.act'], 'weight': ['layer_1.0.block.exp_1x1.block.conv', 'layer_1.0.block.exp_1x1.block.norm']}
+Results: loss=7.09489,	 top1=1.4000,	 top5=5.7000
+replace_acc: 1.4
+ 
+
+{'layer_name': 'layer_1.0.block.exp_1x1.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_1.0.block.exp_1x1.block.act'], 'do': False, 'lh': 0, 'lt': 'n'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.013999999999999999
+ 
+
+Name: layer_1.0.block.exp_1x1.block.act
+Results: loss=7.09489,	 top1=1.4000,	 top5=5.7000
+layer_1.0.block.exp_1x1.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_1.0.block.exp_1x1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_1.0.block.exp_1x1.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:0.2104 Val Loss: 0.2121 Train Accuracy: 0.0030 Validation Accuracy: 0.0020
+Epoch:2 Train Loss:0.2120 Val Loss: 0.2121 Train Accuracy: 0.0010 Validation Accuracy: 0.0020
+Epoch:3 Train Loss:0.2120 Val Loss: 0.2119 Train Accuracy: 0.0010 Validation Accuracy: 0.0030
+Epoch:4 Train Loss:0.2119 Val Loss: 0.2116 Train Accuracy: 0.0010 Validation Accuracy: 0.0040
+Epoch:5 Train Loss:0.2117 Val Loss: 0.2107 Train Accuracy: 0.0010 Validation Accuracy: 0.0030
+Epoch:6 Train Loss:0.2104 Val Loss: 0.2122 Train Accuracy: 0.0030 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:0.2144 Val Loss: 0.2127 Train Accuracy: 0.0010 Validation Accuracy: 0.0020
+Epoch:8 Train Loss:0.2145 Val Loss: 0.2127 Train Accuracy: 0.0010 Validation Accuracy: 0.0020
+Epoch:9 Train Loss:0.2145 Val Loss: 0.2127 Train Accuracy: 0.0010 Validation Accuracy: 0.0020
+Epoch:10 Train Loss:0.2145 Val Loss: 0.2127 Train Accuracy: 0.0010 Validation Accuracy: 0.0020
+Epoch:11 Train Loss:0.2145 Val Loss: 0.2127 Train Accuracy: 0.0010 Validation Accuracy: 0.0020
+Epoch:12 Train Loss:0.2145 Val Loss: 0.2127 Train Accuracy: 0.0010 Validation Accuracy: 0.0020
+Epoch:13 Train Loss:0.2145 Val Loss: 0.2127 Train Accuracy: 0.0010 Validation Accuracy: 0.0020
+Epoch:14 Train Loss:0.2145 Val Loss: 0.2127 Train Accuracy: 0.0010 Validation Accuracy: 0.0020
+Epoch:15 Train Loss:0.2145 Val Loss: 0.2127 Train Accuracy: 0.0010 Validation Accuracy: 0.0020
+Epoch:16 Train Loss:0.2145 Val Loss: 0.2127 Train Accuracy: 0.0010 Validation Accuracy: 0.0020
+Epoch:17 Train Loss:0.2145 Val Loss: 0.2127 Train Accuracy: 0.0010 Validation Accuracy: 0.0020
+Epoch:18 Train Loss:0.2145 Val Loss: 0.2127 Train Accuracy: 0.0010 Validation Accuracy: 0.0020
+Epoch:19 Train Loss:0.2145 Val Loss: 0.2126 Train Accuracy: 0.0010 Validation Accuracy: 0.0020
+Epoch:20 Train Loss:0.2145 Val Loss: 0.2126 Train Accuracy: 0.0010 Validation Accuracy: 0.0020
+Results: loss=8.50562,	 top1=0.2000,	 top5=1.1000
+Results: loss=2.16250,	 top1=53.6000,	 top5=78.1000
+
+ 
+
+Validation result:
+	before: (7.094888401031494, 1.4, 5.7)
+	train: (8.505616130828857, 0.2, 1.1)
+	swa: (2.162499675750732, 53.6, 78.1)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_1.0.block.exp_1x1.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_1.0.block.exp_1x1.block.act'], 'do': False, 'lh': 0, 'lt': 's'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.536
+ 
+
+Name: layer_1.0.block.exp_1x1.block.act
+Results: loss=2.16250,	 top1=53.6000,	 top5=78.1000
+layer_1.0.block.exp_1x1.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_1.0.block.exp_1x1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_1.0.block.exp_1x1.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:0.0549 Val Loss: 0.0537 Train Accuracy: 0.5170 Validation Accuracy: 0.5380
+Epoch:2 Train Loss:0.0548 Val Loss: 0.0536 Train Accuracy: 0.5110 Validation Accuracy: 0.5400
+Epoch:3 Train Loss:0.0549 Val Loss: 0.0536 Train Accuracy: 0.5160 Validation Accuracy: 0.5390
+Epoch:4 Train Loss:0.0547 Val Loss: 0.0536 Train Accuracy: 0.5130 Validation Accuracy: 0.5400
+Epoch:5 Train Loss:0.0551 Val Loss: 0.0538 Train Accuracy: 0.5110 Validation Accuracy: 0.5310
+Epoch:6 Train Loss:0.0553 Val Loss: 0.0536 Train Accuracy: 0.5100 Validation Accuracy: 0.5390
+Epoch:7 Train Loss:0.0548 Val Loss: 0.0537 Train Accuracy: 0.5210 Validation Accuracy: 0.5330
+Epoch:8 Train Loss:0.0550 Val Loss: 0.0536 Train Accuracy: 0.5130 Validation Accuracy: 0.5410
+Epoch:9 Train Loss:0.0557 Val Loss: 0.0536 Train Accuracy: 0.5100 Validation Accuracy: 0.5380
+Epoch:10 Train Loss:0.0556 Val Loss: 0.0538 Train Accuracy: 0.5120 Validation Accuracy: 0.5310
+Epoch:11 Train Loss:0.0554 Val Loss: 0.0537 Train Accuracy: 0.5090 Validation Accuracy: 0.5400
+Epoch:12 Train Loss:0.0550 Val Loss: 0.0538 Train Accuracy: 0.5080 Validation Accuracy: 0.5330
+Epoch:13 Train Loss:0.0549 Val Loss: 0.0536 Train Accuracy: 0.5130 Validation Accuracy: 0.5390
+Epoch:14 Train Loss:0.0557 Val Loss: 0.0540 Train Accuracy: 0.5100 Validation Accuracy: 0.5360
+Epoch:15 Train Loss:0.0556 Val Loss: 0.0538 Train Accuracy: 0.5150 Validation Accuracy: 0.5320
+Epoch:16 Train Loss:0.0553 Val Loss: 0.0536 Train Accuracy: 0.5090 Validation Accuracy: 0.5400
+Epoch:17 Train Loss:0.0549 Val Loss: 0.0536 Train Accuracy: 0.5130 Validation Accuracy: 0.5390
+Epoch:18 Train Loss:0.0547 Val Loss: 0.0536 Train Accuracy: 0.5150 Validation Accuracy: 0.5400
+Epoch:19 Train Loss:0.0548 Val Loss: 0.0536 Train Accuracy: 0.5110 Validation Accuracy: 0.5370
+Epoch:20 Train Loss:0.0549 Val Loss: 0.0536 Train Accuracy: 0.5130 Validation Accuracy: 0.5400
+Results: loss=2.14568,	 top1=54.0000,	 top5=78.8000
+Results: loss=2.04542,	 top1=55.8000,	 top5=79.5000
+
+ 
+
+Validation result:
+	before: (2.162499675750732, 53.6, 78.1)
+	train: (2.1456825828552244, 54.0, 78.8)
+	swa: (2.045415105819702, 55.8, 79.5)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_1.0.block.exp_1x1.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_1.0.block.exp_1x1.block.act'], 'do': False, 'lh': 0, 'lt': 's'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.5579999999999999
+ 
+
+Name: layer_1.0.block.exp_1x1.block.act
+Results: loss=2.04542,	 top1=55.8000,	 top5=79.5000
+layer_1.0.block.exp_1x1.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_1.0.block.exp_1x1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_1.0.block.exp_1x1.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:0.0528 Val Loss: 0.0511 Train Accuracy: 0.5310 Validation Accuracy: 0.5560
+Epoch:2 Train Loss:0.0528 Val Loss: 0.0512 Train Accuracy: 0.5300 Validation Accuracy: 0.5600
+Epoch:3 Train Loss:0.0532 Val Loss: 0.0509 Train Accuracy: 0.5360 Validation Accuracy: 0.5600
+Epoch:4 Train Loss:0.0536 Val Loss: 0.0516 Train Accuracy: 0.5350 Validation Accuracy: 0.5570
+Epoch:5 Train Loss:0.0527 Val Loss: 0.0511 Train Accuracy: 0.5340 Validation Accuracy: 0.5590
+Epoch:6 Train Loss:0.0526 Val Loss: 0.0511 Train Accuracy: 0.5300 Validation Accuracy: 0.5500
+Epoch:7 Train Loss:0.0528 Val Loss: 0.0509 Train Accuracy: 0.5330 Validation Accuracy: 0.5610
+Epoch:8 Train Loss:0.0525 Val Loss: 0.0510 Train Accuracy: 0.5400 Validation Accuracy: 0.5560
+Epoch:9 Train Loss:0.0523 Val Loss: 0.0508 Train Accuracy: 0.5330 Validation Accuracy: 0.5600
+Epoch:10 Train Loss:0.0523 Val Loss: 0.0508 Train Accuracy: 0.5360 Validation Accuracy: 0.5630
+Epoch:11 Train Loss:0.0525 Val Loss: 0.0509 Train Accuracy: 0.5340 Validation Accuracy: 0.5600
+Epoch:12 Train Loss:0.0523 Val Loss: 0.0515 Train Accuracy: 0.5350 Validation Accuracy: 0.5540
+Epoch:13 Train Loss:0.0525 Val Loss: 0.0509 Train Accuracy: 0.5330 Validation Accuracy: 0.5610
+Epoch:14 Train Loss:0.0531 Val Loss: 0.0517 Train Accuracy: 0.5300 Validation Accuracy: 0.5570
+Epoch:15 Train Loss:0.0529 Val Loss: 0.0509 Train Accuracy: 0.5290 Validation Accuracy: 0.5590
+Epoch:16 Train Loss:0.0526 Val Loss: 0.0508 Train Accuracy: 0.5290 Validation Accuracy: 0.5630
+Epoch:17 Train Loss:0.0524 Val Loss: 0.0511 Train Accuracy: 0.5370 Validation Accuracy: 0.5540
+Epoch:18 Train Loss:0.0528 Val Loss: 0.0510 Train Accuracy: 0.5350 Validation Accuracy: 0.5620
+Epoch:19 Train Loss:0.0539 Val Loss: 0.0533 Train Accuracy: 0.5240 Validation Accuracy: 0.5480
+Epoch:20 Train Loss:0.0534 Val Loss: 0.0510 Train Accuracy: 0.5300 Validation Accuracy: 0.5570
+Results: loss=2.04074,	 top1=55.7000,	 top5=79.8000
+Results: loss=2.00755,	 top1=56.2000,	 top5=79.7000
+
+ 
+
+Validation result:
+	before: (2.045415105819702, 55.8, 79.5)
+	train: (2.040742874145508, 55.7, 79.8)
+	swa: (2.0075548934936522, 56.2, 79.7)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_1.0.block.exp_1x1.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_1.0.block.exp_1x1.block.act'], 'do': False, 'lh': 0, 'lt': 'b'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.563
+ 
+
+Name: layer_1.0.block.exp_1x1.block.act
+Results: loss=2.03365,	 top1=56.3000,	 top5=79.9000
+layer_1.0.block.exp_1x1.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_1.0.block.exp_1x1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_1.0.block.exp_1x1.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:0.0529 Val Loss: 0.0511 Train Accuracy: 0.5330 Validation Accuracy: 0.5590
+Epoch:2 Train Loss:0.0527 Val Loss: 0.0511 Train Accuracy: 0.5360 Validation Accuracy: 0.5510
+Epoch:3 Train Loss:0.0524 Val Loss: 0.0509 Train Accuracy: 0.5280 Validation Accuracy: 0.5610
+Epoch:4 Train Loss:0.0530 Val Loss: 0.0513 Train Accuracy: 0.5280 Validation Accuracy: 0.5600
+Epoch:5 Train Loss:0.0532 Val Loss: 0.0522 Train Accuracy: 0.5260 Validation Accuracy: 0.5470
+Epoch:6 Train Loss:0.0534 Val Loss: 0.0530 Train Accuracy: 0.5330 Validation Accuracy: 0.5460
+Epoch:7 Train Loss:0.0532 Val Loss: 0.0516 Train Accuracy: 0.5350 Validation Accuracy: 0.5510
+Epoch:8 Train Loss:0.0530 Val Loss: 0.0510 Train Accuracy: 0.5360 Validation Accuracy: 0.5580
+Epoch:9 Train Loss:0.0527 Val Loss: 0.0511 Train Accuracy: 0.5370 Validation Accuracy: 0.5590
+Epoch:10 Train Loss:0.0530 Val Loss: 0.0524 Train Accuracy: 0.5290 Validation Accuracy: 0.5530
+Epoch:11 Train Loss:0.0530 Val Loss: 0.0508 Train Accuracy: 0.5290 Validation Accuracy: 0.5610
+Epoch:12 Train Loss:0.0528 Val Loss: 0.0510 Train Accuracy: 0.5350 Validation Accuracy: 0.5620
+Epoch:13 Train Loss:0.0530 Val Loss: 0.0510 Train Accuracy: 0.5320 Validation Accuracy: 0.5570
+Epoch:14 Train Loss:0.0528 Val Loss: 0.0510 Train Accuracy: 0.5300 Validation Accuracy: 0.5580
+Epoch:15 Train Loss:0.0525 Val Loss: 0.0510 Train Accuracy: 0.5350 Validation Accuracy: 0.5530
+Epoch:16 Train Loss:0.0525 Val Loss: 0.0508 Train Accuracy: 0.5300 Validation Accuracy: 0.5610
+Epoch:17 Train Loss:0.0527 Val Loss: 0.0513 Train Accuracy: 0.5280 Validation Accuracy: 0.5600
+Epoch:18 Train Loss:0.0529 Val Loss: 0.0514 Train Accuracy: 0.5340 Validation Accuracy: 0.5590
+Epoch:19 Train Loss:0.0530 Val Loss: 0.0509 Train Accuracy: 0.5330 Validation Accuracy: 0.5590
+Epoch:20 Train Loss:0.0530 Val Loss: 0.0510 Train Accuracy: 0.5260 Validation Accuracy: 0.5560
+Results: loss=2.03948,	 top1=55.6000,	 top5=79.6000
+Results: loss=1.99933,	 top1=56.1000,	 top5=80.4000
+
+ 
+
+Validation result:
+	before: (2.0336453199386595, 56.3, 79.9)
+	train: (2.039484210014343, 55.6, 79.6)
+	swa: (1.9993297958374023, 56.1, 80.4)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_1.0.block.exp_1x1.block.act', 'ep': 20, 'lr': 0.0001, 'wd': 0.1, 'tw': False, 'twe': ['layer_1.0.block.exp_1x1.block.conv', 'layer_1.0.block.exp_1x1.block.norm'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'b'}
+good: False
+train_coef: False
+need_AT: False
+improvement:  False
+best_acc: 0.563
+ 
+
+Name: layer_1.0.block.exp_1x1.block.act
+Results: loss=2.03365,	 top1=56.3000,	 top5=79.9000
+layer_1.0.block.exp_1x1.block.act: train
+0.0001
+0.1
+adam
+Layer name: layer_1.0.block.exp_1x1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 0.0001
+	Weight decay: 0.1
+	Learning rate decay: False
+Train weight: False
+	Exception:['layer_1.0.block.exp_1x1.block.conv', 'layer_1.0.block.exp_1x1.block.norm']
+Train coefficient: False
+	Exception: []
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:0.0522 Val Loss: 0.0506 Train Accuracy: 0.5340 Validation Accuracy: 0.5650
+Epoch:2 Train Loss:0.0519 Val Loss: 0.0503 Train Accuracy: 0.5370 Validation Accuracy: 0.5720
+Epoch:3 Train Loss:0.0517 Val Loss: 0.0501 Train Accuracy: 0.5360 Validation Accuracy: 0.5710
+Epoch:4 Train Loss:0.0514 Val Loss: 0.0498 Train Accuracy: 0.5370 Validation Accuracy: 0.5710
+Epoch:5 Train Loss:0.0513 Val Loss: 0.0497 Train Accuracy: 0.5430 Validation Accuracy: 0.5750
+Epoch:6 Train Loss:0.0511 Val Loss: 0.0496 Train Accuracy: 0.5430 Validation Accuracy: 0.5750
+Epoch:7 Train Loss:0.0510 Val Loss: 0.0494 Train Accuracy: 0.5460 Validation Accuracy: 0.5720
+Epoch:8 Train Loss:0.0509 Val Loss: 0.0493 Train Accuracy: 0.5450 Validation Accuracy: 0.5710
+Epoch:9 Train Loss:0.0508 Val Loss: 0.0493 Train Accuracy: 0.5480 Validation Accuracy: 0.5700
+Epoch:10 Train Loss:0.0507 Val Loss: 0.0492 Train Accuracy: 0.5480 Validation Accuracy: 0.5670
+Epoch:11 Train Loss:0.0506 Val Loss: 0.0492 Train Accuracy: 0.5500 Validation Accuracy: 0.5700
+Epoch:12 Train Loss:0.0505 Val Loss: 0.0491 Train Accuracy: 0.5490 Validation Accuracy: 0.5710
+Epoch:13 Train Loss:0.0504 Val Loss: 0.0491 Train Accuracy: 0.5490 Validation Accuracy: 0.5710
+Epoch:14 Train Loss:0.0503 Val Loss: 0.0491 Train Accuracy: 0.5510 Validation Accuracy: 0.5700
+Epoch:15 Train Loss:0.0503 Val Loss: 0.0491 Train Accuracy: 0.5520 Validation Accuracy: 0.5690
+Epoch:16 Train Loss:0.0502 Val Loss: 0.0491 Train Accuracy: 0.5510 Validation Accuracy: 0.5680
+Epoch:17 Train Loss:0.0502 Val Loss: 0.0492 Train Accuracy: 0.5500 Validation Accuracy: 0.5700
+Epoch:18 Train Loss:0.0502 Val Loss: 0.0492 Train Accuracy: 0.5510 Validation Accuracy: 0.5700
+Epoch:19 Train Loss:0.0502 Val Loss: 0.0492 Train Accuracy: 0.5500 Validation Accuracy: 0.5710
+Epoch:20 Train Loss:0.0502 Val Loss: 0.0493 Train Accuracy: 0.5490 Validation Accuracy: 0.5720
+Results: loss=1.97101,	 top1=57.2000,	 top5=81.3000
+Results: loss=1.96040,	 top1=57.2000,	 top5=80.5000
+
+ 
+
+Validation result:
+	before: (2.0336453199386595, 56.3, 79.9)
+	train: (1.9710103940963746, 57.2, 81.3)
+	swa: (1.9603974056243896, 57.2, 80.5)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_1.0.block.exp_1x1.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_1.0.block.exp_1x1.block.act'], 'do': False, 'lh': 0, 'lt': 'b'}
+good: False
+train_coef: True
+need_AT: False
+improvement:  False
+best_acc: 0.575
+ 
+
+Name: layer_1.0.block.exp_1x1.block.act
+Results: loss=1.98212,	 top1=57.5000,	 top5=81.1000
+layer_1.0.block.exp_1x1.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_1.0.block.exp_1x1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_1.0.block.exp_1x1.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:0.0515 Val Loss: 0.0497 Train Accuracy: 0.5470 Validation Accuracy: 0.5740
+Epoch:2 Train Loss:0.0515 Val Loss: 0.0505 Train Accuracy: 0.5410 Validation Accuracy: 0.5720
+Epoch:3 Train Loss:0.0517 Val Loss: 0.0497 Train Accuracy: 0.5420 Validation Accuracy: 0.5730
+Epoch:4 Train Loss:0.0511 Val Loss: 0.0497 Train Accuracy: 0.5430 Validation Accuracy: 0.5740
+Epoch:5 Train Loss:0.0514 Val Loss: 0.0498 Train Accuracy: 0.5480 Validation Accuracy: 0.5740
+Epoch:6 Train Loss:0.0516 Val Loss: 0.0497 Train Accuracy: 0.5450 Validation Accuracy: 0.5730
+Epoch:7 Train Loss:0.0512 Val Loss: 0.0505 Train Accuracy: 0.5430 Validation Accuracy: 0.5730
+Epoch:8 Train Loss:0.0514 Val Loss: 0.0501 Train Accuracy: 0.5490 Validation Accuracy: 0.5710
+Epoch:9 Train Loss:0.0514 Val Loss: 0.0501 Train Accuracy: 0.5420 Validation Accuracy: 0.5810
+Epoch:10 Train Loss:0.0517 Val Loss: 0.0504 Train Accuracy: 0.5410 Validation Accuracy: 0.5720
+Epoch:11 Train Loss:0.0555 Val Loss: 0.0548 Train Accuracy: 0.5190 Validation Accuracy: 0.5490
+Epoch:12 Train Loss:0.0539 Val Loss: 0.0496 Train Accuracy: 0.5210 Validation Accuracy: 0.5790
+Epoch:13 Train Loss:0.0513 Val Loss: 0.0497 Train Accuracy: 0.5440 Validation Accuracy: 0.5800
+Epoch:14 Train Loss:0.0513 Val Loss: 0.0496 Train Accuracy: 0.5460 Validation Accuracy: 0.5740
+Epoch:15 Train Loss:0.0516 Val Loss: 0.0506 Train Accuracy: 0.5460 Validation Accuracy: 0.5710
+Epoch:16 Train Loss:0.0515 Val Loss: 0.0496 Train Accuracy: 0.5450 Validation Accuracy: 0.5770
+Epoch:17 Train Loss:0.0513 Val Loss: 0.0499 Train Accuracy: 0.5380 Validation Accuracy: 0.5730
+Epoch:18 Train Loss:0.0514 Val Loss: 0.0497 Train Accuracy: 0.5450 Validation Accuracy: 0.5710
+Epoch:19 Train Loss:0.0518 Val Loss: 0.0496 Train Accuracy: 0.5420 Validation Accuracy: 0.5750
+Epoch:20 Train Loss:0.0512 Val Loss: 0.0497 Train Accuracy: 0.5470 Validation Accuracy: 0.5750
+Results: loss=1.98655,	 top1=57.5000,	 top5=80.7000
+Results: loss=1.98346,	 top1=55.9000,	 top5=80.3000
+
+ 
+
+Validation result:
+	before: (1.982122449874878, 57.5, 81.1)
+	train: (1.9865543746948242, 57.5, 80.7)
+	swa: (1.9834642171859742, 55.9, 80.3)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_1.0.block.exp_1x1.block.act', 'ep': 20, 'lr': 0.0001, 'wd': 0.1, 'tw': False, 'twe': ['layer_1.0.block.exp_1x1.block.conv', 'layer_1.0.block.exp_1x1.block.norm'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'b'}
+good: False
+train_coef: False
+need_AT: False
+improvement:  False
+best_acc: 0.581
+ 
+
+Name: layer_1.0.block.exp_1x1.block.act
+Results: loss=2.00272,	 top1=58.1000,	 top5=80.2000
+layer_1.0.block.exp_1x1.block.act: train
+0.0001
+0.1
+adam
+Layer name: layer_1.0.block.exp_1x1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 0.0001
+	Weight decay: 0.1
+	Learning rate decay: False
+Train weight: False
+	Exception:['layer_1.0.block.exp_1x1.block.conv', 'layer_1.0.block.exp_1x1.block.norm']
+Train coefficient: False
+	Exception: []
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:0.0519 Val Loss: 0.0499 Train Accuracy: 0.5380 Validation Accuracy: 0.5790
+Epoch:2 Train Loss:0.0518 Val Loss: 0.0498 Train Accuracy: 0.5350 Validation Accuracy: 0.5770
+Epoch:3 Train Loss:0.0516 Val Loss: 0.0497 Train Accuracy: 0.5350 Validation Accuracy: 0.5780
+Epoch:4 Train Loss:0.0515 Val Loss: 0.0496 Train Accuracy: 0.5350 Validation Accuracy: 0.5730
+Epoch:5 Train Loss:0.0514 Val Loss: 0.0495 Train Accuracy: 0.5370 Validation Accuracy: 0.5730
+Epoch:6 Train Loss:0.0513 Val Loss: 0.0495 Train Accuracy: 0.5380 Validation Accuracy: 0.5720
+Epoch:7 Train Loss:0.0512 Val Loss: 0.0495 Train Accuracy: 0.5400 Validation Accuracy: 0.5710
+Epoch:8 Train Loss:0.0511 Val Loss: 0.0494 Train Accuracy: 0.5390 Validation Accuracy: 0.5680
+Epoch:9 Train Loss:0.0511 Val Loss: 0.0495 Train Accuracy: 0.5390 Validation Accuracy: 0.5640
+Epoch:10 Train Loss:0.0510 Val Loss: 0.0495 Train Accuracy: 0.5400 Validation Accuracy: 0.5670
+Epoch:11 Train Loss:0.0510 Val Loss: 0.0495 Train Accuracy: 0.5410 Validation Accuracy: 0.5670
+Epoch:12 Train Loss:0.0510 Val Loss: 0.0495 Train Accuracy: 0.5420 Validation Accuracy: 0.5700
+Epoch:13 Train Loss:0.0510 Val Loss: 0.0496 Train Accuracy: 0.5420 Validation Accuracy: 0.5670
+Epoch:14 Train Loss:0.0510 Val Loss: 0.0496 Train Accuracy: 0.5460 Validation Accuracy: 0.5700
+Epoch:15 Train Loss:0.0510 Val Loss: 0.0496 Train Accuracy: 0.5460 Validation Accuracy: 0.5730
+Epoch:16 Train Loss:0.0510 Val Loss: 0.0497 Train Accuracy: 0.5450 Validation Accuracy: 0.5720
+Epoch:17 Train Loss:0.0510 Val Loss: 0.0497 Train Accuracy: 0.5460 Validation Accuracy: 0.5710
+Epoch:18 Train Loss:0.0510 Val Loss: 0.0497 Train Accuracy: 0.5490 Validation Accuracy: 0.5710
+Epoch:19 Train Loss:0.0510 Val Loss: 0.0498 Train Accuracy: 0.5480 Validation Accuracy: 0.5700
+Epoch:20 Train Loss:0.0511 Val Loss: 0.0498 Train Accuracy: 0.5480 Validation Accuracy: 0.5690
+Results: loss=1.99343,	 top1=56.9000,	 top5=80.4000
+Results: loss=2.04364,	 top1=56.6000,	 top5=79.2000
+
+ 
+
+Validation result:
+	before: (2.002719178199768, 58.1, 80.2)
+	train: (1.993430209159851, 56.9, 80.4)
+	swa: (2.0436428213119506, 56.6, 79.2)
+
+ 
+ 
+ 
+
+Finish: layer_1.0.block.exp_1x1.block.act
+layer_1.0.block.conv_3x3.block.act
+layer_1.0.block.conv_3x3.block.act_coef.pt
+layer_1.0.block.conv_3x3.block.act
+{'coef': ['layer_1.0.block.conv_3x3.block.act'], 'weight': ['layer_1.0.block.conv_3x3.block.conv', 'layer_1.0.block.conv_3x3.block.norm']}
+Results: loss=7.68553,	 top1=1.1000,	 top5=3.0000
+replace_acc: 1.1
+ 
+
+{'layer_name': 'layer_1.0.block.conv_3x3.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_1.0.block.conv_3x3.block.act'], 'do': False, 'lh': 0, 'lt': 'n'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.011000000000000001
+ 
+
+Name: layer_1.0.block.conv_3x3.block.act
+Results: loss=7.68553,	 top1=1.1000,	 top5=3.0000
+layer_1.0.block.conv_3x3.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_1.0.block.conv_3x3.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_1.0.block.conv_3x3.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:0.2071 Val Loss: 0.2094 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Epoch:2 Train Loss:0.2073 Val Loss: 0.2093 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Epoch:3 Train Loss:0.2073 Val Loss: 0.2093 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Epoch:4 Train Loss:0.2073 Val Loss: 0.2093 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Epoch:5 Train Loss:0.2073 Val Loss: 0.2093 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Epoch:6 Train Loss:0.2073 Val Loss: 0.2093 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Epoch:7 Train Loss:0.2073 Val Loss: 0.2093 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Epoch:8 Train Loss:0.2073 Val Loss: 0.2093 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Epoch:9 Train Loss:0.2073 Val Loss: 0.2093 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Epoch:10 Train Loss:0.2073 Val Loss: 0.2093 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Epoch:11 Train Loss:0.2073 Val Loss: 0.2093 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Epoch:12 Train Loss:0.2073 Val Loss: 0.2093 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Epoch:13 Train Loss:0.2074 Val Loss: 0.2093 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Epoch:14 Train Loss:0.2073 Val Loss: 0.2093 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Epoch:15 Train Loss:0.2073 Val Loss: 0.2093 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Epoch:16 Train Loss:0.2073 Val Loss: 0.2093 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Epoch:17 Train Loss:0.2073 Val Loss: 0.2093 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Epoch:18 Train Loss:0.2073 Val Loss: 0.2093 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Epoch:19 Train Loss:0.2073 Val Loss: 0.2093 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Epoch:20 Train Loss:0.2073 Val Loss: 0.2093 Train Accuracy: 0.0000 Validation Accuracy: 0.0000
+Results: loss=8.37257,	 top1=0.0000,	 top5=0.5000
+Results: loss=7.72584,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (7.685533580780029, 1.1, 3.0)
+	train: (8.372566986083985, 0.0, 0.5)
+	swa: (7.725835399627686, 0.1, 0.5)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_1.0.block.conv_3x3.block.act', 'ep': 20, 'lr': 0.0001, 'wd': 0.1, 'tw': False, 'twe': ['layer_1.0.block.conv_3x3.block.conv', 'layer_1.0.block.conv_3x3.block.norm'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+good: False
+train_coef: False
+need_AT: False
+improvement:  False
+best_acc: 0.011000000000000001
+ 
+
+Name: layer_1.0.block.conv_3x3.block.act
+Results: loss=7.68553,	 top1=1.1000,	 top5=3.0000
+layer_1.0.block.conv_3x3.block.act: train
+0.0001
+0.1
+adam
+Layer name: layer_1.0.block.conv_3x3.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 0.0001
+	Weight decay: 0.1
+	Learning rate decay: False
+Train weight: False
+	Exception:['layer_1.0.block.conv_3x3.block.conv', 'layer_1.0.block.conv_3x3.block.norm']
+Train coefficient: False
+	Exception: []
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:0.1924 Val Loss: 0.1905 Train Accuracy: 0.0120 Validation Accuracy: 0.0150
+Epoch:2 Train Loss:0.1909 Val Loss: 0.1889 Train Accuracy: 0.0120 Validation Accuracy: 0.0170
+Epoch:3 Train Loss:0.1894 Val Loss: 0.1875 Train Accuracy: 0.0110 Validation Accuracy: 0.0190
+Epoch:4 Train Loss:0.1882 Val Loss: 0.1863 Train Accuracy: 0.0140 Validation Accuracy: 0.0190
+Epoch:5 Train Loss:0.1869 Val Loss: 0.1851 Train Accuracy: 0.0160 Validation Accuracy: 0.0210
+Epoch:6 Train Loss:0.1857 Val Loss: 0.1839 Train Accuracy: 0.0200 Validation Accuracy: 0.0230
+Epoch:7 Train Loss:0.1843 Val Loss: 0.1824 Train Accuracy: 0.0230 Validation Accuracy: 0.0250
+Epoch:8 Train Loss:0.1826 Val Loss: 0.1806 Train Accuracy: 0.0240 Validation Accuracy: 0.0280
+Epoch:9 Train Loss:0.1807 Val Loss: 0.1791 Train Accuracy: 0.0280 Validation Accuracy: 0.0310
+Epoch:10 Train Loss:0.1793 Val Loss: 0.1779 Train Accuracy: 0.0310 Validation Accuracy: 0.0330
+Epoch:11 Train Loss:0.1783 Val Loss: 0.1771 Train Accuracy: 0.0360 Validation Accuracy: 0.0330
+Epoch:12 Train Loss:0.1777 Val Loss: 0.1764 Train Accuracy: 0.0360 Validation Accuracy: 0.0340
+Epoch:13 Train Loss:0.1771 Val Loss: 0.1758 Train Accuracy: 0.0390 Validation Accuracy: 0.0350
+Epoch:14 Train Loss:0.1767 Val Loss: 0.1751 Train Accuracy: 0.0390 Validation Accuracy: 0.0380
+Epoch:15 Train Loss:0.1760 Val Loss: 0.1744 Train Accuracy: 0.0420 Validation Accuracy: 0.0400
+Epoch:16 Train Loss:0.1755 Val Loss: 0.1739 Train Accuracy: 0.0450 Validation Accuracy: 0.0400
+Epoch:17 Train Loss:0.1751 Val Loss: 0.1736 Train Accuracy: 0.0440 Validation Accuracy: 0.0390
+Epoch:18 Train Loss:0.1747 Val Loss: 0.1732 Train Accuracy: 0.0450 Validation Accuracy: 0.0400
+Epoch:19 Train Loss:0.1743 Val Loss: 0.1729 Train Accuracy: 0.0460 Validation Accuracy: 0.0440
+Epoch:20 Train Loss:0.1740 Val Loss: 0.1726 Train Accuracy: 0.0470 Validation Accuracy: 0.0430
+Results: loss=6.90293,	 top1=4.3000,	 top5=10.8000
+Results: loss=8.04357,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (7.685533580780029, 1.1, 3.0)
+	train: (6.9029264068603515, 4.3, 10.8)
+	swa: (8.043567028045654, 0.1, 0.5)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_1.0.block.conv_3x3.block.act', 'ep': 20, 'lr': 0.0001, 'wd': 0.1, 'tw': False, 'twe': ['layer_1.0.block.conv_3x3.block.conv', 'layer_1.0.block.conv_3x3.block.norm'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'b'}
+good: True
+train_coef: False
+need_AT: False
+improvement:  True
+best_acc: 0.044
+ 
+
+Name: layer_1.0.block.conv_3x3.block.act
+Results: loss=6.91427,	 top1=4.4000,	 top5=10.7000
+layer_1.0.block.conv_3x3.block.act: train
+0.0001
+0.1
+adam
+Layer name: layer_1.0.block.conv_3x3.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 0.0001
+	Weight decay: 0.1
+	Learning rate decay: False
+Train weight: False
+	Exception:['layer_1.0.block.conv_3x3.block.conv', 'layer_1.0.block.conv_3x3.block.norm']
+Train coefficient: False
+	Exception: []
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:0.1740 Val Loss: 0.1725 Train Accuracy: 0.0460 Validation Accuracy: 0.0430
+Epoch:2 Train Loss:0.1736 Val Loss: 0.1722 Train Accuracy: 0.0470 Validation Accuracy: 0.0440
+Epoch:3 Train Loss:0.1734 Val Loss: 0.1720 Train Accuracy: 0.0480 Validation Accuracy: 0.0450
+Epoch:4 Train Loss:0.1733 Val Loss: 0.1718 Train Accuracy: 0.0460 Validation Accuracy: 0.0440
+Epoch:5 Train Loss:0.1732 Val Loss: 0.1717 Train Accuracy: 0.0470 Validation Accuracy: 0.0430
+Epoch:6 Train Loss:0.1731 Val Loss: 0.1716 Train Accuracy: 0.0470 Validation Accuracy: 0.0430
+Epoch:7 Train Loss:0.1731 Val Loss: 0.1715 Train Accuracy: 0.0490 Validation Accuracy: 0.0430
+Epoch:8 Train Loss:0.1730 Val Loss: 0.1714 Train Accuracy: 0.0490 Validation Accuracy: 0.0440
+Epoch:9 Train Loss:0.1729 Val Loss: 0.1713 Train Accuracy: 0.0480 Validation Accuracy: 0.0450
+Epoch:10 Train Loss:0.1730 Val Loss: 0.1713 Train Accuracy: 0.0480 Validation Accuracy: 0.0450
+Epoch:11 Train Loss:0.1730 Val Loss: 0.1713 Train Accuracy: 0.0460 Validation Accuracy: 0.0450
+Epoch:12 Train Loss:0.1730 Val Loss: 0.1712 Train Accuracy: 0.0460 Validation Accuracy: 0.0450
+Epoch:13 Train Loss:0.1730 Val Loss: 0.1712 Train Accuracy: 0.0470 Validation Accuracy: 0.0440
+Epoch:14 Train Loss:0.1730 Val Loss: 0.1711 Train Accuracy: 0.0470 Validation Accuracy: 0.0450
+Epoch:15 Train Loss:0.1732 Val Loss: 0.1712 Train Accuracy: 0.0480 Validation Accuracy: 0.0460
+Epoch:16 Train Loss:0.1732 Val Loss: 0.1711 Train Accuracy: 0.0480 Validation Accuracy: 0.0460
+Epoch:17 Train Loss:0.1732 Val Loss: 0.1711 Train Accuracy: 0.0460 Validation Accuracy: 0.0460
+Epoch:18 Train Loss:0.1732 Val Loss: 0.1711 Train Accuracy: 0.0460 Validation Accuracy: 0.0450
+Epoch:19 Train Loss:0.1733 Val Loss: 0.1711 Train Accuracy: 0.0460 Validation Accuracy: 0.0470
+Epoch:20 Train Loss:0.1733 Val Loss: 0.1711 Train Accuracy: 0.0480 Validation Accuracy: 0.0460
+Results: loss=6.84347,	 top1=4.6000,	 top5=11.1000
+Results: loss=8.06535,	 top1=0.1000,	 top5=0.6000
+
+ 
+
+Validation result:
+	before: (6.914268054962158, 4.4, 10.7)
+	train: (6.843468570709229, 4.6, 11.1)
+	swa: (8.065347995758056, 0.1, 0.6)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_1.0.block.conv_3x3.block.act', 'ep': 20, 'lr': 0.0001, 'wd': 0.1, 'tw': False, 'twe': ['layer_1.0.block.conv_3x3.block.conv', 'layer_1.0.block.conv_3x3.block.norm'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'b'}
+good: True
+train_coef: False
+need_AT: False
+improvement:  True
+best_acc: 0.047
+ 
+
+Name: layer_1.0.block.conv_3x3.block.act
+Results: loss=6.84474,	 top1=4.7000,	 top5=11.3000
+layer_1.0.block.conv_3x3.block.act: train
+0.0001
+0.1
+adam
+Layer name: layer_1.0.block.conv_3x3.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 0.0001
+	Weight decay: 0.1
+	Learning rate decay: False
+Train weight: False
+	Exception:['layer_1.0.block.conv_3x3.block.conv', 'layer_1.0.block.conv_3x3.block.norm']
+Train coefficient: False
+	Exception: []
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:0.1734 Val Loss: 0.1711 Train Accuracy: 0.0460 Validation Accuracy: 0.0460
+Epoch:2 Train Loss:0.1734 Val Loss: 0.1712 Train Accuracy: 0.0470 Validation Accuracy: 0.0450
+Epoch:3 Train Loss:0.1735 Val Loss: 0.1711 Train Accuracy: 0.0470 Validation Accuracy: 0.0440
+Epoch:4 Train Loss:0.1735 Val Loss: 0.1712 Train Accuracy: 0.0460 Validation Accuracy: 0.0440
+Epoch:5 Train Loss:0.1735 Val Loss: 0.1712 Train Accuracy: 0.0460 Validation Accuracy: 0.0440
+Epoch:6 Train Loss:0.1735 Val Loss: 0.1712 Train Accuracy: 0.0460 Validation Accuracy: 0.0440
+Epoch:7 Train Loss:0.1736 Val Loss: 0.1713 Train Accuracy: 0.0450 Validation Accuracy: 0.0420
+Epoch:8 Train Loss:0.1737 Val Loss: 0.1713 Train Accuracy: 0.0470 Validation Accuracy: 0.0440
+Epoch:9 Train Loss:0.1737 Val Loss: 0.1713 Train Accuracy: 0.0450 Validation Accuracy: 0.0420
+Epoch:10 Train Loss:0.1738 Val Loss: 0.1714 Train Accuracy: 0.0460 Validation Accuracy: 0.0420
+Epoch:11 Train Loss:0.1739 Val Loss: 0.1715 Train Accuracy: 0.0470 Validation Accuracy: 0.0410
+Epoch:12 Train Loss:0.1740 Val Loss: 0.1716 Train Accuracy: 0.0450 Validation Accuracy: 0.0380
+Epoch:13 Train Loss:0.1741 Val Loss: 0.1717 Train Accuracy: 0.0450 Validation Accuracy: 0.0400
+Epoch:14 Train Loss:0.1742 Val Loss: 0.1718 Train Accuracy: 0.0450 Validation Accuracy: 0.0400
+Epoch:15 Train Loss:0.1743 Val Loss: 0.1719 Train Accuracy: 0.0440 Validation Accuracy: 0.0390
+Epoch:16 Train Loss:0.1744 Val Loss: 0.1720 Train Accuracy: 0.0450 Validation Accuracy: 0.0410
+Epoch:17 Train Loss:0.1745 Val Loss: 0.1722 Train Accuracy: 0.0440 Validation Accuracy: 0.0420
+Epoch:18 Train Loss:0.1746 Val Loss: 0.1723 Train Accuracy: 0.0420 Validation Accuracy: 0.0410
+Epoch:19 Train Loss:0.1747 Val Loss: 0.1724 Train Accuracy: 0.0410 Validation Accuracy: 0.0410
+Epoch:20 Train Loss:0.1748 Val Loss: 0.1725 Train Accuracy: 0.0410 Validation Accuracy: 0.0400
+Results: loss=6.90137,	 top1=4.0000,	 top5=10.3000
+Results: loss=7.69379,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (6.844741706848144, 4.7, 11.3)
+	train: (6.9013708877563475, 4.0, 10.3)
+	swa: (7.693792400360107, 0.1, 0.5)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_1.0.block.conv_3x3.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_1.0.block.conv_3x3.block.act'], 'do': False, 'lh': 0, 'lt': 'b'}
+good: False
+train_coef: True
+need_AT: False
+improvement:  False
+best_acc: 0.047
+ 
+
+Name: layer_1.0.block.conv_3x3.block.act
+Results: loss=6.84474,	 top1=4.7000,	 top5=11.3000
+layer_1.0.block.conv_3x3.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_1.0.block.conv_3x3.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_1.0.block.conv_3x3.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:0.2046 Val Loss: 0.2070 Train Accuracy: 0.0020 Validation Accuracy: 0.0020
+Epoch:2 Train Loss:0.2065 Val Loss: 0.2072 Train Accuracy: 0.0000 Validation Accuracy: 0.0020
+Epoch:3 Train Loss:0.2065 Val Loss: 0.2072 Train Accuracy: 0.0000 Validation Accuracy: 0.0020
+Epoch:4 Train Loss:0.2065 Val Loss: 0.2071 Train Accuracy: 0.0000 Validation Accuracy: 0.0020
+Epoch:5 Train Loss:0.2064 Val Loss: 0.2069 Train Accuracy: 0.0000 Validation Accuracy: 0.0020
+Epoch:6 Train Loss:0.2062 Val Loss: 0.2067 Train Accuracy: 0.0000 Validation Accuracy: 0.0020
+Epoch:7 Train Loss:0.2061 Val Loss: 0.2064 Train Accuracy: 0.0000 Validation Accuracy: 0.0020
+Epoch:8 Train Loss:0.2059 Val Loss: 0.2061 Train Accuracy: 0.0010 Validation Accuracy: 0.0020
+Epoch:9 Train Loss:0.2057 Val Loss: 0.2057 Train Accuracy: 0.0020 Validation Accuracy: 0.0030
+Epoch:10 Train Loss:0.2052 Val Loss: 0.2051 Train Accuracy: 0.0030 Validation Accuracy: 0.0030
+Epoch:11 Train Loss:0.2046 Val Loss: 0.2042 Train Accuracy: 0.0040 Validation Accuracy: 0.0060
+Epoch:12 Train Loss:0.2034 Val Loss: 0.2020 Train Accuracy: 0.0040 Validation Accuracy: 0.0070
+Epoch:13 Train Loss:0.1993 Val Loss: 0.1824 Train Accuracy: 0.0060 Validation Accuracy: 0.0290
+Epoch:14 Train Loss:0.2011 Val Loss: 0.2065 Train Accuracy: 0.0080 Validation Accuracy: 0.0020
+Epoch:15 Train Loss:0.2061 Val Loss: 0.2066 Train Accuracy: 0.0000 Validation Accuracy: 0.0020
+Epoch:16 Train Loss:0.2059 Val Loss: 0.2061 Train Accuracy: 0.0020 Validation Accuracy: 0.0020
+Epoch:17 Train Loss:0.2056 Val Loss: 0.2054 Train Accuracy: 0.0020 Validation Accuracy: 0.0030
+Epoch:18 Train Loss:0.2049 Val Loss: 0.2043 Train Accuracy: 0.0040 Validation Accuracy: 0.0040
+Epoch:19 Train Loss:0.2036 Val Loss: 0.2021 Train Accuracy: 0.0050 Validation Accuracy: 0.0070
+Epoch:20 Train Loss:0.1993 Val Loss: 0.1847 Train Accuracy: 0.0070 Validation Accuracy: 0.0300
+Results: loss=7.38802,	 top1=3.0000,	 top5=7.0000
+Results: loss=7.89735,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (6.844741706848144, 4.7, 11.3)
+	train: (7.388019733428955, 3.0, 7.0)
+	swa: (7.89735164642334, 0.1, 0.5)
+
+ 
+ 
+ 
+
+Finish: layer_1.0.block.conv_3x3.block.act
+layer_2.0.block.exp_1x1.block.act
+layer_2.0.block.exp_1x1.block.act_coef.pt
+layer_2.0.block.exp_1x1.block.act
+{'coef': ['layer_2.0.block.exp_1x1.block.act'], 'weight': ['layer_1.0.block.red_1x1.block.conv', 'layer_1.0.block.red_1x1.block.norm', 'layer_2.0.block.exp_1x1.block.conv', 'layer_2.0.block.exp_1x1.block.norm']}
+Results: loss=nan,	 top1=0.3000,	 top5=1.4000
+replace_acc: 0.3
+ 
+
+{'layer_name': 'layer_2.0.block.exp_1x1.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_2.0.block.exp_1x1.block.act'], 'do': False, 'lh': 0, 'lt': 'n'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.003
+ 
+
+Name: layer_2.0.block.exp_1x1.block.act
+Results: loss=nan,	 top1=0.3000,	 top5=1.4000
+layer_2.0.block.exp_1x1.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_2.0.block.exp_1x1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_2.0.block.exp_1x1.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.3, 1.4)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_2.0.block.exp_1x1.block.act', 'ep': 20, 'lr': 0.0001, 'wd': 0.1, 'tw': False, 'twe': ['layer_1.0.block.red_1x1.block.conv', 'layer_1.0.block.red_1x1.block.norm', 'layer_2.0.block.exp_1x1.block.conv', 'layer_2.0.block.exp_1x1.block.norm'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+good: False
+train_coef: False
+need_AT: False
+improvement:  False
+best_acc: 0.003
+ 
+
+Name: layer_2.0.block.exp_1x1.block.act
+Results: loss=nan,	 top1=0.3000,	 top5=1.4000
+layer_2.0.block.exp_1x1.block.act: train
+0.0001
+0.1
+adam
+Layer name: layer_2.0.block.exp_1x1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 0.0001
+	Weight decay: 0.1
+	Learning rate decay: False
+Train weight: False
+	Exception:['layer_1.0.block.red_1x1.block.conv', 'layer_1.0.block.red_1x1.block.norm', 'layer_2.0.block.exp_1x1.block.conv', 'layer_2.0.block.exp_1x1.block.norm']
+Train coefficient: False
+	Exception: []
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.3, 1.4)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+Finish: layer_2.0.block.exp_1x1.block.act
+layer_2.0.block.conv_3x3.block.act
+layer_2.0.block.conv_3x3.block.act_coef.pt
+layer_2.0.block.conv_3x3.block.act
+{'coef': ['layer_2.0.block.conv_3x3.block.act'], 'weight': ['layer_2.0.block.conv_3x3.block.conv', 'layer_2.0.block.conv_3x3.block.norm']}
+Results: loss=nan,	 top1=0.0000,	 top5=0.4000
+replace_acc: 0.0
+ 
+
+{'layer_name': 'layer_2.0.block.conv_3x3.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_2.0.block.conv_3x3.block.act'], 'do': False, 'lh': 0, 'lt': 'n'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.0
+ 
+
+Name: layer_2.0.block.conv_3x3.block.act
+Results: loss=nan,	 top1=0.0000,	 top5=0.4000
+layer_2.0.block.conv_3x3.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_2.0.block.conv_3x3.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_2.0.block.conv_3x3.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.0, 0.4)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_2.0.block.conv_3x3.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_2.0.block.conv_3x3.block.act'], 'do': False, 'lh': 0, 'lt': 's'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.001
+ 
+
+Name: layer_2.0.block.conv_3x3.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_2.0.block.conv_3x3.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_2.0.block.conv_3x3.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_2.0.block.conv_3x3.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_2.0.block.conv_3x3.block.act', 'ep': 20, 'lr': 0.0001, 'wd': 0.1, 'tw': False, 'twe': ['layer_2.0.block.conv_3x3.block.conv', 'layer_2.0.block.conv_3x3.block.norm'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 's'}
+good: False
+train_coef: False
+need_AT: False
+improvement:  False
+best_acc: 0.001
+ 
+
+Name: layer_2.0.block.conv_3x3.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_2.0.block.conv_3x3.block.act: train
+0.0001
+0.1
+adam
+Layer name: layer_2.0.block.conv_3x3.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 0.0001
+	Weight decay: 0.1
+	Learning rate decay: False
+Train weight: False
+	Exception:['layer_2.0.block.conv_3x3.block.conv', 'layer_2.0.block.conv_3x3.block.norm']
+Train coefficient: False
+	Exception: []
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+Finish: layer_2.0.block.conv_3x3.block.act
+layer_2.1.block.exp_1x1.block.act
+layer_2.1.block.exp_1x1.block.act_coef.pt
+layer_2.1.block.exp_1x1.block.act
+{'coef': ['layer_2.1.block.exp_1x1.block.act'], 'weight': ['layer_2.0.block.red_1x1.block.conv', 'layer_2.0.block.red_1x1.block.norm', 'layer_2.1.block.exp_1x1.block.conv', 'layer_2.1.block.exp_1x1.block.norm']}
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+replace_acc: 0.1
+ 
+
+{'layer_name': 'layer_2.1.block.exp_1x1.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_2.1.block.exp_1x1.block.act'], 'do': False, 'lh': 0, 'lt': 'n'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.001
+ 
+
+Name: layer_2.1.block.exp_1x1.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_2.1.block.exp_1x1.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_2.1.block.exp_1x1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_2.1.block.exp_1x1.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_2.1.block.exp_1x1.block.act', 'ep': 20, 'lr': 0.0001, 'wd': 0.1, 'tw': False, 'twe': ['layer_2.0.block.red_1x1.block.conv', 'layer_2.0.block.red_1x1.block.norm', 'layer_2.1.block.exp_1x1.block.conv', 'layer_2.1.block.exp_1x1.block.norm'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+good: False
+train_coef: False
+need_AT: False
+improvement:  False
+best_acc: 0.001
+ 
+
+Name: layer_2.1.block.exp_1x1.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_2.1.block.exp_1x1.block.act: train
+0.0001
+0.1
+adam
+Layer name: layer_2.1.block.exp_1x1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 0.0001
+	Weight decay: 0.1
+	Learning rate decay: False
+Train weight: False
+	Exception:['layer_2.0.block.red_1x1.block.conv', 'layer_2.0.block.red_1x1.block.norm', 'layer_2.1.block.exp_1x1.block.conv', 'layer_2.1.block.exp_1x1.block.norm']
+Train coefficient: False
+	Exception: []
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+Finish: layer_2.1.block.exp_1x1.block.act
+layer_2.1.block.conv_3x3.block.act
+layer_2.1.block.conv_3x3.block.act_coef.pt
+layer_2.1.block.conv_3x3.block.act
+{'coef': ['layer_2.1.block.conv_3x3.block.act'], 'weight': ['layer_2.1.block.conv_3x3.block.conv', 'layer_2.1.block.conv_3x3.block.norm']}
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+replace_acc: 0.1
+ 
+
+{'layer_name': 'layer_2.1.block.conv_3x3.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_2.1.block.conv_3x3.block.act'], 'do': False, 'lh': 0, 'lt': 'n'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.001
+ 
+
+Name: layer_2.1.block.conv_3x3.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_2.1.block.conv_3x3.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_2.1.block.conv_3x3.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_2.1.block.conv_3x3.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_2.1.block.conv_3x3.block.act', 'ep': 20, 'lr': 0.0001, 'wd': 0.1, 'tw': False, 'twe': ['layer_2.1.block.conv_3x3.block.conv', 'layer_2.1.block.conv_3x3.block.norm'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+good: False
+train_coef: False
+need_AT: False
+improvement:  False
+best_acc: 0.001
+ 
+
+Name: layer_2.1.block.conv_3x3.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_2.1.block.conv_3x3.block.act: train
+0.0001
+0.1
+adam
+Layer name: layer_2.1.block.conv_3x3.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 0.0001
+	Weight decay: 0.1
+	Learning rate decay: False
+Train weight: False
+	Exception:['layer_2.1.block.conv_3x3.block.conv', 'layer_2.1.block.conv_3x3.block.norm']
+Train coefficient: False
+	Exception: []
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+Finish: layer_2.1.block.conv_3x3.block.act
+layer_3.0.block.exp_1x1.block.act
+layer_3.0.block.exp_1x1.block.act_coef.pt
+layer_3.0.block.exp_1x1.block.act
+{'coef': ['layer_3.0.block.exp_1x1.block.act'], 'weight': ['layer_2.1.block.red_1x1.block.conv', 'layer_2.1.block.red_1x1.block.norm', 'layer_3.0.block.exp_1x1.block.conv', 'layer_3.0.block.exp_1x1.block.norm']}
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+replace_acc: 0.1
+ 
+
+{'layer_name': 'layer_3.0.block.exp_1x1.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_3.0.block.exp_1x1.block.act'], 'do': False, 'lh': 0, 'lt': 'n'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.001
+ 
+
+Name: layer_3.0.block.exp_1x1.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_3.0.block.exp_1x1.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_3.0.block.exp_1x1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_3.0.block.exp_1x1.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_3.0.block.exp_1x1.block.act', 'ep': 20, 'lr': 0.0001, 'wd': 0.1, 'tw': False, 'twe': ['layer_2.1.block.red_1x1.block.conv', 'layer_2.1.block.red_1x1.block.norm', 'layer_3.0.block.exp_1x1.block.conv', 'layer_3.0.block.exp_1x1.block.norm'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+good: False
+train_coef: False
+need_AT: False
+improvement:  False
+best_acc: 0.001
+ 
+
+Name: layer_3.0.block.exp_1x1.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_3.0.block.exp_1x1.block.act: train
+0.0001
+0.1
+adam
+Layer name: layer_3.0.block.exp_1x1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 0.0001
+	Weight decay: 0.1
+	Learning rate decay: False
+Train weight: False
+	Exception:['layer_2.1.block.red_1x1.block.conv', 'layer_2.1.block.red_1x1.block.norm', 'layer_3.0.block.exp_1x1.block.conv', 'layer_3.0.block.exp_1x1.block.norm']
+Train coefficient: False
+	Exception: []
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+Finish: layer_3.0.block.exp_1x1.block.act
+layer_3.0.block.conv_3x3.block.act
+layer_3.0.block.conv_3x3.block.act_coef.pt
+layer_3.0.block.conv_3x3.block.act
+{'coef': ['layer_3.0.block.conv_3x3.block.act'], 'weight': ['layer_3.0.block.conv_3x3.block.conv', 'layer_3.0.block.conv_3x3.block.norm']}
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+replace_acc: 0.1
+ 
+
+{'layer_name': 'layer_3.0.block.conv_3x3.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_3.0.block.conv_3x3.block.act'], 'do': False, 'lh': 0, 'lt': 'n'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.001
+ 
+
+Name: layer_3.0.block.conv_3x3.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_3.0.block.conv_3x3.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_3.0.block.conv_3x3.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_3.0.block.conv_3x3.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_3.0.block.conv_3x3.block.act', 'ep': 20, 'lr': 0.0001, 'wd': 0.1, 'tw': False, 'twe': ['layer_3.0.block.conv_3x3.block.conv', 'layer_3.0.block.conv_3x3.block.norm'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+good: False
+train_coef: False
+need_AT: False
+improvement:  False
+best_acc: 0.001
+ 
+
+Name: layer_3.0.block.conv_3x3.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_3.0.block.conv_3x3.block.act: train
+0.0001
+0.1
+adam
+Layer name: layer_3.0.block.conv_3x3.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 0.0001
+	Weight decay: 0.1
+	Learning rate decay: False
+Train weight: False
+	Exception:['layer_3.0.block.conv_3x3.block.conv', 'layer_3.0.block.conv_3x3.block.norm']
+Train coefficient: False
+	Exception: []
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+Finish: layer_3.0.block.conv_3x3.block.act
+layer_3.1.local_rep.0.block.act
+layer_3.1.local_rep.0.block.act_coef.pt
+layer_3.1.local_rep.0.block.act
+{'coef': ['layer_3.1.local_rep.0.block.act'], 'weight': ['layer_3.0.block.red_1x1.block.conv', 'layer_3.0.block.red_1x1.block.norm', 'layer_3.1.local_rep.0.block.conv', 'layer_3.1.local_rep.0.block.norm']}
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+replace_acc: 0.1
+ 
+
+{'layer_name': 'layer_3.1.local_rep.0.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_3.1.local_rep.0.block.act'], 'do': False, 'lh': 0, 'lt': 'n'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.001
+ 
+
+Name: layer_3.1.local_rep.0.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_3.1.local_rep.0.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_3.1.local_rep.0.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_3.1.local_rep.0.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_3.1.local_rep.0.block.act', 'ep': 20, 'lr': 0.0001, 'wd': 0.1, 'tw': False, 'twe': ['layer_3.0.block.red_1x1.block.conv', 'layer_3.0.block.red_1x1.block.norm', 'layer_3.1.local_rep.0.block.conv', 'layer_3.1.local_rep.0.block.norm'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+good: False
+train_coef: False
+need_AT: False
+improvement:  False
+best_acc: 0.001
+ 
+
+Name: layer_3.1.local_rep.0.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_3.1.local_rep.0.block.act: train
+0.0001
+0.1
+adam
+Layer name: layer_3.1.local_rep.0.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 0.0001
+	Weight decay: 0.1
+	Learning rate decay: False
+Train weight: False
+	Exception:['layer_3.0.block.red_1x1.block.conv', 'layer_3.0.block.red_1x1.block.norm', 'layer_3.1.local_rep.0.block.conv', 'layer_3.1.local_rep.0.block.norm']
+Train coefficient: False
+	Exception: []
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+Finish: layer_3.1.local_rep.0.block.act
+layer_3.1.global_rep.0.pre_norm_ffn.1.block.act
+layer_3.1.global_rep.0.pre_norm_ffn.1.block.act_coef.pt
+layer_3.1.global_rep.0.pre_norm_ffn.1.block.act
+{'coef': ['layer_3.1.global_rep.0.pre_norm_ffn.1.block.act'], 'weight': ['layer_3.1.local_rep.1.block.conv', 'layer_3.1.global_rep.0', 'layer_3.1.global_rep.0.pre_norm_attn.1', 'layer_3.1.global_rep.0.pre_norm_attn.1.qkv_proj.block.conv', 'layer_3.1.global_rep.0.pre_norm_attn.1.out_proj.block.conv', 'layer_3.1.global_rep.0.pre_norm_ffn.1.block.conv']}
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+replace_acc: 0.1
+ 
+
+{'layer_name': 'layer_3.1.global_rep.0.pre_norm_ffn.1.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_3.1.global_rep.0.pre_norm_ffn.1.block.act'], 'do': False, 'lh': 0, 'lt': 'n'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.001
+ 
+
+Name: layer_3.1.global_rep.0.pre_norm_ffn.1.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_3.1.global_rep.0.pre_norm_ffn.1.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_3.1.global_rep.0.pre_norm_ffn.1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_3.1.global_rep.0.pre_norm_ffn.1.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_3.1.global_rep.0.pre_norm_ffn.1.block.act', 'ep': 20, 'lr': 0.0001, 'wd': 0.1, 'tw': False, 'twe': ['layer_3.1.local_rep.1.block.conv', 'layer_3.1.global_rep.0', 'layer_3.1.global_rep.0.pre_norm_attn.1', 'layer_3.1.global_rep.0.pre_norm_attn.1.qkv_proj.block.conv', 'layer_3.1.global_rep.0.pre_norm_attn.1.out_proj.block.conv', 'layer_3.1.global_rep.0.pre_norm_ffn.1.block.conv'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+good: False
+train_coef: False
+need_AT: False
+improvement:  False
+best_acc: 0.001
+ 
+
+Name: layer_3.1.global_rep.0.pre_norm_ffn.1.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_3.1.global_rep.0.pre_norm_ffn.1.block.act: train
+0.0001
+0.1
+adam
+Layer name: layer_3.1.global_rep.0.pre_norm_ffn.1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 0.0001
+	Weight decay: 0.1
+	Learning rate decay: False
+Train weight: False
+	Exception:['layer_3.1.local_rep.1.block.conv', 'layer_3.1.global_rep.0', 'layer_3.1.global_rep.0.pre_norm_attn.1', 'layer_3.1.global_rep.0.pre_norm_attn.1.qkv_proj.block.conv', 'layer_3.1.global_rep.0.pre_norm_attn.1.out_proj.block.conv', 'layer_3.1.global_rep.0.pre_norm_ffn.1.block.conv']
+Train coefficient: False
+	Exception: []
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+Finish: layer_3.1.global_rep.0.pre_norm_ffn.1.block.act
+layer_3.1.global_rep.1.pre_norm_ffn.1.block.act
+layer_3.1.global_rep.1.pre_norm_ffn.1.block.act_coef.pt
+layer_3.1.global_rep.1.pre_norm_ffn.1.block.act
+{'coef': ['layer_3.1.global_rep.1.pre_norm_ffn.1.block.act'], 'weight': ['layer_3.1.global_rep.0.pre_norm_ffn.3.block.conv', 'layer_3.1.global_rep.1', 'layer_3.1.global_rep.1.pre_norm_attn.1', 'layer_3.1.global_rep.1.pre_norm_attn.1.qkv_proj.block.conv', 'layer_3.1.global_rep.1.pre_norm_attn.1.out_proj.block.conv', 'layer_3.1.global_rep.1.pre_norm_ffn.1.block.conv']}
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+replace_acc: 0.1
+ 
+
+{'layer_name': 'layer_3.1.global_rep.1.pre_norm_ffn.1.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_3.1.global_rep.1.pre_norm_ffn.1.block.act'], 'do': False, 'lh': 0, 'lt': 'n'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.001
+ 
+
+Name: layer_3.1.global_rep.1.pre_norm_ffn.1.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_3.1.global_rep.1.pre_norm_ffn.1.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_3.1.global_rep.1.pre_norm_ffn.1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_3.1.global_rep.1.pre_norm_ffn.1.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_3.1.global_rep.1.pre_norm_ffn.1.block.act', 'ep': 20, 'lr': 0.0001, 'wd': 0.1, 'tw': False, 'twe': ['layer_3.1.global_rep.0.pre_norm_ffn.3.block.conv', 'layer_3.1.global_rep.1', 'layer_3.1.global_rep.1.pre_norm_attn.1', 'layer_3.1.global_rep.1.pre_norm_attn.1.qkv_proj.block.conv', 'layer_3.1.global_rep.1.pre_norm_attn.1.out_proj.block.conv', 'layer_3.1.global_rep.1.pre_norm_ffn.1.block.conv'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+good: False
+train_coef: False
+need_AT: False
+improvement:  False
+best_acc: 0.001
+ 
+
+Name: layer_3.1.global_rep.1.pre_norm_ffn.1.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_3.1.global_rep.1.pre_norm_ffn.1.block.act: train
+0.0001
+0.1
+adam
+Layer name: layer_3.1.global_rep.1.pre_norm_ffn.1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 0.0001
+	Weight decay: 0.1
+	Learning rate decay: False
+Train weight: False
+	Exception:['layer_3.1.global_rep.0.pre_norm_ffn.3.block.conv', 'layer_3.1.global_rep.1', 'layer_3.1.global_rep.1.pre_norm_attn.1', 'layer_3.1.global_rep.1.pre_norm_attn.1.qkv_proj.block.conv', 'layer_3.1.global_rep.1.pre_norm_attn.1.out_proj.block.conv', 'layer_3.1.global_rep.1.pre_norm_ffn.1.block.conv']
+Train coefficient: False
+	Exception: []
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+Finish: layer_3.1.global_rep.1.pre_norm_ffn.1.block.act
+layer_4.0.block.exp_1x1.block.act
+layer_4.0.block.exp_1x1.block.act_coef.pt
+layer_4.0.block.exp_1x1.block.act
+{'coef': ['layer_4.0.block.exp_1x1.block.act'], 'weight': ['layer_3.1.global_rep.1.pre_norm_ffn.3.block.conv', 'layer_3.1.conv_proj.block.conv', 'layer_3.1.conv_proj.block.norm', 'layer_4.0.block.exp_1x1.block.conv', 'layer_4.0.block.exp_1x1.block.norm']}
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+replace_acc: 0.1
+ 
+
+{'layer_name': 'layer_4.0.block.exp_1x1.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_4.0.block.exp_1x1.block.act'], 'do': False, 'lh': 0, 'lt': 'n'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.001
+ 
+
+Name: layer_4.0.block.exp_1x1.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_4.0.block.exp_1x1.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_4.0.block.exp_1x1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_4.0.block.exp_1x1.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_4.0.block.exp_1x1.block.act', 'ep': 20, 'lr': 0.0001, 'wd': 0.1, 'tw': False, 'twe': ['layer_3.1.global_rep.1.pre_norm_ffn.3.block.conv', 'layer_3.1.conv_proj.block.conv', 'layer_3.1.conv_proj.block.norm', 'layer_4.0.block.exp_1x1.block.conv', 'layer_4.0.block.exp_1x1.block.norm'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+good: False
+train_coef: False
+need_AT: False
+improvement:  False
+best_acc: 0.001
+ 
+
+Name: layer_4.0.block.exp_1x1.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_4.0.block.exp_1x1.block.act: train
+0.0001
+0.1
+adam
+Layer name: layer_4.0.block.exp_1x1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 0.0001
+	Weight decay: 0.1
+	Learning rate decay: False
+Train weight: False
+	Exception:['layer_3.1.global_rep.1.pre_norm_ffn.3.block.conv', 'layer_3.1.conv_proj.block.conv', 'layer_3.1.conv_proj.block.norm', 'layer_4.0.block.exp_1x1.block.conv', 'layer_4.0.block.exp_1x1.block.norm']
+Train coefficient: False
+	Exception: []
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+Finish: layer_4.0.block.exp_1x1.block.act
+layer_4.0.block.conv_3x3.block.act
+layer_4.0.block.conv_3x3.block.act_coef.pt
+layer_4.0.block.conv_3x3.block.act
+{'coef': ['layer_4.0.block.conv_3x3.block.act'], 'weight': ['layer_4.0.block.conv_3x3.block.conv', 'layer_4.0.block.conv_3x3.block.norm']}
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+replace_acc: 0.1
+ 
+
+{'layer_name': 'layer_4.0.block.conv_3x3.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_4.0.block.conv_3x3.block.act'], 'do': False, 'lh': 0, 'lt': 'n'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.001
+ 
+
+Name: layer_4.0.block.conv_3x3.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_4.0.block.conv_3x3.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_4.0.block.conv_3x3.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_4.0.block.conv_3x3.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_4.0.block.conv_3x3.block.act', 'ep': 20, 'lr': 0.0001, 'wd': 0.1, 'tw': False, 'twe': ['layer_4.0.block.conv_3x3.block.conv', 'layer_4.0.block.conv_3x3.block.norm'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+good: False
+train_coef: False
+need_AT: False
+improvement:  False
+best_acc: 0.001
+ 
+
+Name: layer_4.0.block.conv_3x3.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_4.0.block.conv_3x3.block.act: train
+0.0001
+0.1
+adam
+Layer name: layer_4.0.block.conv_3x3.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 0.0001
+	Weight decay: 0.1
+	Learning rate decay: False
+Train weight: False
+	Exception:['layer_4.0.block.conv_3x3.block.conv', 'layer_4.0.block.conv_3x3.block.norm']
+Train coefficient: False
+	Exception: []
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+Finish: layer_4.0.block.conv_3x3.block.act
+layer_4.1.local_rep.0.block.act
+layer_4.1.local_rep.0.block.act_coef.pt
+layer_4.1.local_rep.0.block.act
+{'coef': ['layer_4.1.local_rep.0.block.act'], 'weight': ['layer_4.0.block.red_1x1.block.conv', 'layer_4.0.block.red_1x1.block.norm', 'layer_4.1.local_rep.0.block.conv', 'layer_4.1.local_rep.0.block.norm']}
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+replace_acc: 0.1
+ 
+
+{'layer_name': 'layer_4.1.local_rep.0.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_4.1.local_rep.0.block.act'], 'do': False, 'lh': 0, 'lt': 'n'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.001
+ 
+
+Name: layer_4.1.local_rep.0.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_4.1.local_rep.0.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_4.1.local_rep.0.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_4.1.local_rep.0.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+ 
+
+{'layer_name': 'layer_4.1.local_rep.0.block.act', 'ep': 20, 'lr': 0.0001, 'wd': 0.1, 'tw': False, 'twe': ['layer_4.0.block.red_1x1.block.conv', 'layer_4.0.block.red_1x1.block.norm', 'layer_4.1.local_rep.0.block.conv', 'layer_4.1.local_rep.0.block.norm'], 'tc': False, 'tce': [], 'do': False, 'lh': 0, 'lt': 'n'}
+good: False
+train_coef: False
+need_AT: False
+improvement:  False
+best_acc: 0.001
+ 
+
+Name: layer_4.1.local_rep.0.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_4.1.local_rep.0.block.act: train
+0.0001
+0.1
+adam
+Layer name: layer_4.1.local_rep.0.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 0.0001
+	Weight decay: 0.1
+	Learning rate decay: False
+Train weight: False
+	Exception:['layer_4.0.block.red_1x1.block.conv', 'layer_4.0.block.red_1x1.block.norm', 'layer_4.1.local_rep.0.block.conv', 'layer_4.1.local_rep.0.block.norm']
+Train coefficient: False
+	Exception: []
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+
+ 
+
+Validation result:
+	before: (nan, 0.1, 0.5)
+	train: (nan, 0.1, 0.5)
+	swa: (nan, 0.1, 0.5)
+
+ 
+ 
+ 
+
+Finish: layer_4.1.local_rep.0.block.act
+layer_4.1.global_rep.0.pre_norm_ffn.1.block.act
+layer_4.1.global_rep.0.pre_norm_ffn.1.block.act_coef.pt
+layer_4.1.global_rep.0.pre_norm_ffn.1.block.act
+{'coef': ['layer_4.1.global_rep.0.pre_norm_ffn.1.block.act'], 'weight': ['layer_4.1.local_rep.1.block.conv', 'layer_4.1.global_rep.0', 'layer_4.1.global_rep.0.pre_norm_attn.1', 'layer_4.1.global_rep.0.pre_norm_attn.1.qkv_proj.block.conv', 'layer_4.1.global_rep.0.pre_norm_attn.1.out_proj.block.conv', 'layer_4.1.global_rep.0.pre_norm_ffn.1.block.conv']}
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+replace_acc: 0.1
+ 
+
+{'layer_name': 'layer_4.1.global_rep.0.pre_norm_ffn.1.block.act', 'ep': 20, 'lr': 1e-10, 'wd': 0.01, 'tw': False, 'twe': [], 'tc': False, 'tce': ['layer_4.1.global_rep.0.pre_norm_ffn.1.block.act'], 'do': False, 'lh': 0, 'lt': 'n'}
+good: True
+train_coef: True
+need_AT: False
+improvement:  True
+best_acc: 0.001
+ 
+
+Name: layer_4.1.global_rep.0.pre_norm_ffn.1.block.act
+Results: loss=nan,	 top1=0.1000,	 top5=0.5000
+layer_4.1.global_rep.0.pre_norm_ffn.1.block.act: train
+1e-10
+0.01
+adam
+Layer name: layer_4.1.global_rep.0.pre_norm_ffn.1.block.act
+Parameter: 
+Optimizer: adam
+No batchnorm tracking: True
+	Learning rate: 1e-10
+	Weight decay: 0.01
+	Learning rate decay: False
+Train weight: False
+	Exception:[]
+Train coefficient: False
+	Exception: ['layer_4.1.global_rep.0.pre_norm_ffn.1.block.act']
+	Replace: False
+		Dynamic scale: False
+Scale ratio: 1
+Augment: False
+Dropout: False
+SWA: True
+	Start: 0
+
+ 
+
+Train epoch: 
+Epoch:1 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:2 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:3 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:4 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:5 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:6 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:7 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:8 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:9 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:10 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:11 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:12 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:13 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:14 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:15 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:16 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:17 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:18 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:19 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
+Epoch:20 Train Loss:nan Val Loss: nan Train Accuracy: 0.0010 Validation Accuracy: 0.0010
