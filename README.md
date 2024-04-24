@@ -1,4 +1,9 @@
 # SmartPAF: Accurate Low-Degree Polynomial Approximation of Non-polynomial Operators for Fast Private Inference in Homomorphic Encryption
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
+## What is SmartPAF?
+A training framework to replace non-polynomial operators of ML models, such as ReLU and MaxPooling, with low-degree Polynomial Approximation Function (PAF) and recover accuracy through proposed fine-tuning tricks.  SmartPAF is actively developed by the [Synergy Lab](https://synergy.ece.gatech.edu/) at [Georgia Institute of Technology](https://www.gatech.edu/). For more details about MAESTRO, please visit our [paper](https://arxiv.org/abs/2404.03216).
+
 
 ## Motivation
 Secure Fully Homomorphic Encryption (FHE) based Machine Learning Inference Converts Non-polynomial Operators (ReLU/MaxPooling) into Polynomial Approximation Functions (PAF)
@@ -8,7 +13,7 @@ Existing PAFs suffer from either prohibitive latency overhead or low accuracy. P
 ![](image/RelatedWork.png)
 
 ## Results
-PAF-FHE spots optimal 14-degree PAF with 69.4% accuracy (the same accuracy as plaintext pretrained ResNet-18 under ImageNet-1k dataset) and saves 72% latency of 27-degree Minimax PAF.
+SmartPAF spots optimal 14-degree PAF with 69.4% accuracy (the same accuracy as plaintext pretrained ResNet-18 under ImageNet-1k dataset) and saves 72% latency of 27-degree Minimax PAF.
 
 | Model-Dataset                             | Technique Setup                                                      | $f_1^2 \circ g_1^2$             | \alpha=7                        | $f_2\circ g_3$                  | $f_2\circ g_2$                  | $f_1\circ g_2$                  |
 |-------------------------------------------|----------------------------------------------------------------------|---------------------------------|---------------------------------|---------------------------------|---------------------------------|---------------------------------|
@@ -42,8 +47,6 @@ PAF-FHE spots optimal 14-degree PAF with 69.4% accuracy (the same accuracy as pl
 |                                           | {Accuracy Improvement over Baseline}                     | 1.07$\times$                    | 1.22$\times$                    | 1.27$\times$                    | 1.79$\times$                    | 0.22$\times$                    |
 |                                           | {Accuracy Improvement over~\cite{Minimax_approximation}} | +1.1\%(1.01$\times$)            | +11.27\%(1.14$\times$)          | +14.93\%(1.2$\times$)           | +30.34\%(1.52$\times$)          | +33.09\%(1.75$\times$)          |
 |-------------------------------------------|----------------------------------------------------------------------|---------------------------------|---------------------------------|---------------------------------|---------------------------------|---------------------------------|
-
-
 
 # Ready to run?
 ```
