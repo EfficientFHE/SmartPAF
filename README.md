@@ -150,11 +150,11 @@ Tushar Krishna (Georgia Tech)
 
 # Citations
 ```
-@article{tong2024accurate,
-  title={Accurate Low-Degree Polynomial Approximation of Non-polynomial Operators for Fast Private Inference in Homomorphic Encryption}, 
-  author={Jianming Tong and Jingtian Dang and Anupam Golder and Callie Hao and Arijit Raychowdhury and Tushar Krishna},
-  year={2024},
-  journal={Proceedings of Machine Learning and Systems},
-  year={2024}
+@inproceedings{tong2024accurate,
+ author={Jianming Tong and Jingtian Dang and Anupam Golder and Callie Hao and Arijit Raychowdhury and Tushar Krishna},
+ booktitle = {Proceedings of Machine Learning and Systems},
+ title={Accurate Low-Degree Polynomial Approximation of Non-polynomial Operators for Fast Private Inference in Homomorphic Encryption}, 
+ url = {https://arxiv.org/abs/2404.03216},
+ year = {2024}
 }
 ```
