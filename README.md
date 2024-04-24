@@ -2,15 +2,17 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 ## What is SmartPAF?
-A training framework to replace non-polynomial operators of ML models, such as ReLU and MaxPooling, with low-degree Polynomial Approximation Function (PAF) and recover accuracy through proposed fine-tuning tricks.  SmartPAF is actively developed by the [Synergy Lab](https://synergy.ece.gatech.edu/) at [Georgia Institute of Technology](https://www.gatech.edu/). For more details about MAESTRO, please visit our [paper](https://arxiv.org/abs/2404.03216).
+SmartPAF is an open-source training framework to replace non-polynomial operators of ML models, such as ReLU and MaxPooling, with low-degree Polynomial Approximation Function (PAF) and recover accuracy through proposed fine-tuning tricks.  SmartPAF is actively developed by the [Synergy Lab](https://synergy.ece.gatech.edu/) at [Georgia Institute of Technology](https://www.gatech.edu/). For more details about SmartPAF, please visit our [paper](https://arxiv.org/abs/2404.03216).
 
 
 ## Motivation
 Secure Fully Homomorphic Encryption (FHE) based Machine Learning Inference Converts Non-polynomial Operators (ReLU/MaxPooling) into Polynomial Approximation Functions (PAF)
 ![](image/secure_ML_inference.png)
 
-Existing PAFs suffer from either prohibitive latency overhead or low accuracy. PAF-FHE proposes four training techniques to enable exploration on the entire PAF degree space and spot high-accuracy low-latency PAF.
+Existing PAFs suffer from either prohibitive latency overhead or low accuracy. SmartPAF proposes four training techniques to enable exploration on the entire PAF degree space and spot high-accuracy low-latency PAF.
 ![](image/RelatedWork.png)
+
+** This repo open-sourced the SmartPAF framework code with prerun results**.
 
 ## Results
 SmartPAF spots optimal 14-degree PAF with 69.4% accuracy (the same accuracy as plaintext pretrained ResNet-18 under ImageNet-1k dataset) and saves 72% latency of 27-degree Minimax PAF.
@@ -52,10 +54,10 @@ SmartPAF spots optimal 14-degree PAF with 69.4% accuracy (the same accuracy as p
 ```
 #Activate Conda
 # Create a python3.8 enviroment
-conda create --name PAF-FHE  python=3.8
+conda create --name SmartPAF  python=3.8
 
 # Activate the enviroment
-conda activate PAF-FHE
+conda activate SmartPAF
 
 # Install package
 conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
@@ -139,21 +141,20 @@ python3 ./PA_AT.py --model vgg19_bn --dataset imagenet_1k -wd ../vgg19_bn_imagen
 python3 ./SS.py --model vgg19_bn --dataset imagenet_1k -wd ../vgg19_imagenet1k/ -st 2f12g1
 ```
 
-# Maintainer
-Jingtian Dang (dangjingtian@gatech.edu)
+# Developers
+Jingtian Dang (Georgia Tech, dangjingtian@gatech.edu)
 
-Jianming Tong (jianming.tong@gatech.edu)
+Jianming Tong (Georgia Tech, jianming.tong@gatech.edu)
 
-Tushar Krishna 
+Tushar Krishna (Georgia Tech)
 
 # Citations
 ```
-@misc{tong2024accurate,
-      title={Accurate Low-Degree Polynomial Approximation of Non-polynomial Operators for Fast Private Inference in Homomorphic Encryption}, 
-      author={Jianming Tong and Jingtian Dang and Anupam Golder and Callie Hao and Arijit Raychowdhury and Tushar Krishna},
-      year={2024},
-      eprint={2404.03216},
-      archivePrefix={arXiv},
-      primaryClass={cs.CR}
+@article{tong2024accurate,
+  title={Accurate Low-Degree Polynomial Approximation of Non-polynomial Operators for Fast Private Inference in Homomorphic Encryption}, 
+  author={Jianming Tong and Jingtian Dang and Anupam Golder and Callie Hao and Arijit Raychowdhury and Tushar Krishna},
+  year={2024},
+  journal={Proceedings of Machine Learning and Systems},
+  year={2024}
 }
 ```
