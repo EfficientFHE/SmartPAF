@@ -152,7 +152,7 @@ Tushar Krishna (Georgia Tech)
 ```
 @inproceedings{tong2024accurate,
  author={Jianming Tong and Jingtian Dang and Anupam Golder and Callie Hao and Arijit Raychowdhury and Tushar Krishna},
- booktitle = {Proceedings of Machine Learning and Systems},
+ booktitle = {Proceedings of Machine Learning and Systems (MLSys)},
  title={Accurate Low-Degree Polynomial Approximation of Non-polynomial Operators for Fast Private Inference in Homomorphic Encryption}, 
  url = {https://arxiv.org/abs/2404.03216},
  year = {2024}
