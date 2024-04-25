@@ -46,6 +46,8 @@ def SS_replace(model,valid_data_loader, train_data_loader, sign_type, input_data
     generate_layer_input_scale(model = copy.deepcopy(model), train_data_loader = train_data_loader, layer_nest_dict = sign_nest_dict, directory_path = scale_path)
     CT_reset_scale(model = model, sign_scale = 100, scale_path= scale_path, scale_ratio = 1, sign_nest_dict= sign_nest_dict)
     validate(model, valid_data_loader, "cuda:0")
+    file_name2 = "model_PR_AT_SS"+sign_type+".pt"
+    torch.save(model, dirctory+file_name2)
 
 
 
@@ -53,19 +55,24 @@ def SS_replace(model,valid_data_loader, train_data_loader, sign_type, input_data
 if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("--model", type=str,choices=["vgg19_bn", "resnet18", "resnet32"])
-    parser.add_argument("--dataset", type=str,choices=["cifar10", "imagenet", "cifar100"])
+    parser.add_argument("--dataset", type=str,choices=["cifar10", "imagenet_1k", "cifar100"])
     parser.add_argument("-wd", "--working_directory", type=str, default="./working_dirctory/")
     parser.add_argument("-st","--sign_type", type=str, default="a7", choices=["a7", "2f12g1", "f1g2", "f2g2", "f2g3"])
     args = parser.parse_args()
     print(args)
 
+    valid_data_loader = None
+    train_data_loader = None
+    valid_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "valid", data_dir = global_config["Global"]["dataset_dirctory"])
+    train_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "train", data_dir = global_config["Global"]["dataset_dirctory"])
 
-    if(args.dataset == "cifar10" or args.dataset == "cifar100"):
-        valid_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "valid", data_dir = global_config["Global"]["dataset_dirctory"])
-        train_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "train", data_dir = global_config["Global"]["dataset_dirctory"])
-    elif(args.dataset == "imagenet_1k"):
-        valid_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "valid", data_dir = os.path.join(global_config["Global"]["dataset_dirctory"], args.dataset) )
-        train_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "train", data_dir = os.path.join(global_config["Global"]["dataset_dirctory"], args.dataset) )
+
+    # if(args.dataset == "cifar10" or args.dataset == "cifar100"):
+    #     valid_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "valid", data_dir = global_config["Global"]["dataset_dirctory"])
+    #     train_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "train", data_dir = global_config["Global"]["dataset_dirctory"])
+    # elif(args.dataset == "imagenet_1k"):
+    #     valid_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "valid", data_dir = os.path.join(global_config["Global"]["dataset_dirctory"], args.dataset) )
+    #     train_data_loader = get_data_loader(dataset = args.dataset, dataset_type = "train", data_dir = os.path.join(global_config["Global"]["dataset_dirctory"], args.dataset) )
    
     model = get_pretrained_model(model_name=args.model, dataset=args.dataset)
     
