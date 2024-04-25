@@ -46,7 +46,7 @@ def SS_replace(model,valid_data_loader, train_data_loader, sign_type, input_data
     generate_layer_input_scale(model = copy.deepcopy(model), train_data_loader = train_data_loader, layer_nest_dict = sign_nest_dict, directory_path = scale_path)
     CT_reset_scale(model = model, sign_scale = 100, scale_path= scale_path, scale_ratio = 1, sign_nest_dict= sign_nest_dict)
     validate(model, valid_data_loader, "cuda:0")
-    file_name2 = "model_PR_AT_SS"+sign_type+".pt"
+    file_name2 = "model_PR_AT_SS_"+sign_type+".pt"
     torch.save(model, dirctory+file_name2)
 
 
